@@ -1,0 +1,47 @@
+{
+  "datetime": {
+    "timestamp": 788950800
+  },
+  "body": {
+    "os": "win95",
+    "theme": "dark"
+  },
+  "settings": {
+    "fullscreen": false,
+    "computerName": "MYIE-PC",
+    "workgroup": "WORKGROUP",
+    "computerDescription": ""
+  },
+  "profile": {
+    "name": "Alex Grebnev",
+    "xpProgress": 0,
+    "xpMood": 50
+  },
+  "wallet": {
+    "amount": 0
+  },
+  "work": {
+    "profession": 0
+  },
+  "hardware": {
+    "rows": {
+      "powersupply": {},
+      "motherboard": {},
+      "cpu": {},
+      "cooling": {},
+      "ram": {},
+      "hdd": {},
+      "ssd": {},
+      "videocard": {},
+      "cdrom": {},
+      "monitor1": {},
+      "monitor2": {},
+      "monitor3": {},
+      "keyboard": {},
+      "mouse": {},
+      "sound": {},
+      "printer": {},
+      "scaner": {}
+    }
+  }
+}

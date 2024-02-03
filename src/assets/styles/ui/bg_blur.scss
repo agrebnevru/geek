@@ -1,0 +1,5 @@
+.ui--bg-blur {
+    --tw-backdrop-blur: blur(16px);
+    backdrop-filter: blur(16px);
+    background-color: rgba(36, 36, 36, .8);
+}

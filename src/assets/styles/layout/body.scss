@@ -1,0 +1,24 @@
+body {
+    height: var(--max-height);
+    width: var(--max-width);
+    min-width: var(--min-width);
+    min-height: var(--min-height);
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+
+    &[data-off=true] {
+        background-image: none;
+        background-color: black;
+
+        .app {
+            visibility: hidden;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.b-desktop {
+
+    &__rows {
+        display: grid;
+        gap: 12px;
+    }
+
+    &__item {
+        width: 84px;
+        cursor: default;
+        transition-duration: .3s;
+
+        &:hover {
+            background-color: rgb(95 95 95 / 49%);
+        }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 4px;
+
+            & > svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        &__title {
+            user-select: none;
+            // height: 42px;
+            font-size: 12px;
+            text-align: center;
+            text-overflow: ellipsis;
+            padding-top: 4px;
+            overflow: hidden;
+        }
+    }
+}

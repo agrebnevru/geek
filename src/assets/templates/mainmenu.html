@@ -1,0 +1,110 @@
+<div class="c-mainmenu__wrapper">
+    <div class="c-mainmenu__search">
+        <svg>
+            <use xlink:href="#taskbar-search"></use>
+        </svg>
+        <input type="text" placeholder="Поиск приложений, параметров и документов">
+    </div>
+    <div class="c-mainmenu__title-group">
+        <div class="c-mainmenu__title">Закрепленные</div>
+        <!-- <div class="c-mainmenu__title-btn">
+                <div class="c-mainmenu__title-btn__label">Все приложения</div>
+                <svg>
+                    <use xlink:href="#mainmenu-arrow"></use>
+                </svg>
+            </div> -->
+    </div>
+    <div class="c-mainmenu__programs">
+        <div class="c-mainmenu__programs__wrapper">
+
+            {{#rows}}
+            <div class="c-mainmenu__programs__item js-program-open" data-program-name="{{name}}">
+                <div class="c-mainmenu__programs__item__icon">
+                    {{{iconData}}}
+                </div>
+                <div class="c-mainmenu__programs__item__name">{{title}}</div>
+            </div>
+            {{/rows}}
+
+        </div>
+    </div>
+</div>
+<div class="c-mainmenu__footer">
+    <div class="c-mainmenu__footer__wrapper">
+        <div class="c-mainmenu__profile">
+            <svg>
+                <use xlink:href="#profile"></use>
+            </svg>
+            <div class="c-mainmenu__profile__name js-mainmenu-name">{{name}}</div>
+        </div>
+        <div class="c-mainmenu__shutdown">
+            <div class="c-mainmenu__shutdown__icon js-mainmenu-shutdown-toggle">
+                <svg>
+                    <use xlink:href="#shutdown"></use>
+                </svg>
+            </div>
+            <div class="c-mainmenu__shutdown__menu ui--bg-blur ui--shadow js-mainmenu-shutdown" data-closed="true">
+                <div class="c-mainmenu__shutdown__menu__wrapper">
+                    <div class="c-mainmenu__shutdown__items">
+                        <div class="c-mainmenu__shutdown__item js-app-save">
+                            <div class="c-mainmenu__shutdown__item__icon">
+                                <svg>
+                                    <use xlink:href="#save"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu__shutdown__item__title">Сохранить</div>
+                        </div>
+                        <div class="c-mainmenu__shutdown__item js-app-load">
+                            <div class="c-mainmenu__shutdown__item__icon">
+                                <svg class="c-mainmenu__shutdown__item__icon--fix">
+                                    <use xlink:href="#load"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu__shutdown__item__title">Загрузить последнее сохранение</div>
+                        </div>
+                        <div class="c-mainmenu__shutdown__item js-app-lock">
+                            <div class="c-mainmenu__shutdown__item__icon">
+                                <svg class="c-mainmenu__shutdown__item__icon--fix">
+                                    <use xlink:href="#lock"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu__shutdown__item__title">Блокировка</div>
+                        </div>
+                        <div class="c-mainmenu__shutdown__item js-app-save-and-shutdown">
+                            <div class="c-mainmenu__shutdown__item__icon">
+                                <svg class="c-mainmenu__shutdown__item__icon--fix">
+                                    <use xlink:href="#shutdown"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu__shutdown__item__title">Сохранить и завершить работу</div>
+                        </div>
+                        <div class="c-mainmenu__shutdown__item js-app-shutdown">
+                            <div class="c-mainmenu__shutdown__item__icon">
+                                <svg class="c-mainmenu__shutdown__item__icon--fix">
+                                    <use xlink:href="#shutdown"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu__shutdown__item__title">Завершить работу</div>
+                        </div>
+                        <div class="c-mainmenu__shutdown__item js-app-save-and-restart">
+                            <div class="c-mainmenu__shutdown__item__icon">
+                                <svg>
+                                    <use xlink:href="#restart"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu__shutdown__item__title">Сохранить и перезагрузиться</div>
+                        </div>
+                        <div class="c-mainmenu__shutdown__item js-app-restart">
+                            <div class="c-mainmenu__shutdown__item__icon">
+                                <svg>
+                                    <use xlink:href="#restart"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu__shutdown__item__title">Перезагрузиться</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

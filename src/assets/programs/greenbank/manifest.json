@@ -1,0 +1,11 @@
+{
+    "name": "greenbank",
+    "version": "1.0.0",
+    "main": "main.js",
+    "title": "ГринБанк",
+    "iconPlaceVisibility": {
+        "desktop": true,
+        "taskbar": false,
+        "mainmenu": true
+    }
+}

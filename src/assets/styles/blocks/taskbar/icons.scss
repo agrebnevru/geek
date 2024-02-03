@@ -1,0 +1,81 @@
+.b-taskbar-icons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    &__item {
+        display: flex;
+        width: var(--taskbar-item-width);
+
+        &:hover {
+
+            .b-taskbar-icons {
+                &__item {
+                    &__title {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+
+        &:active {
+            &>svg {
+                transform: scale(0.7);
+            }
+        }
+
+        &[data-sticky=false] {
+            display: none;
+        }
+
+        &[data-closed=false] {
+            display: flex;
+            
+            &:after {
+                width: 6px;
+            }
+        }
+
+        &[data-active=true] {
+            display: flex;
+
+            &:after {
+                width: 12px;
+                background: #4cc2ff;
+            }
+        }
+
+        &:after {
+            position: absolute;
+            display: block;
+            bottom: 2px;
+            content: "";
+            width: 0;
+            height: 3px;
+            border-radius: 4px;
+            background: #858585;
+            transition: all .2s ease-in-out;
+        }
+
+        &__title {
+            pointer-events: none;
+            position: absolute;
+            bottom: calc(100% + 10px);
+            font-size: 0.9em;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            background-color: rgba(0, 0, 68, 0.623);
+            opacity: 0;
+            transform: translateY(-5px);
+            transition-duration: .5s;
+        }
+
+        &>svg {
+            width: 24px;
+            height: 24px;
+            transition-duration: .3s;
+        }
+    }
+}

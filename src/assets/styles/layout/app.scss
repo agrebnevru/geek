@@ -1,0 +1,9 @@
+#app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: var(--max-height);
+    width: var(--max-width);
+    min-width: var(--min-width);
+    min-height: var(--min-height);
+}

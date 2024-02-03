@@ -1,0 +1,109 @@
+body[data-show-os-lock=false] {
+
+    .ui-os-lock {
+        opacity: 0;
+    }
+}
+
+.ui-os-lock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/lock.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity .2s ease-in-out;
+    opacity: 1;
+    user-select: none;
+    z-index: 10100;
+
+    &[data-show-form=true] {
+        .ui-os-lock {
+
+            &__pause {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            &__form {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__wrapper {
+        width: 100vw;
+        height: 100vh;
+        color: white;
+    }
+
+    &__pause {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transition: all .2s ease-in-out;
+        opacity: 1;
+    }
+
+    &__clock {
+        font-size: 75px;
+        font-weight: 600;
+        padding-top: 100px;
+    }
+
+    &__date {
+        font-weight: 600;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+        transition: opacity .3s;
+
+        &__icon {
+
+            >svg {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        &__name {
+            font-size: 24px;
+            font-weight: 500;
+            padding-top: 10px;
+        }
+
+        &__button {
+            padding-top: 24px;
+        }
+
+        &__btn {
+            font-size: 13px;
+            cursor: default;
+            padding: 4px 36px 6px;
+            background: rgba(255, 255, 255, .2);
+            border: 2px solid transparent;
+            border-radius: 4px;
+
+            &:hover {
+                border: 2px solid rgba(255, 255, 255, .33);
+            }
+        }
+    }
+}
