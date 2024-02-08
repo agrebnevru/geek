@@ -185,7 +185,9 @@ export default class Storage
         }
         // console.log('this.profile =', this.profile)
 
-        window.dispatchEvent(new Event('storage.load.after'))
+        setTimeout(() => {
+            window.dispatchEvent(new Event('storage.load.after'))
+        }, 250)
     }
 
     async save()

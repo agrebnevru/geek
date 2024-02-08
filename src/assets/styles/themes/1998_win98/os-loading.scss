@@ -1,0 +1,66 @@
+.ui-os-loading {
+
+    &__wrapper {
+        justify-content: flex-end;
+        background-image: url(../images/themes/1998_win98/os-loading.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    &__icon {
+        display: none;
+    }
+
+    &__spinner {
+        width: 100%;
+        height: 12px;
+        background: linear-gradient(90deg, #4783c7, #cddae2, #4783c7);
+        background-size: 200% 200%;
+
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-name: os-loading-animation;
+        // animation-timing-function: steps(1);
+        animation-play-state: running;
+
+        >.ui-loader {
+            display: none;
+        }
+    }
+}
+
+@keyframes ui-os-loading {
+    0% {
+        visibility: hidden;
+    }
+
+    10% {
+        visibility: hidden;
+    }
+
+    11% {
+        visibility: visible;
+    }
+
+    99% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes os-loading-animation {
+    0% {
+        background-position-x: 200%;
+    }
+
+    50% {
+        background-position-x: 100%;
+    }
+
+    100% {
+        background-position-x: 0%;
+    }
+}

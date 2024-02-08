@@ -49,7 +49,7 @@ export default class Application {
             this.lock()
         })
 
-        document.addEventListener('storage.load.after', () => {
+        window.addEventListener('storage.load.after', () => {
             this.addBodyCssClasses()
         }, { once: true })
     }
