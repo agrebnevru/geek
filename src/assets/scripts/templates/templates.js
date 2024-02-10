@@ -45,6 +45,19 @@ export default class Templates {
         this.afterLoad()
     }
 
+    getByName(name)
+    {
+        let osId = Storage.getInstance().getOsId()
+
+        if (this.rows[`theme_${osId}_${name}`]) {
+            return this.rows[`theme_${osId}_${name}`]
+        } else if (this.rows[name]) {
+            return this.rows[name]
+        } else {
+            return null
+        }
+    }
+
     afterLoad() {
         this.loaded = true
     }

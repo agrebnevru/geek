@@ -13,9 +13,7 @@ export default class Taskbar {
     constructor() {
         console.log('Taskbar::constructor')
 
-        this.renderSelectors = {
-            programs: '.js-taskbar-programs-render'
-        }
+        this.renderSelector = '.js-taskbar-render'
 
         this.programs = {}
 
@@ -31,7 +29,7 @@ export default class Taskbar {
 
     addEventListener() {
         // console.log('Taskbar::addEventListener')
-        document.querySelector(this.renderSelectors.programs).on('click', '.js-program-open', e => {
+        document.querySelector(this.renderSelector).on('click', '.js-program-open', e => {
             // console.log('Taskbar - open program')
             // console.log(e.target)
             Programs.getInstance().open(e.target)
@@ -163,8 +161,8 @@ export default class Taskbar {
         }
         // console.log('data =', data)
 
-        const rendered = Mustache.render(Templates.getInstance().rows.taskbar, data)
-        document.querySelector(this.renderSelectors.programs).innerHTML = rendered
+        const rendered = Mustache.render(Templates.getInstance().getByName('taskbar'), data)
+        document.querySelector(this.renderSelector).innerHTML = rendered
     }
 
     static getInstance() {

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
+<!-- <html class="ui-os--win11 ui-theme--dark"> -->
 <html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
     <title>Geek</title>
 </head>
-
-<!-- <body class="ui-os--win11 ui-theme--dark"> -->
-
 <body class="" data-off="true" data-show-pc-loading="true" data-show-os-loading="true" data-show-os-lock="true">
 
     <div id="app" class="app">
@@ -18,42 +16,7 @@
             </div>
         </div>
 
-        <div class="l-task-bar ui--bg-blur">
-            <div class="l-task-bar__item l-task-bar__widgets">
-                <div class="l-task-bar__block b-widget js-weather">
-                    <div class="b-widget__weather js-taskbar-weather-render">Загрузка...</div>
-                </div>
-            </div>
-            <div class="l-task-bar__item l-task-bar__programs js-taskbar-programs-render"><!-- mustache render --></div>
-            <div class="l-task-bar__item l-task-bar__tray">
-                <div class="l-task-bar__block">
-                    <div class="l-task-bar__block__wrapper l-task-bar__language">
-                        <div>ENG</div>
-                    </div>
-                </div>
-                <div class="l-task-bar__block">
-                    <div class="l-task-bar__block__wrapper">
-                        <div class="l-task-bar__block__icon">
-                            <svg>
-                                <use xlink:href="#wifi"></use>
-                            </svg>
-                        </div>
-                        <div class="l-task-bar__block__icon">
-                            <svg>
-                                <use xlink:href="#taskbar-sound"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="l-task-bar__block b-clock js-clock">
-                    <div class="b-clock__wrapper">
-                        <div class="b-clock__time js-taskbar-clock-time"></div>
-                        <div class="b-clock__date js-taskbar-clock-date"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="l-task-bar__bg"></div>
-        </div>
+        <div class="l-taskbar ui--bg-blur js-taskbar-render"><!-- mustache render --></div>
 
         <div class="b-copy">
             Powered by Alex Grebnev<br>

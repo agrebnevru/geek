@@ -65,7 +65,7 @@ export default class Desktop
         })
         // console.log('data =', data)
 
-        const rendered = Mustache.render(Templates.getInstance().rows.desktop, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('desktop'), data)
         document.querySelector(this.renderSelectors.programs).innerHTML = rendered
     }
 

@@ -25,10 +25,6 @@
             }
         }
 
-        &[data-sticky=false] {
-            display: none;
-        }
-
         &[data-closed=false] {
             display: flex;
             
@@ -63,7 +59,6 @@
             position: absolute;
             bottom: calc(100% + 10px);
             font-size: 0.9em;
-            color: white;
             padding: 3px 8px;
             border-radius: 3px;
             background-color: rgba(0, 0, 68, 0.623);
@@ -73,8 +68,8 @@
         }
 
         &>svg {
-            width: 24px;
-            height: 24px;
+            width: var(--taskbar-item-icon-width);
+            height: var(--taskbar-item-icon-height);
             transition-duration: .3s;
         }
     }

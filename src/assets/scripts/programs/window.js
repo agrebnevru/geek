@@ -84,7 +84,7 @@ export default class Window {
                 this.unmount()
                 this.unset()
             }, 50)
-        })
+        }, {once: true})
     }
 
     mount() {
@@ -100,7 +100,7 @@ export default class Window {
             title: this.programManifest.title,
         }
 
-        const rendered = Mustache.render(Templates.getInstance().rows.window, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('window'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
 
         this.domElement = document.querySelector(this.windowSelector)

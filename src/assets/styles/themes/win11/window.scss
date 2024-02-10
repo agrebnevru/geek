@@ -22,7 +22,6 @@
         transform: scale(.6);
         transform-origin: bottom;
         opacity: 0;
-        pointer-events: none;
     }
 
     &[data-fullsize=true] {
@@ -156,7 +155,6 @@
 
             &:hover {
                 background-color: rgb(74 76 79 / 50%);
-                ;
             }
 
             >svg {

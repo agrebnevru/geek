@@ -58,11 +58,11 @@ export default class Application {
         // console.log('Application::saveAndShutdown')
 
         let storage = Storage.getInstance(),
-            os = storage.body.os,
-            theme = storage.body.theme
+            os = storage.getOsId(),
+            theme = storage.getOsTheme()
 
-        document.body.classList.add(`ui-os--${os}`)
-        document.body.classList.add(`ui-theme--${theme}`)
+        document.documentElement.classList.add(`ui-os--${os}`)
+        document.documentElement.classList.add(`ui-theme--${theme}`)
     }
 
     async saveAndShutdown() {

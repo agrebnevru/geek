@@ -22,8 +22,13 @@ export default class Clock {
     updateClock(data) {
         // console.log('Clock::updateClock')
 
-        document.querySelector('.js-taskbar-clock-time').innerHTML = data.timeDisplay
-        document.querySelector('.js-taskbar-clock-date').innerHTML = data.dateFullDisplay
+        if (0 < document.querySelectorAll('.js-taskbar-clock-time').length) {
+            document.querySelector('.js-taskbar-clock-time').innerHTML = data.timeDisplay
+        }
+
+        if (0 < document.querySelectorAll('.js-taskbar-clock-date').length) {
+            document.querySelector('.js-taskbar-clock-date').innerHTML = data.dateFullDisplay
+        }
     }
 
 }

@@ -1,0 +1,61 @@
+<div class="l-taskbar__item l-taskbar__widgets">
+    <div class="l-taskbar__block b-widget js-weather">
+        <div class="b-widget__weather js-taskbar-weather-render">Загрузка...</div>
+    </div>
+</div>
+<div class="l-taskbar__item l-taskbar__programs ">
+
+    <div class="b-taskbar-icons">
+
+        <div class="l-taskbar__block b-taskbar-icons__item js-mainmenu-toggle">
+            <svg>
+                <use xlink:href="#taskbar-menu"></use>
+            </svg>
+        </div>
+
+        <div class="l-taskbar__block b-taskbar-icons__item">
+            <div class="b-taskbar-icons__item__title">Поиск</div>
+            <svg>
+                <use xlink:href="#taskbar-search"></use>
+            </svg>
+        </div>
+
+        {{#rows}}
+        <div class="l-taskbar__block b-taskbar-icons__item js-program-open" data-program-name="{{name}}"
+            data-sticky="{{sticky}}" data-closed="{{closed}}" data-active="{{active}}">
+            <div class="b-taskbar-icons__item__title">{{title}}</div>
+            {{{iconData}}}
+        </div>
+        {{/rows}}
+
+    </div>
+
+</div>
+<div class="l-taskbar__item l-taskbar__tray">
+    <div class="l-taskbar__block">
+        <div class="l-taskbar__block__wrapper l-taskbar__language">
+            <div>ENG</div>
+        </div>
+    </div>
+    <div class="l-taskbar__block">
+        <div class="l-taskbar__block__wrapper">
+            <div class="l-taskbar__block__icon">
+                <svg>
+                    <use xlink:href="#wifi"></use>
+                </svg>
+            </div>
+            <div class="l-taskbar__block__icon">
+                <svg>
+                    <use xlink:href="#taskbar-sound"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="l-taskbar__block b-clock js-clock">
+        <div class="b-clock__wrapper">
+            <div class="b-clock__time js-taskbar-clock-time"></div>
+            <div class="b-clock__date js-taskbar-clock-date"></div>
+        </div>
+    </div>
+</div>
+<div class="l-taskbar__bg"></div>

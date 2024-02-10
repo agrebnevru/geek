@@ -1,29 +1,16 @@
-$app-max-width: 100vw;
-$app-max-height: 100vh;
+html {
+    --max-width: 100vw;
+    --max-height: 100vh;
 
-$taskbar-height: 48px;
-$taskbar-width: 100%;
+    --taskbar-width: 100%;
+    --taskbar-height: 48px;
 
-$taskbar-item-width: 42px;
-$taskbar-item-height: 42px;
+    --taskbar-item-width: 42px;
+    --taskbar-item-height: 42px;
 
-$program-min-width: 640px;
-$program-min-height: 480px;
-$app-min-width: $program-min-width;
-$app-min-height: ($program-min-height + $taskbar-height);
+    --program-min-width: 640px;
+    --program-min-height: 480px;
 
-:root {
-    --max-width: #{$app-max-width};
-    --max-height: #{$app-max-height};
-    --min-width: #{$app-min-width};
-    --min-height: #{$app-min-height};
-
-    --taskbar-width: #{$taskbar-width};
-    --taskbar-height: #{$taskbar-height};
-
-    --taskbar-item-width: #{$taskbar-item-width};
-    --taskbar-item-height: #{$taskbar-item-height};
-
-    --program-min-width: #{$program-min-width};
-    --program-min-height: #{$program-min-height};
+    --min-width: var(--program-min-width);
+    --min-height: calc(var(--program-min-height) + var(--taskbar-height));
 }

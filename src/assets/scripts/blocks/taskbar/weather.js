@@ -16,6 +16,10 @@ export default class Weather {
     }
 
     render() {
+        if (0 === document.querySelectorAll('.js-taskbar-weather-render').length) {
+            return
+        }
+        
         let html = `
         <div class="b-weather">
             <div class="b-weather__icon">

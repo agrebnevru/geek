@@ -70,7 +70,7 @@ export default class Mainmenu
             return true === item.iconPlaceVisibility.mainmenu && (true === item.installed || true === item.system)
         })
         // console.log('data =', data)
-        const rendered = Mustache.render(Templates.getInstance().rows.mainmenu, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('mainmenu'), data)
         document.querySelector(this.renderSelectors.full).innerHTML = rendered
     }
 

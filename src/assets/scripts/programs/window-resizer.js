@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/8960193/how-to-make-html-element-resizable-using-pure-javascript
 
-const MIN_WIDTH = 640
-const MIN_HEIGHT = 480
+const MIN_WIDTH = 300
+const MIN_HEIGHT = 100
 
 function getIntStyle(element, key) {
     return parseInt(window.getComputedStyle(element).getPropertyValue(key))

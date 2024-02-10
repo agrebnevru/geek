@@ -2,6 +2,7 @@ const { app, BrowserWindow, BrowserView, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
+const DIR_IMAGES = `${app.getAppPath()}/src/assets/images/`
 const DIR_PROGRAMS = `${app.getAppPath()}/src/assets/programs/`
 const DIR_TEMPLATES = `${app.getAppPath()}/src/assets/templates/`
 const SAVE_FILE_NAME = 'save.data'
@@ -105,31 +106,62 @@ async function getProgramsList() {
 
 async function getSvgIcons() {
     // console.log('getSvgIcons')
-    let iconsPath = `${app.getAppPath()}/src/assets/images/svg-icons.svg`
+    let result = {},
+        themeNames = fs.readdirSync(`${DIR_IMAGES}themes/`),
+        iconsPath = null
 
-    if (false === fs.existsSync(iconsPath)) {
-        return ''
+    if (0 < themeNames.length) {
+        for (let themeName of themeNames) {
+            iconsPath = `${DIR_IMAGES}themes/${themeName}/svg-icons.svg`
+
+            if (false === fs.existsSync(iconsPath)) {
+                continue
+            }
+
+            let iconsKeyName = themeName
+            result[iconsKeyName] = fs.readFileSync(iconsPath, 'utf8')
+        }
     }
 
-    return fs.readFileSync(iconsPath, 'utf8')
+    return result
 }
 
 async function getTemplates() {
     // console.log('getTemplates')
     let result = {},
         templateNames = fs.readdirSync(DIR_TEMPLATES),
+        themeNames = fs.readdirSync(`${DIR_TEMPLATES}themes/`),
         templatePath = ''
 
-        if (0 < templateNames.length) {
-            for (let templateName of templateNames) {
-                templatePath = `${DIR_TEMPLATES}${templateName}`
-                if (true === fs.lstatSync(templatePath).isDirectory()) {
-                    continue
+    if (0 < templateNames.length) {
+        for (let templateName of templateNames) {
+            templatePath = `${DIR_TEMPLATES}${templateName}`
+            if (true === fs.lstatSync(templatePath).isDirectory()) {
+                continue
+            }
+
+            let templateKeyName = templateName.replace('.html', '').replaceAll('-', '_')
+            result[templateKeyName] = fs.readFileSync(templatePath, 'utf8')
+        }
+    }
+
+    if (0 < themeNames.length) {
+        for (let themeName of themeNames) {
+            let themeTemplateNames = themeNames = fs.readdirSync(`${DIR_TEMPLATES}themes/${themeName}`)
+            if (0 < themeTemplateNames.length) {
+                for (let themeTemplateName of themeTemplateNames) {
+                    templatePath = `${DIR_TEMPLATES}themes/${themeName}/${themeTemplateName}`
+                    if (true === fs.lstatSync(templatePath).isDirectory()) {
+                        continue
+                    }
+
+                    let templateKeyName = `theme_${themeName}_` + themeTemplateName.replace('.html', '').replaceAll('-', '_')
+                    result[templateKeyName] = fs.readFileSync(templatePath, 'utf8')
                 }
-    
-                result[templateName.replace('.html', '').replaceAll('-', '_')] = fs.readFileSync(templatePath, 'utf8')
             }
         }
+    }
+    // console.log('getTemplates -> result =', result)
 
     return result
 }

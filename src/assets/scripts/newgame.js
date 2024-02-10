@@ -16,8 +16,8 @@ export default class Newgame {
             datetime: {
                 timestamp: 788950800,  // 01.01.1995 12:00
             },
-            body: {
-                os: 'win95',
+            os: {
+                id: 'win95',
                 theme: 'dark',
             },
             settings: {

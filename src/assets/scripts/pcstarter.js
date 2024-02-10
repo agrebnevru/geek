@@ -211,7 +211,7 @@ export default class PcStarter {
             }
         }
 
-        const rendered = Mustache.render(Templates.getInstance().rows.pcstarter_pc_loading, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('pcstarter_pc_loading'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
     }
 
@@ -223,7 +223,7 @@ export default class PcStarter {
 
         let data = {}
 
-        const rendered = Mustache.render(Templates.getInstance().rows.pcstarter_os_loading, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('pcstarter_os_loading'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
     }
 
@@ -235,7 +235,7 @@ export default class PcStarter {
 
         let data = {}
 
-        const rendered = Mustache.render(Templates.getInstance().rows.pcstarter_newgame, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('pcstarter_newgame'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
     }
 
@@ -251,7 +251,7 @@ export default class PcStarter {
             name: Storage.getInstance().profile.name,
         }
 
-        const rendered = Mustache.render(Templates.getInstance().rows.pcstarter_os_lock, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('pcstarter_os_lock'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
     }
 
@@ -263,7 +263,7 @@ export default class PcStarter {
 
         let data = {}
 
-        const rendered = Mustache.render(Templates.getInstance().rows.pcstarter_pc_shutdown, data)
+        const rendered = Mustache.render(Templates.getInstance().getByName('pcstarter_pc_shutdown'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
     }
 

@@ -6,11 +6,7 @@ body {
     color: white;
     margin: 0;
     padding: 0;
-    background-image: url(../images/bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
+    background: var(--desktop-bg);
     overflow: hidden;
 
     &[data-off=true] {

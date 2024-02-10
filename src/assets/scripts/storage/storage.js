@@ -9,7 +9,7 @@ export default class Storage
 
         this.saveProperties = [
             'datetime',
-            'body',
+            'os',
             'settings',
             'profile',
             'wallet',
@@ -24,9 +24,9 @@ export default class Storage
             timestamp: 0,
         }
 
-        this.body = {
-            os: 'win11',
-            theme: 'dark',
+        this.os = {
+            id: 'win0',
+            theme: 'no',
         }
 
         this.settings = {
@@ -93,6 +93,16 @@ export default class Storage
         // console.log('Storage::init')
 
         this.load()
+    }
+
+    getOsId()
+    {
+        return this.os.id
+    }
+
+    getOsTheme()
+    {
+        return this.os.theme
     }
 
     getProgramManifestByName(name)

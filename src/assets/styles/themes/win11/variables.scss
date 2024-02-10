@@ -1,0 +1,25 @@
+html {
+
+    &.ui-os--win11 {
+        --taskbar-width: 100%;
+        --taskbar-height: 48px;
+        --taskbar-color: #fff;
+        --taskbar-padding: 3px;
+        --taskbar-bg: linear-gradient(rgba(0, 0, 85, 0.075), transparent, rgba(0, 0, 85, 0.192));
+        --taskbar-box-shadow: 0 0 1em rgba(0, 0, 255, 0.027);
+
+        --taskbar-block-padding: 0 9px;
+        --taskbar-item-width: 42px;
+        --taskbar-item-height: 42px;
+        --taskbar-item-icon-width: 24px;
+        --taskbar-item-icon-height: 24px;
+
+        --program-min-width: 640px;
+        --program-min-height: 480px;
+
+        --min-width: var(--program-min-width);
+        --min-height: calc(var(--program-min-height) + var(--taskbar-height));
+
+        --desktop-bg: url(../images/bg.jpg) center center / cover no-repeat;
+    }
+}

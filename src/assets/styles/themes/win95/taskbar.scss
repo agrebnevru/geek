@@ -1,0 +1,58 @@
+.l-taskbar {
+    z-index: 500;
+
+    &__block {
+        min-width: 30px;
+        padding: var(--taskbar-block-padding);
+        border-top: 1px solid rgba(255, 255, 255, 0);
+        border-radius: 0px;
+        transition-duration: 0s;
+
+        &:hover {
+            background-color: transparent;
+            border-top: 1px solid rgba(255, 255, 255, 0);
+            transition-duration: 0s;
+        }
+
+        &:first-of-type {
+            width: auto;
+            height: 100%;
+        }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            >svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &__programs {
+        justify-content: flex-start;
+    }
+
+    &__tray {
+        width: auto;
+        padding: 2px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(128, 128, 128) rgb(255, 255, 255) rgb(255, 255, 255) rgb(128, 128, 128);
+
+        .l-taskbar__block {
+            padding: 0 5px;
+        }
+    }
+}
+
+@import './taskbar/all.scss'

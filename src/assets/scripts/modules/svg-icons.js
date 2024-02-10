@@ -1,3 +1,5 @@
+import Storage from '../storage/storage';
+
 class SvgIcons {
 
     constructor() {
@@ -23,9 +25,11 @@ class SvgIcons {
 
     async load() {
         // console.log('SvgIcons::load')
-        let icons = await window.electronApi.getSvgIcons()
+        let icons = await window.electronApi.getSvgIcons(),
+            os = Storage.getInstance().getOsId()
+
         // console.log('icons =', icons)
-        document.getElementById(this.id).innerHTML = icons
+        document.getElementById(this.id).innerHTML = icons[os]
         this.afterLoad()
     }
 
