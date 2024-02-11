@@ -6,10 +6,8 @@ import Templates from '../templates/templates';
 
 let instance = null
 
-export default class Mainmenu
-{
-	constructor()
-	{
+export default class Mainmenu {
+    constructor() {
         console.log('Mainmenu::constructor')
 
         this.renderSelectors = {
@@ -19,43 +17,43 @@ export default class Mainmenu
         this.init()
     }
 
-    init()
-    {
+    init() {
         // console.log('Mainmenu::init')
         this.render()
         this.addEventListener()
     }
 
-    addEventListener()
-    {
+    addEventListener() {
         // console.log('Mainmenu::addEventListener')
         document.on('click', '.js-mainmenu-toggle', () => {
-            document.querySelector('.js-mainmenu').dataset.closed = !('true' === document.querySelector('.js-mainmenu').dataset.closed)
+            document.body.dataset.mainmenuClosed = !('true' === document.body.dataset.mainmenuClosed)
         })
-    
+
         document.on('click', 'body', e => {
             if (null !== e.target.closest('.js-mainmenu') || null !== e.target.closest('.js-mainmenu-toggle')) {
                 return
             }
-    
-            document.querySelector('.js-mainmenu').dataset.closed = true
-            document.querySelector('.js-mainmenu-shutdown').dataset.closed = true
+
+            document.body.dataset.mainmenuClosed = true
+            if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
+                document.querySelector('.js-mainmenu-shutdown').dataset.closed = true
+            }
         })
 
         document.querySelector(this.renderSelectors.full).on('click', '.js-program-open', e => {
             // console.log('Mainmenu - open program')
-            // console.log(e.target)
             Programs.getInstance().open(e.target)
-            document.querySelector('.js-mainmenu').dataset.closed = true
+            document.body.dataset.mainmenuClosed = true
         })
 
-        document.on('click', '.js-mainmenu-shutdown-toggle', () => {
-            document.querySelector('.js-mainmenu-shutdown').dataset.closed = !('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closed)
-        })
+        if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
+            document.on('click', '.js-mainmenu-shutdown-toggle', () => {
+                document.querySelector('.js-mainmenu-shutdown').dataset.closed = !('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closed)
+            })
+        }
     }
 
-    render()
-    {
+    render() {
         // console.log('Mainmenu::render')
         let programs = Object.values(Storage.getInstance().programs.rows),
             data = {
@@ -63,26 +61,22 @@ export default class Mainmenu
                 rows: [],
             }
 
-        // console.log('programs =', programs)
-
         data.rows = programs.filter(item => {
-            // console.log('item =', item)
             return true === item.iconPlaceVisibility.mainmenu && (true === item.installed || true === item.system)
         })
-        // console.log('data =', data)
+
         const rendered = Mustache.render(Templates.getInstance().getByName('mainmenu'), data)
-        document.querySelector(this.renderSelectors.full).innerHTML = rendered
+        document.body.insertAdjacentHTML('beforeend', rendered)
     }
 
-	static getInstance()
-	{
+    static getInstance() {
         // console.log('Mainmenu::getInstance')
-		if (instance === null) {
-			instance = new Mainmenu(...arguments)
-		}
+        if (instance === null) {
+            instance = new Mainmenu(...arguments)
+        }
 
-		return instance
-	}
+        return instance
+    }
 }
 
 window.addEventListener('windows.ready', e => {

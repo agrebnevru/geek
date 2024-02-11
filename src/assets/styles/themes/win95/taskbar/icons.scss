@@ -11,9 +11,20 @@
             display: none;
         }
 
+        &:active {
+
+            > svg {
+                transform: none;
+            }
+        }
+
         &:after {
             display: none;
             content: "";
+        }
+
+        > svg {
+            margin-right: 3px;
         }
 
         &__title {

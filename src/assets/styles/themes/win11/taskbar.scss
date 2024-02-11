@@ -8,6 +8,7 @@
     padding: var(--taskbar-padding);
     background: var(--taskbar-bg);
     box-shadow: var(--taskbar-box-shadow);
+    user-select: none;
     z-index: 500;
 
     &__bg {

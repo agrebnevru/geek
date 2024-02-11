@@ -63,7 +63,7 @@ export default class PcStarter {
 
         this.renderPcLoading()
 
-        document.body.dataset.showPcLoading = true
+        this.start('showPcLoading', 'pcloading')
     }
 
     finishPcLoading(useTimeout = true) {
@@ -71,10 +71,10 @@ export default class PcStarter {
 
         if (true === useTimeout) {
             this.timerIds['pcLoadingHide'] = setTimeout(() => {
-                document.body.dataset.showPcLoading = false
+                this.finish('showPcLoading', 'pcloading')
             }, this.timePcLoading)
         } else {
-            document.body.dataset.showPcLoading = false
+            this.finish('showPcLoading', 'pcloading')
         }
     }
 
@@ -88,17 +88,16 @@ export default class PcStarter {
 
         if (true === useTimeout) {
             this.timerIds['newgame'] = setTimeout(() => {
-                document.body.dataset.newgame = true
+                this.start('newgame', 'newgame')
             }, this.timePcLoading - 100)
         } else {
             clearTimeout(this.timerIds['newgame'])
-            document.body.dataset.newgame = true
+            this.start('newgame', 'newgame')
         }
     }
 
     startOsLoading(useTimeout = true) {
         // console.log('PcStarter::startOsLoading')
-
         if (true === Newgame.getInstance().isNewgame()) {
             return
         }
@@ -107,16 +106,15 @@ export default class PcStarter {
 
         if (true === useTimeout) {
             this.timerIds['osLoadingShow'] = setTimeout(() => {
-                document.body.dataset.showOsLoading = true
+                this.start('showOsLoading', 'osloading')
             }, this.timePcLoading - 100)
         } else {
-            document.body.dataset.showOsLoading = true
+            this.start('showOsLoading', 'osloading')
         }
     }
 
     finishOsLoading(useTimeout = true) {
         // console.log('PcStarter::finishOsLoading')
-
         if (true === Newgame.getInstance().isNewgame()) {
             return
         }
@@ -124,17 +122,16 @@ export default class PcStarter {
         if (true === useTimeout) {
             this.timerIds['osLoadingHide'] = setTimeout(() => {
                 clearTimeout(this.timerIds['osLoadingShow'])
-                document.body.dataset.showOsLoading = false
+                this.finish('showOsLoading', 'osloading')
             }, this.timePcLoading + this.timeOsLoading)
         } else {
             clearTimeout(this.timerIds['osLoadingShow'])
-            document.body.dataset.showOsLoading = false
+            this.finish('showOsLoading', 'osloading')
         }
     }
 
     startOsLock(useTimeout = true, options = {}) {
         // console.log('PcStarter::startOsLoading')
-
         if (true === Newgame.getInstance().isNewgame()) {
             return
         }
@@ -150,11 +147,11 @@ export default class PcStarter {
 
         if (true === useTimeout) {
             this.timerIds['osLockShow'] = setTimeout(() => {
-                document.body.dataset.showOsLock = true
+                this.start('showOsLock', 'oslock')
             }, this.timePcLoading + this.timeOsLoading - 100)
         } else {
             clearTimeout(this.timerIds['osLockShow'])
-            document.body.dataset.showOsLock = true
+            this.start('showOsLock', 'oslock')
         }
     }
 
@@ -169,12 +166,26 @@ export default class PcStarter {
 
         if (true === useTimeout) {
             this.timerIds['pcShutdownShow'] = setTimeout(() => {
-                document.body.dataset.showPcShutdown = true
+                this.start('showPcShutdown', 'pcshutdown')
             }, 10)
         } else {
             clearTimeout(this.timerIds['pcShutdownShow'])
-            document.body.dataset.showPcShutdown = true
+            this.start('showPcShutdown', 'pcshutdown')
         }
+    }
+
+    start(propName, eventName) {
+        this.startFinish(propName, true, `${eventName}.start`)
+    }
+
+    finish(propName, eventName) {
+        this.startFinish(propName, false, `${eventName}.finish`)
+    }
+
+    startFinish(propName, propValue, eventName) {
+        document.body.dataset[propName] = propValue
+
+        window.dispatchEvent(new Event(`pcstarter.${eventName}`))
     }
 
     showForm() {
