@@ -19,11 +19,17 @@ export default class Programs {
 
     init() {
         // console.log('Programs::init')
-        this.load()
+        
         this.addEventListener()
     }
 
     addEventListener() {
+        // console.log('Programs::addEventListener')
+
+        window.addEventListener('storage.load.after', () => {
+            this.load()
+        }, { once: true })
+
         document.on('click', '.js-window-minimize', e => {
             this.minimize(e.target)
         })
@@ -231,7 +237,7 @@ export default class Programs {
 
     async load() {
         // console.log('Programs::load')
-        let list = await window.electronApi.getProgramsList()
+        let list = await window.electronApi.getProgramsList(Storage.getInstance().getOsId())
         // console.log('list =', list)
         this.rows = list
         this.afterLoad()
@@ -254,6 +260,10 @@ export default class Programs {
         }
 
         this.loaded = true
+
+        setTimeout(() => {
+            window.dispatchEvent(new Event('programs.load.after'))
+        }, 250)
     }
 
     register(program) {

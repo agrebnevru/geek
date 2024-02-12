@@ -28,6 +28,7 @@ export default class Window {
 
     init() {
         // console.log('Window::init')
+
         // this.addEventListeners() // after mount
     }
 
@@ -76,15 +77,23 @@ export default class Window {
 
         this.animate('close')
 
-        this.domElement.addEventListener('transitionend', () => {
-            // console.log('transitionend')
-            clearTimeout(this.closeTimeoutId)
+        const close = () => {
             this.closeTimeoutId = setTimeout(() => {
                 this.programEntity.close()
                 this.unmount()
                 this.unset()
             }, 50)
-        }, {once: true})
+        }
+
+        if (true === this.domElement.dataset.closeAnimation) {
+            this.domElement.addEventListener('transitionend', () => {
+                // console.log('transitionend')
+                clearTimeout(this.closeTimeoutId)
+                close()
+            }, { once: true })
+        } else {
+            close()
+        }
     }
 
     mount() {
@@ -159,18 +168,18 @@ export default class Window {
     unsetFocusOther(name = '') {
         // console.log('Window::unsetFocusOther')
 
-        setTimeout(function(){
+        setTimeout(function () {
             let elements = document.querySelectorAll(`.js-window:not([data-program-name="${name}"])`)
             if (0 === elements.length) {
                 return
             }
-    
+
             for (let node of elements) {
                 if (name === node.dataset.programName) {
                     continue
                 }
-    
-    
+
+
                 Window.getInstance(node.dataset.programName).setFocus(false)
             }
         }, 10)

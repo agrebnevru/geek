@@ -14,7 +14,16 @@ export default class Templates {
 
     init() {
         // console.log('Templates::init')
-        this.load()
+
+        this.addEventListener()
+    }
+
+    addEventListener() {
+        // console.log('Templates::addEventListener')
+
+        window.addEventListener('storage.load.after', () => {
+            this.load()
+        }, { once: true })
     }
 
     async getProgramTemplates(programName) {
@@ -39,7 +48,7 @@ export default class Templates {
             return
         }
         
-        let list = await window.electronApi.getTemplatesList()
+        let list = await window.electronApi.getTemplatesList(Storage.getInstance().getOsId())
         // console.log('list =', list)
         this.rows = list
         this.afterLoad()
@@ -60,6 +69,10 @@ export default class Templates {
 
     afterLoad() {
         this.loaded = true
+
+        setTimeout(() => {
+            window.dispatchEvent(new Event('templates.load.after'))
+        }, 250)
     }
 
     isLoaded() {

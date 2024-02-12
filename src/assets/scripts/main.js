@@ -25,11 +25,11 @@ function restart() {
     win.reload()
 }
 
-async function getProgramTemplates(e, programName) {
+async function getProgramTemplates(e, os, programName) {
     // console.log('getProgramTemplates')
     // console.log('programName =', programName)
     let result = {},
-        dirPath = `${DIR_PROGRAMS}${programName}/templates`,
+        dirPath = `${DIR_PROGRAMS}${programName}/assets/templates/${os}`,
         names = null,
         templatePath = null
 
@@ -61,9 +61,10 @@ async function getProgramTemplates(e, programName) {
     return result
 }
 
-async function getProgramsList() {
+async function getProgramsList(e, os) {
     // console.log('getProgramsList')
     // console.log('DIR_PROGRAMS =', DIR_PROGRAMS)
+    // console.log('os =', os)
     let programs = {},
         programNames = fs.readdirSync(DIR_PROGRAMS),
         programPath = '',
@@ -90,7 +91,7 @@ async function getProgramsList() {
             manifest.system = manifest.system || false
             manifest.iconData = ``
 
-            iconPath = path.join(programPath, 'icon.svg')
+            iconPath = path.join(`${programPath}/assets/images/themes/${os}`, 'icon.svg')
             if (true === fs.existsSync(iconPath)) {
                 manifest.iconData = fs.readFileSync(iconPath, 'utf8')
             }
@@ -126,7 +127,7 @@ async function getSvgIcons() {
     return result
 }
 
-async function getTemplates() {
+async function getTemplates(e, os) {
     // console.log('getTemplates')
     let result = {},
         templateNames = fs.readdirSync(DIR_TEMPLATES),
@@ -211,11 +212,6 @@ const createWindow = () => {
         },
     })
 
-    // const view = new BrowserView()
-    // win.setBrowserView(view)
-    // view.setBounds({x: 175, y: 100, width: 1200, height: 700})
-    // view.webContents.loadURL('https://electronjs.org')
-
     // and load the index.html of the app.
     win.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
@@ -235,6 +231,7 @@ app.on('ready', () => {
     ipcMain.handle('get-svg-icons', getSvgIcons)
     ipcMain.handle('get-templates', getTemplates)
     ipcMain.handle('get-program-templates', getProgramTemplates)
+
     createWindow()
 })
 

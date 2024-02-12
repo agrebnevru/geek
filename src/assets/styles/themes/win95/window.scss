@@ -5,15 +5,13 @@
     border-right-color: #424242;
     border-left-color: #fff;
     border-top-color: #fff;
-    transition: none;
+    transition: opacity .1s;
     box-shadow: none;
     overflow: hidden;
     z-index: 100;
 
     &[data-closed=true] {
         display: none;
-        transform: scale(.8);
-        opacity: 0;
     }
 
     &[data-maximize=false] {

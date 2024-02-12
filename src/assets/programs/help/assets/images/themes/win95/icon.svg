@@ -1,0 +1,6 @@
+<svg viewBox="0 0 32 32">
+	<defs>
+		<image  width="23" height="22" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAMAAAAcqPc3AAAAAXNSR0IB2cksfwAAAFRQTFRFAAAAgACAMwAz/5n/zADMZgBmmQCZmTNmzGZmzJkzmWZmAAAA/8wA//8AmZkzmWYzzACZX19fZmZmd3d3ZgAzmZmZhoaGwMDAramQ5+fW1gCTsrKyBn/fpQAAABx0Uk5TAP///////////////////////////////////6l3rVEAAAC1SURBVHicbc/RDoMgDEBRutEqQ4bOAbr9/3+ubaZItAkv55IGjKkDN3M1cLd4UZgt0akoc4C2MHe9e3QS0B+5H0IIwxMBapEltkfEIUQNvrIdiahTb5iiLHLKUNkOwcWIssVPsDHx4fUIJDyBN9yFXXAEpPya1d+JC38U8c85MxvAVLjQfjsnYfWySGlY9qw8JclT/JwW2P4KnyLlm9GnZedDKS3XUkrLWsaynpkH4XPFUg78Azx2Cu9+USP/AAAAAElFTkSuQmCC"/>
+	</defs>
+	<use id="Background" href="#img1" x="4" y="5"/>
+</svg>

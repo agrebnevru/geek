@@ -1,0 +1,15 @@
+{
+    "name": "help",
+    "version": "1.0.0",
+    "main": "main.js",
+    "title": "Справка",
+    "system": true,
+    "iconPlaceVisibility": {
+        "desktop": false,
+        "taskbar": false,
+        "mainmenu": true
+    },
+    "templates": {
+        
+    }
+}

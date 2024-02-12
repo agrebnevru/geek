@@ -20,9 +20,9 @@ window.addEventListener('DOMContentLoaded', () => {
         storageLoad: () => ipcRenderer.invoke('storage-load'),
         storageSave: data => ipcRenderer.invoke('storage-save', data),
         getSvgIcons: () => ipcRenderer.invoke('get-svg-icons'),
-        getTemplatesList: () => ipcRenderer.invoke('get-templates'),
-        getProgramsList: () => ipcRenderer.invoke('get-programs-list'),
-        getProgramTemplates: programName => ipcRenderer.invoke('get-program-templates', programName),
+        getTemplatesList: os => ipcRenderer.invoke('get-templates', os),
+        getProgramsList: os => ipcRenderer.invoke('get-programs-list', os),
+        getProgramTemplates: (os, programName) => ipcRenderer.invoke('get-program-templates', os, programName),
         request: url => ipcRenderer.send('request', url),
     })
 })

@@ -22,23 +22,19 @@ export default class PcStarter {
     init() {
         // console.log('PcStarter::init')
 
-        if (false === Templates.getInstance().isLoaded()) {
-            setTimeout(() => {
-                this.init()
-            }, 500)
-            return
-        }
+        window.addEventListener('templates.load.after', () => {
 
-        this.render()
-        this.addEventListeners()
-        this.startApp()
+            this.render()
+            this.addEventListeners()
+            this.startApp()
 
-        this.startPcLoading()
-        this.startNewgame()
-        this.startOsLoading()
-        this.finishPcLoading()
-        this.startOsLock()
-        this.finishOsLoading()
+            this.startPcLoading()
+            this.startNewgame()
+            this.startOsLoading()
+            this.finishPcLoading()
+            this.startOsLock()
+            this.finishOsLoading()
+        })
     }
 
     addEventListeners() {

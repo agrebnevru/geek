@@ -10,47 +10,50 @@ export default class Mainmenu {
     constructor() {
         console.log('Mainmenu::constructor')
 
-        this.renderSelectors = {
-            full: '.js-mainmenu-render'
-        }
+        this.renderSelector = '.js-mainmenu-render'
 
         this.init()
     }
 
     init() {
         // console.log('Mainmenu::init')
-        this.render()
+
         this.addEventListener()
     }
 
     addEventListener() {
         // console.log('Mainmenu::addEventListener')
-        document.on('click', '.js-mainmenu-toggle', () => {
-            document.body.dataset.mainmenuClosed = !('true' === document.body.dataset.mainmenuClosed)
-        })
 
-        document.on('click', 'body', e => {
-            if (null !== e.target.closest('.js-mainmenu') || null !== e.target.closest('.js-mainmenu-toggle')) {
-                return
-            }
+        window.addEventListener('templates.load.after', () => {
+            this.render()
 
-            document.body.dataset.mainmenuClosed = true
-            if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
-                document.querySelector('.js-mainmenu-shutdown').dataset.closed = true
-            }
-        })
-
-        document.querySelector(this.renderSelectors.full).on('click', '.js-program-open', e => {
-            // console.log('Mainmenu - open program')
-            Programs.getInstance().open(e.target)
-            document.body.dataset.mainmenuClosed = true
-        })
-
-        if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
-            document.on('click', '.js-mainmenu-shutdown-toggle', () => {
-                document.querySelector('.js-mainmenu-shutdown').dataset.closed = !('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closed)
+            document.on('click', '.js-mainmenu-toggle', () => {
+                document.body.dataset.mainmenuClosed = !('true' === document.body.dataset.mainmenuClosed)
             })
-        }
+    
+            document.on('click', 'body', e => {
+                if (null !== e.target.closest('.js-mainmenu') || null !== e.target.closest('.js-mainmenu-toggle')) {
+                    return
+                }
+    
+                document.body.dataset.mainmenuClosed = true
+                if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
+                    document.querySelector('.js-mainmenu-shutdown').dataset.closed = true
+                }
+            })
+    
+            document.querySelector(this.renderSelector).on('click', '.js-program-open', e => {
+                // console.log('Mainmenu - open program')
+                Programs.getInstance().open(e.target)
+                document.body.dataset.mainmenuClosed = true
+            })
+    
+            if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
+                document.on('click', '.js-mainmenu-shutdown-toggle', () => {
+                    document.querySelector('.js-mainmenu-shutdown').dataset.closed = !('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closed)
+                })
+            }
+        }, { once: true })
     }
 
     render() {

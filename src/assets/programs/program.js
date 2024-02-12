@@ -2,6 +2,7 @@ const Mustache = require('mustache')
 
 import Window from '../scripts/programs/window'
 import Templates from '../scripts/templates/templates'
+import Storage from '../scripts/storage/storage'
 
 export default class Program {
 
@@ -37,7 +38,10 @@ export default class Program {
         // console.log('Program::initTemplates')
 
         if (null === this.templates || typeof this.templates !== 'object') {
-            this.templates = await Templates.getInstance().getProgramTemplates(this.name)
+            this.templates = await Templates.getInstance().getProgramTemplates(
+                Storage.getInstance().getOsId(),
+                this.name
+            )
         }
     }
 

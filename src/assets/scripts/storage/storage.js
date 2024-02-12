@@ -1,11 +1,9 @@
 let instance = null
 
-export default class Storage
-{
+export default class Storage {
 
-	constructor()
-	{
-		console.log('Storage::constructor')
+    constructor() {
+        console.log('Storage::constructor')
 
         this.saveProperties = [
             'datetime',
@@ -86,27 +84,23 @@ export default class Storage
         }
 
         this.init()
-	}
+    }
 
-    init()
-    {
+    init() {
         // console.log('Storage::init')
 
         this.load()
     }
 
-    getOsId()
-    {
+    getOsId() {
         return this.os.id
     }
 
-    getOsTheme()
-    {
+    getOsTheme() {
         return this.os.theme
     }
 
-    getProgramManifestByName(name)
-    {
+    getProgramManifestByName(name) {
         // console.log('Storage::getProgramManifestByName')
         if (!this.programs.rows[name]) {
             return null
@@ -115,14 +109,12 @@ export default class Storage
         return this.programs.rows[name]
     }
 
-    getProgramEntityByName(name)
-    {
+    getProgramEntityByName(name) {
         // console.log('Storage::getProgramEntityByName')
         return this.getProgramManifestByName(name).entity
     }
 
-    addProgram(name, data)
-    {
+    addProgram(name, data) {
         // console.log('Storage::addProgram')
         if (this.programs.rows[name]) {
             return
@@ -180,8 +172,7 @@ export default class Storage
         }
     }
 
-    async load()
-    {
+    async load() {
         // console.log('Storage::load')
 
         let data = await window.electronApi.storageLoad()
@@ -200,8 +191,7 @@ export default class Storage
         }, 250)
     }
 
-    async save()
-    {
+    async save() {
         console.log('Storage::save')
 
         let saveData = {}
@@ -215,14 +205,13 @@ export default class Storage
         window.dispatchEvent(new Event('storage.save.after'))
     }
 
-	static getInstance()
-	{
+    static getInstance() {
         // console.log('Storage::getInstance')
-		if (instance === null) {
-			instance = new Storage(...arguments)
-		}
+        if (instance === null) {
+            instance = new Storage(...arguments)
+        }
 
-		return instance
-	}
+        return instance
+    }
 
 }
