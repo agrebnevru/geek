@@ -28,31 +28,36 @@ export default class Mainmenu {
             this.render()
 
             document.on('click', '.js-mainmenu-toggle', () => {
-                document.body.dataset.mainmenuClosed = !('true' === document.body.dataset.mainmenuClosed)
+                let value = !('true' === document.body.dataset.mainmenuClosed)
+                document.body.dataset.mainmenuClosed = value
             })
-    
+
             document.on('click', 'body', e => {
                 if (null !== e.target.closest('.js-mainmenu') || null !== e.target.closest('.js-mainmenu-toggle')) {
                     return
                 }
-    
+
                 document.body.dataset.mainmenuClosed = true
-                if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
-                    document.querySelector('.js-mainmenu-shutdown').dataset.closed = true
+
+                console.log('closeeee -', document.querySelector('.js-mainmenu-shutdown').dataset.closeByOutsideClick)
+                if ('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closeByOutsideClick) {
+                    document.body.dataset.mainmenuShutdownClosed = true
                 }
             })
-    
+
             document.querySelector(this.renderSelector).on('click', '.js-program-open', e => {
                 // console.log('Mainmenu - open program')
                 Programs.getInstance().open(e.target)
                 document.body.dataset.mainmenuClosed = true
             })
-    
-            if (0 < document.querySelectorAll('.js-mainmenu-shutdown').length) {
-                document.on('click', '.js-mainmenu-shutdown-toggle', () => {
-                    document.querySelector('.js-mainmenu-shutdown').dataset.closed = !('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closed)
-                })
-            }
+
+            document.on('click', '.js-mainmenu-shutdown-toggle', () => {
+                let value = ('false' === document.body.dataset.mainmenuShutdownClosed)
+                document.body.dataset.mainmenuShutdownClosed = value
+                if (false === value) {
+                    document.body.dataset.mainmenuClosed = true
+                }
+            })
         }, { once: true })
     }
 
@@ -61,10 +66,58 @@ export default class Mainmenu {
         let programs = Object.values(Storage.getInstance().programs.rows),
             data = {
                 name: Storage.getInstance().profile.name || 'Guest',
-                rows: [],
+                programs: {
+                    rows: [],
+                },
+                shutdown: {
+                    rows: [
+                        {
+                            id: 'save',
+                            label: 'Сохранить',
+                            actionClass: 'js-app-save',
+                            default: false,
+                        },
+                        {
+                            id: 'load',
+                            label: 'Загрузить последнее сохранение',
+                            actionClass: 'js-app-load',
+                            default: false,
+                        },
+                        {
+                            id: 'lock',
+                            label: 'Блокировка',
+                            actionClass: 'js-app-lock',
+                            default: false,
+                        },
+                        {
+                            id: 'save-and-shutdown',
+                            label: 'Сохранить и завершить работу',
+                            actionClass: 'js-app-save-and-shutdown',
+                            default: true,
+                        },
+                        {
+                            id: 'shutdown',
+                            label: 'Завершить работу',
+                            actionClass: 'js-app-shutdown',
+                            default: false,
+                        },
+                        {
+                            id: 'save-and-restart',
+                            label: 'Сохранить и перезагрузиться',
+                            actionClass: 'js-app-save-and-restart',
+                            default: false,
+                        },
+                        {
+                            id: 'restart',
+                            label: 'Перезагрузиться',
+                            actionClass: 'js-app-restart',
+                            default: false,
+                        },
+                    ],
+                }
             }
 
-        data.rows = programs.filter(item => {
+        data.programs.rows = programs.filter(item => {
             return true === item.iconPlaceVisibility.mainmenu && (true === item.installed || true === item.system)
         })
 

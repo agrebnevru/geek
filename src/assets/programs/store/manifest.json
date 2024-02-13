@@ -9,7 +9,12 @@
         "taskbar": true,
         "mainmenu": true
     },
-    "templates": {
-        
-    }
+    "os": {
+        "support": [
+            "win7",
+            "win10",
+            "win11"
+        ]
+    },
+    "templates": {}
 }

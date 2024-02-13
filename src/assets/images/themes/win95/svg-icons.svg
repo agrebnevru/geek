@@ -48,4 +48,10 @@
 		</defs>
 		<use id="mainmenu-shutdown-Background" href="#mainmenu-shutdown-img1" x="4" y="4" />
 	</symbol>
+	<symbol viewBox="0 0 32 32" id="mainmenu-shutdown-window">
+		<defs>
+			<image width="27" height="31" id="mainmenu-shutdown-window-img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAfBAMAAADka6twAAAAAXNSR0IB2cksfwAAACFQTFRFAAAAgICAwMDA////AAAAAACAAAD/AP////8AAP8AAIAA2ZqEfAAAAAt0Uk5TAP////////////99dn3VAAAAsklEQVR4nFXQzQ3CMAwFYFdiANyyAC4XOKYSZ1q13EFihKYbZAXujMCkPDuBmtw+vZc/ExExk1sswn+CuVSqrgvqUqmCtM5V6Ouvt8rplj3wTnmdzdwXRhhn/5jglSkt833lck7RMT2jZ0yeU0yuvOdHdOkgauOFqD6YlQipCWblqGzN4MhwI2Z7JDY3x1fOQQFPb8vRFaSbAT+HVXpTsUpZbLNVZqvGPHn1KrOT2gvO+gDH8jmaAfiw6wAAAABJRU5ErkJggg==" />
+		</defs>
+		<use id="mainmenu-shutdown-window-Background" href="#mainmenu-shutdown-window-img1" x="2" y="0" />
+	</symbol>
 </svg>

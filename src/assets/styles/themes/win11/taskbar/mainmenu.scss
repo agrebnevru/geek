@@ -8,6 +8,21 @@ body {
             transform: translate(-50%, -630px);
         }
     }
+
+    &[data-mainmenu-shutdown-closed=false] {
+
+        .c-mainmenu-win11 {
+            
+            &__shutdown {
+
+                &__menu {
+                    pointer-events: all;
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+            }
+        }
+    }
 }
 
 .c-mainmenu-win11 {

@@ -154,11 +154,7 @@ export default class PcStarter {
     startPcShutdown(useTimeout = true, options = {}) {
         // console.log('PcStarter::startPcShutdown')
 
-        this.renderPcShutdown()
-
-        if (options?.customText) {
-            document.querySelector('.js-pc-shutdown-text').innerHTML = options?.customText
-        }
+        this.renderPcShutdown(options)
 
         if (true === useTimeout) {
             this.timerIds['pcShutdownShow'] = setTimeout(() => {
@@ -262,13 +258,15 @@ export default class PcStarter {
         document.body.insertAdjacentHTML('beforeend', rendered)
     }
 
-    renderPcShutdown() {
+    renderPcShutdown(options = {}) {
         // console.log('PcStarter::renderPcShutdown')
         if (document.querySelector('.js-pc-shutdown')) {
             return
         }
 
-        let data = {}
+        let data = {
+            customText: options?.customText || ''
+        }
 
         const rendered = Mustache.render(Templates.getInstance().getByName('pcstarter_pc_shutdown'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
@@ -311,7 +309,7 @@ export default class PcStarter {
             if (0 < document.querySelectorAll('.js-os-lock').length) {
                 document.querySelector('.js-os-lock').remove()
             }
-        }, 1000)
+        }, 10)
     }
 
     startApp() {

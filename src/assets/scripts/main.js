@@ -27,13 +27,14 @@ function restart() {
 
 async function getProgramTemplates(e, os, programName) {
     // console.log('getProgramTemplates')
+    // console.log('os =', os)
     // console.log('programName =', programName)
     let result = {},
-        dirPath = `${DIR_PROGRAMS}${programName}/assets/templates/${os}`,
+        dirPath = `${DIR_PROGRAMS}${programName}/assets/templates/themes/${os}`,
         names = null,
         templatePath = null
 
-    // console.log('ditPath =', dirPath)
+    // console.log('dirPath =', dirPath)
     if (false === fs.existsSync(dirPath)) {
         return {}
     }
@@ -74,6 +75,7 @@ async function getProgramsList(e, os) {
     if (0 < programNames.length) {
         for (let programName of programNames) {
             programPath = `${DIR_PROGRAMS}${programName}`
+            // console.log('programName =', programName)
             // console.log('programPath =', programPath)
             if (false === fs.lstatSync(programPath).isDirectory()) {
                 continue
@@ -88,6 +90,15 @@ async function getProgramsList(e, os) {
             // console.log('manifest exist!')
 
             manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+
+            if (
+                true === Array.isArray(manifest?.os?.support)
+                && 0 < manifest?.os?.support?.length
+                && false === manifest?.os?.support.includes(os)
+            ) {
+                continue
+            }
+
             manifest.system = manifest.system || false
             manifest.iconData = ``
 

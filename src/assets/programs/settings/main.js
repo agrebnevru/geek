@@ -8,16 +8,6 @@ export class Main extends Program
         super(...arguments)
         console.log('Main::constructor [settings]')
     }
-
-    testDinamic()
-    {
-        console.log('Main::testDinamic [settings]')
-    }
-
-    static testStatic()
-    {
-        console.log('Main::testStatic [settings]')
-    }
 }
 
 export default function init() {

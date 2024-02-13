@@ -56,14 +56,14 @@ export default class Program {
         }
     }
 
-    getRenderTemplate() {
-        return this.templates.body || ''
+    getRenderTemplate(name) {
+        return this.templates[name] || ''
     }
 
     render() {
         // console.log('Program::render')
         let data = this.getRenderData(),
-            template = this.getRenderTemplate()
+            template = this.getRenderTemplate('body')
 
         if (0 === Object.keys(data).length || '' === template) {
             return

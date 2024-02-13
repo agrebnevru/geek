@@ -26,8 +26,10 @@ export default class Templates {
         }, { once: true })
     }
 
-    async getProgramTemplates(programName) {
+    async getProgramTemplates(os, programName) {
         // console.log('Templates::getProgramTemplates')
+        // console.log('os =', os)
+        // console.log('programName =', programName)
 
         let keyName = `program-${programName}`
 
@@ -35,7 +37,7 @@ export default class Templates {
             return this.rows[keyName]
         }
 
-        let templates = await window.electronApi.getProgramTemplates(programName)
+        let templates = await window.electronApi.getProgramTemplates(os, programName)
         // console.log('templates =', templates)
         this.rows[keyName] = templates
 

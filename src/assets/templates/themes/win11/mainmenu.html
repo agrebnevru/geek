@@ -1,4 +1,5 @@
-<div class="c-mainmenu-win11 ui--bg-blur ui--shadow js-mainmenu js-mainmenu-render">
+<div class="c-mainmenu-win11 ui--bg-blur ui--shadow js-mainmenu js-mainmenu-render"
+    data-close-when-shutdown-open="true">
     <div class="c-mainmenu-win11__wrapper">
         <div class="c-mainmenu-win11__search">
             <svg>
@@ -18,14 +19,14 @@
         <div class="c-mainmenu-win11__programs">
             <div class="c-mainmenu-win11__programs__wrapper">
 
-                {{#rows}}
+                {{#programs.rows}}
                 <div class="c-mainmenu-win11__programs__item js-program-open" data-program-name="{{name}}">
                     <div class="c-mainmenu-win11__programs__item__icon">
                         {{{iconData}}}
                     </div>
                     <div class="c-mainmenu-win11__programs__item__name">{{title}}</div>
                 </div>
-                {{/rows}}
+                {{/programs.rows}}
 
             </div>
         </div>
@@ -38,13 +39,14 @@
                 </svg>
                 <div class="c-mainmenu-win11__profile__name js-mainmenu-name">{{name}}</div>
             </div>
-            <div class="c-mainmenu-win11__shutdown">
+            <div class="c-mainmenu-win11__shutdown" data-by-outside-click="false">
                 <div class="c-mainmenu-win11__shutdown__icon js-mainmenu-shutdown-toggle">
                     <svg>
                         <use xlink:href="#shutdown"></use>
                     </svg>
                 </div>
-                <div class="c-mainmenu-win11__shutdown__menu ui--bg-blur ui--shadow js-mainmenu-shutdown" data-closed="true">
+                <div class="c-mainmenu-win11__shutdown__menu ui--bg-blur ui--shadow js-mainmenu-shutdown"
+                    data-closed="true" data-close-by-outside-click="true">
                     <div class="c-mainmenu-win11__shutdown__menu__wrapper">
                         <div class="c-mainmenu-win11__shutdown__items">
                             <div class="c-mainmenu-win11__shutdown__item js-app-save">
@@ -61,7 +63,8 @@
                                         <use xlink:href="#load"></use>
                                     </svg>
                                 </div>
-                                <div class="c-mainmenu-win11__shutdown__item__title">Загрузить последнее сохранение</div>
+                                <div class="c-mainmenu-win11__shutdown__item__title">Загрузить последнее сохранение
+                                </div>
                             </div>
                             <div class="c-mainmenu-win11__shutdown__item js-app-lock">
                                 <div class="c-mainmenu-win11__shutdown__item__icon">
@@ -109,4 +112,4 @@
             </div>
         </div>
     </div>
-</div>
+    </divclass=>

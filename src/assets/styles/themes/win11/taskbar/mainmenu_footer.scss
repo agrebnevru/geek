@@ -72,21 +72,16 @@ $mainmenu-footer-height: 42px;
         }
 
         &__menu {
+            pointer-events: none;
             position: absolute;
             bottom: calc(#{$mainmenu-footer-height} + 4px);
             left: 50%;
             border: 1px solid black;
             border-radius: 8px;
             transition: all 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
-            transform: translate(-50%, 0);
-            opacity: 1;
+            transform: translate(-50%, 25%);
+            opacity: 0;
             overflow: hidden;
-
-            &[data-closed=true] {
-                pointer-events: none;
-                opacity: 0;
-                transform: translate(-50%, 25%);
-            }
 
             &__wrapper {
                 padding: 4px 0;

@@ -1,6 +1,6 @@
-<div class="c-mainmenu-win95 js-mainmenu js-mainmenu-render">
+<div class="c-mainmenu-win95 js-mainmenu js-mainmenu-render" data-close-when-shutdown-open="true">
     <div class="c-mainmenu-win95__wrapper">
-        
+
         <div class="c-mainmenu-win95__os-logo"></div>
         <div class="c-mainmenu-win95__items">
             <div class="c-mainmenu-win95__item">
@@ -12,14 +12,14 @@
                 <div class="c-mainmenu-win95__item__label">Программы</div>
                 <div class="c-mainmenu-win95__submenu">
                     <div class="c-mainmenu-win95__submenu__items">
-                        {{#rows}}
+                        {{#programs.rows}}
                         <div class="c-mainmenu-win95__submenu__item js-program-open" data-program-name="{{name}}">
                             <div class="c-mainmenu-win95__submenu__item__icon">
                                 {{{iconData}}}
                             </div>
                             <div class="c-mainmenu-win95__submenu__item__label">{{title}}</div>
                         </div>
-                        {{/rows}}
+                        {{/programs.rows}}
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="c-mainmenu-win95__item__label">Выполнить</div>
             </div>
-            <div class="c-mainmenu-win95__item c-mainmenu-win95__item--disabled">
+            <div class="c-mainmenu-win95__item js-mainmenu-shutdown-toggle">
                 <div class="c-mainmenu-win95__item__icon">
                     <svg>
                         <use xlink:href="#mainmenu-shutdown"></use>
@@ -73,5 +73,54 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="c-mainmenu-win95__shutdown">
+    <div class="c-mainmenu-win95__shutdown__overlay"></div>
+    <div class="ui-window c-mainmenu-win95__shutdown__menu js-mainmenu-shutdown" data-closed="false"
+        data-maximize="true" data-fullsize="false" data-focus="true" style="width:310px;height:auto;"
+        data-close-by-outside-click="false">
+        <div class="ui-window__wrapper">
+            <div class="ui-window__toolbar">
+                <div class="ui-window__toolbar__name">
+                    <div class="ui-window__toolbar__title">Завершение работы</div>
+                </div>
+                <div class="ui-window__toolbar__buttons">
+                    <button
+                        class="ui-window__toolbar__btn ui-window__toolbar__btn--close js-mainmenu-shutdown-toggle"></button>
+                </div>
+            </div>
+            <div class="ui-window__body js-windows-body">
+                <div class="ui-window__body__wrapper">
+
+                    <div class="c-mainmenu-win95__shutdown__form">
+                        <div class="c-mainmenu-win95__shutdown__form__column">
+                            <div class="c-mainmenu-win95__shutdown__form__icon">
+                                <svg>
+                                    <use xlink:href="#mainmenu-shutdown-window"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="c-mainmenu-win95__shutdown__form__column">
+                            <div class="c-mainmenu-win95__shutdown__form__text">Выберите действие из списка:</div>
+                            {{#shutdown.rows}}
+                            <div class="c-mainmenu-win95__shutdown__form__option">
+                                <input name="shut-down-option" type="radio" id="shutdown-variant-{{id}}" class="c-mainmenu-win95__shutdown__variant--{{id}}"{{#default}} checked {{/default}}>
+                                <label for="shutdown-variant-{{id}}">{{label}}</label>
+                            </div>
+                            {{/shutdown.rows}}
+                        </div>
+                    </div>
+                    <div class="c-mainmenu-win95__shutdown__form__buttons">
+                        {{#shutdown.rows}}
+                        <button class="c-mainmenu-win95__shutdown__button c-mainmenu-win95__shutdown__btn--{{id}} {{actionClass}}">Ок</button>
+                        {{/shutdown.rows}}
+                        <button class="js-mainmenu-shutdown-toggle">Отмена</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
