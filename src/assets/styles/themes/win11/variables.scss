@@ -1,6 +1,12 @@
+$theme: 'win11';
+$theme-images-path: "../images/themes/#{$theme}/";
+
 html {
 
-    &.ui-os--win11 {
+    &.ui-os--#{$theme} {
+        --theme: '#{$theme}';
+        --theme-images-path: '#{$theme-images-path}';
+
         --taskbar-width: 100%;
         --taskbar-height: 48px;
         --taskbar-color: #fff;

@@ -1,6 +1,12 @@
+$theme: 'win95';
+$theme-images-path: "../images/themes/#{$theme}/";
+
 html {
 
-    &.ui-os--win95 {
+    &.ui-os--#{$theme} {
+        --theme: '#{$theme}';
+        --theme-images-path: '#{$theme-images-path}';
+        
         --primary-color: silver;
 
         --taskbar-width: 100%;

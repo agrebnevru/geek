@@ -39,7 +39,6 @@ export default class Mainmenu {
 
                 document.body.dataset.mainmenuClosed = true
 
-                console.log('closeeee -', document.querySelector('.js-mainmenu-shutdown').dataset.closeByOutsideClick)
                 if ('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closeByOutsideClick) {
                     document.body.dataset.mainmenuShutdownClosed = true
                 }

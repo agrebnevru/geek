@@ -11,4 +11,4 @@
 @import './taskbar.scss';
 @import './window.scss';
 
-.ui-os--win11 {}
+.ui-os--#{$theme} {}

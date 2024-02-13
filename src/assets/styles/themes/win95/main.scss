@@ -2,7 +2,7 @@
 
 html {
 
-    &.ui-os--win95 {
+    &.ui-os--#{$theme} {
         @import './global/all.scss';
 
         @import './body.scss';

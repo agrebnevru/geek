@@ -2,7 +2,7 @@ body {
 
     &[data-mainmenu-closed=false] {
 
-        .c-mainmenu-win11 {
+        .c-mainmenu-#{$theme} {
             pointer-events: all;
             opacity: 1;
             transform: translate(-50%, -630px);
@@ -11,7 +11,7 @@ body {
 
     &[data-mainmenu-shutdown-closed=false] {
 
-        .c-mainmenu-win11 {
+        .c-mainmenu-#{$theme} {
             
             &__shutdown {
 
@@ -25,7 +25,7 @@ body {
     }
 }
 
-.c-mainmenu-win11 {
+.c-mainmenu-#{$theme} {
     pointer-events: none;
     position: relative;
     top: 50px;

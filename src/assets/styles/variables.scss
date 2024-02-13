@@ -1,4 +1,10 @@
+$theme: 'win11' !default;
+$theme-images-path: "../images/themes/#{$theme}/";
+
 html {
+    --theme: 'win11';
+    --theme-images-path: '../images/themes/#{$theme}/';
+
     --max-width: 100vw;
     --max-height: 100vh;
 

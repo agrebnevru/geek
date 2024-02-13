@@ -1,6 +1,6 @@
 $mainmenu-footer-height: 42px;
 
-.c-mainmenu-win11 {
+.c-mainmenu-#{$theme} {
 
     &__footer {
         display: flex;

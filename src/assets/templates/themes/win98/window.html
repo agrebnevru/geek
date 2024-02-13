@@ -1,0 +1,26 @@
+<div class="ui-window js-window" data-program-name="{{name}}" data-closed="true" data-maximize="true" data-fullsize="true" data-focus="{{focus}}">
+    <div class="ui-window__wrapper">
+        <div class="ui-window__toolbar js-window-draggabler">
+            <div class="ui-window__toolbar__name">
+                <div class="ui-window__toolbar__icon">{{{iconData}}}</div>
+                <div class="ui-window__toolbar__title">{{title}}</div>
+            </div>
+            <div class="ui-window__toolbar__buttons">
+                <button class="ui-window__toolbar__btn ui-window__toolbar__btn--minimize js-window-minimize"></button>
+                <button class="ui-window__toolbar__btn ui-window__toolbar__btn--maximize js-window-fullsize"></button>
+                <button class="ui-window__toolbar__btn ui-window__toolbar__btn--close js-window-close"></button>
+            </div>
+        </div>
+        <div class="ui-window__body js-windows-body">
+            <div class="ui-window__body__wrapper"><div class="js-windows-body-render"></div></div>
+        </div>
+        <div class="ui-window__graggable__line ui-window__graggable__horizontal ui-window__graggable__line__top js-window-draggable-top"></div>
+        <div class="ui-window__graggable__line ui-window__graggable__vertical ui-window__graggable__line__right js-window-draggable-right"></div>
+        <div class="ui-window__graggable__line ui-window__graggable__horizontal ui-window__graggable__line__bottom js-window-draggable-bottom"></div>
+        <div class="ui-window__graggable__line ui-window__graggable__vertical ui-window__graggable__line__left js-window-draggable-left"></div>
+        <div class="ui-window__graggable__corner ui-window__graggable__corner__top-left js-window-draggable-corner-top-left"></div>
+        <div class="ui-window__graggable__corner ui-window__graggable__corner__top-right js-window-draggable-corner-top-right"></div>
+        <div class="ui-window__graggable__corner ui-window__graggable__corner__bottom-right js-window-draggable-corner-bottom-right"></div>
+        <div class="ui-window__graggable__corner ui-window__graggable__corner__bottom-left js-window-draggable-corner-bottom-left"></div>
+    </div>
+</div>

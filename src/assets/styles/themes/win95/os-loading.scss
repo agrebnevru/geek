@@ -2,7 +2,7 @@
 
     &__wrapper {
         justify-content: flex-end;
-        background-image: url(../images/themes/win95/os-loading.jpg);
+        background-image: url(#{$theme-images-path}os-loading.jpg);
         background-size: cover;
         background-repeat: no-repeat;
     }

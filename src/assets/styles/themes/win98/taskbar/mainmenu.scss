@@ -58,22 +58,15 @@ body {
 
     &__os-logo {
         display: flex;
-        width: 34px;
+        width: 22px;
+        background: rgb(0, 0, 128);
 
         &__text {
-            font-size: 24px;
+            font-size: 15px;
             color: white;
             padding: 6px 1px;
-            background: #7b7d7b;
             writing-mode: vertical-lr;
             transform: rotate(180deg);
-
-            > span {
-
-                &:first-of-type {
-                    color: #bdbebd;
-                }
-            }
         }
     }
 
@@ -264,7 +257,7 @@ body {
                 display: flex;
                 justify-content: flex-end;
 
-                > button {
+                >button {
 
                     &:last-of-type {
                         margin-left: 6px;
