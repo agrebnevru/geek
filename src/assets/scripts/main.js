@@ -5,8 +5,8 @@ const fs = require('fs');
 const DIR_IMAGES = `${app.getAppPath()}/src/assets/images/`
 const DIR_PROGRAMS = `${app.getAppPath()}/src/assets/programs/`
 const DIR_TEMPLATES = `${app.getAppPath()}/src/assets/templates/`
+const SAVE_DATA_ENCRYPT = true
 const SAVE_FILE_NAME = 'save.data'
-// const SAVE_FILE_PATH = `${path.dirname(app.getPath('exe'))}/${SAVE_FILE_NAME}`
 const SAVE_FILE_PATH = `${app.getAppPath()}/${SAVE_FILE_NAME}`
 let win = null
 
@@ -23,6 +23,18 @@ function shutdown() {
 function restart() {
     // console.log('restart')
     win.reload()
+}
+
+async function packageLoad() {
+    // console.log('packageLoad')
+    let path = `${app.getAppPath()}/package.json`,
+        data = {}
+
+    if (true === fs.existsSync(path)) {
+        data = JSON.parse(fs.readFileSync(path, 'utf8'))
+    }
+
+    return data
 }
 
 async function getProgramTemplates(e, os, programName) {
@@ -181,11 +193,18 @@ async function getTemplates(e, os) {
 async function storageLoad() {
     // console.log('storageLoad')
     // SAVE_FILE_PATH
-    let data = {}
+    let dataString = '',
+        data = {}
 
     if (true === fs.existsSync(SAVE_FILE_PATH)) {
-        data = JSON.parse(fs.readFileSync(SAVE_FILE_PATH, 'utf8'))
+        dataString = fs.readFileSync(SAVE_FILE_PATH, 'utf8')
     }
+
+    if (true === SAVE_DATA_ENCRYPT) {
+
+    }
+
+    data = JSON.parse(dataString)
 
     return data
 }
@@ -193,7 +212,13 @@ async function storageLoad() {
 async function storageSave(e, data) {
     // console.log('storageSave')
 
-    fs.writeFileSync(SAVE_FILE_PATH, JSON.stringify(data, null, 2), 'utf-8');
+    let dataString = JSON.stringify(data, null, 2)
+
+    if (true === SAVE_DATA_ENCRYPT) {
+
+    }
+
+    fs.writeFileSync(SAVE_FILE_PATH, dataString, 'utf-8');
 }
 
 // ipcMain.on('request', async (event, url) => {
@@ -234,6 +259,7 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
+    ipcMain.handle('package-load', packageLoad)
     ipcMain.handle('shutdown', shutdown)
     ipcMain.handle('restart', restart)
     ipcMain.handle('storage-load', storageLoad)

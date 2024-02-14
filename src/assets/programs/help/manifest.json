@@ -11,5 +11,10 @@
     },
     "templates": {
         
+    },
+    "windowSettings": {
+        "toolbarMaximize": false,
+        "sizeFullsize": false,
+        "windowStyle": "width:600px;height:500px;"
     }
 }

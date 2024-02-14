@@ -23,12 +23,28 @@ export default class Window {
         this.windowSelector = `.js-window[data-program-name="${this.programName}"]`
         this.rendered = false
 
+        this.defaultWindowSettings = {
+            resizable: true,
+            graggable: true,
+            toolbarShow: true,
+            toolbarName: true,
+            toolbarIcon: true,
+            toolbarTitle: true,
+            toolbarButtonsShow: true,
+            toolbarButtonsMinimize: true,
+            toolbarButtonsMaximize: true,
+            toolbarButtonsClose: true,
+            sizeFullsize: true,
+            windowStyle: "",
+        }
+
         this.init()
     }
 
     init() {
         // console.log('Window::init')
 
+        this.initSettings()
         // this.addEventListeners() // after mount
     }
 
@@ -38,22 +54,39 @@ export default class Window {
         this.domElement.on('mousedown', '.js-window-draggabler', WindowDraggable.draggable)
         this.domElement.on('ontouchstart', '.js-window-draggabler', WindowDraggable.draggable)
 
-        this.domElement.on('mousedown', '.js-window-draggable-top', WindowResizer.resizeYNegative(this.domElement))
-        this.domElement.on('mousedown', '.js-window-draggable-bottom', WindowResizer.resizeYPositive(this.domElement))
-        this.domElement.on('mousedown', '.js-window-draggable-left', WindowResizer.resizeXNegative(this.domElement))
-        this.domElement.on('mousedown', '.js-window-draggable-right', WindowResizer.resizeXPositive(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-top', WindowResizer.resizeYNegative(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-bottom', WindowResizer.resizeYPositive(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-left', WindowResizer.resizeXNegative(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-right', WindowResizer.resizeXPositive(this.domElement))
 
-        this.domElement.on('mousedown', '.js-window-draggable-corner-top-left', WindowResizer.resizeXNegative(this.domElement))
-        this.domElement.on('mousedown', '.js-window-draggable-corner-top-left', WindowResizer.resizeYNegative(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-top-left', WindowResizer.resizeXNegative(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-top-left', WindowResizer.resizeYNegative(this.domElement))
 
-        this.domElement.on('mousedown', '.js-window-draggable-corner-top-right', WindowResizer.resizeXPositive(this.domElement))
-        this.domElement.on('mousedown', '.js-window-draggable-corner-top-right', WindowResizer.resizeYNegative(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-top-right', WindowResizer.resizeXPositive(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-top-right', WindowResizer.resizeYNegative(this.domElement))
 
-        this.domElement.on('mousedown', '.js-window-draggable-corner-bottom-right', WindowResizer.resizeXPositive(this.domElement))
-        this.domElement.on('mousedown', '.js-window-draggable-corner-bottom-right', WindowResizer.resizeYPositive(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-bottom-right', WindowResizer.resizeXPositive(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-bottom-right', WindowResizer.resizeYPositive(this.domElement))
 
-        this.domElement.on('mousedown', '.js-window-draggable-corner-bottom-left', WindowResizer.resizeXNegative(this.domElement))
-        this.domElement.on('mousedown', '.js-window-draggable-corner-bottom-left', WindowResizer.resizeYPositive(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-bottom-left', WindowResizer.resizeXNegative(this.domElement))
+        this.domElement.on('mousedown', '.js-window-resizable-corner-bottom-left', WindowResizer.resizeYPositive(this.domElement))
+    }
+
+    initSettings() {
+        // console.log('Window::initSettings')
+
+        let progSettings = this.programEntity.getWindowSettings()
+        if (0 === Object.values(progSettings).length) {
+            return
+        }
+
+        for (let optionName in this.defaultWindowSettings) {
+            if (false === progSettings.hasOwnProperty(optionName)) {
+                continue
+            }
+
+            this.defaultWindowSettings[optionName] = progSettings[optionName]
+        }
     }
 
     open() {
@@ -100,14 +133,16 @@ export default class Window {
         if (true === this.rendered) {
             return
         }
-        // console.log('Window::mount')
+        console.log('Window::mount')
 
         let data = {
+            windowSettings: this.defaultWindowSettings,
             name: this.programName,
             focus: true,
             iconData: this.programManifest.iconData,
             title: this.programManifest.title,
         }
+        console.log('data =', data)
 
         const rendered = Mustache.render(Templates.getInstance().getByName('window'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)

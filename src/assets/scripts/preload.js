@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     contextBridge.exposeInMainWorld('electronApi', {
+        packageLoad: () => ipcRenderer.invoke('package-load'),
         shutdown: () => ipcRenderer.invoke('shutdown'),
         restart: () => ipcRenderer.invoke('restart'),
         storageLoad: () => ipcRenderer.invoke('storage-load'),

@@ -19,10 +19,12 @@ export default class Program {
         // console.log('Program::open')
         // console.log('this =', this)
 
-        this.initWindow()
+        await this.initWindow()
         await this.initTemplates()
 
+        await this.renderBefore()
         await this.render()
+        await this.renderAfter()
     }
 
     initWindow() {
@@ -45,25 +47,34 @@ export default class Program {
         }
     }
 
-    close() {
+    async close() {
         // console.log('Program::close')
-        // console.log('this =', this)
+        this.window = null
     }
 
+    async renderBefore() {}
+
+    async renderAfter() {}
+
     getRenderData() {
+        // console.log('Program::getRenderData')
         return {
             programName: 'Program.js'
         }
     }
 
     getRenderTemplate(name) {
+        // console.log('Program::getRenderTemplate')
         return this.templates[name] || ''
     }
 
-    render() {
+    async render() {
         // console.log('Program::render')
         let data = this.getRenderData(),
             template = this.getRenderTemplate('body')
+
+        // console.log('data =', data)
+        // console.log('template =', template)
 
         if (0 === Object.keys(data).length || '' === template) {
             return
@@ -73,5 +84,7 @@ export default class Program {
         this.window.getDomElementBody().innerHTML = rendered
     }
 
-
+    getWindowSettings() {
+        return this.windowSettings || {}
+    }
 }
