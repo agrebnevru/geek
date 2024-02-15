@@ -1,80 +1,83 @@
 <div class="c-mainmenu-winxp js-mainmenu js-mainmenu-render" data-close-when-shutdown-open="true">
     <div class="c-mainmenu-winxp__wrapper">
 
-        <div class="c-mainmenu-winxp__os-logo">
-            <div class="c-mainmenu-winxp__os-logo__text">
-                <span>Windows</span><span>98</span>
+        <div class="c-mainmenu-winxp__header">
+            <div class="c-mainmenu-winxp__header__image">
+                <svg>
+                    <use xlink:href="#profile"></use>
+                </svg>
             </div>
+            <div class="c-mainmenu-winxp__header__name">{{name}}</div>
         </div>
-        <div class="c-mainmenu-winxp__items">
-            <div class="c-mainmenu-winxp__item">
-                <div class="c-mainmenu-winxp__item__icon">
+
+        <div class="c-mainmenu-winxp__middle">
+            <div class="c-mainmenu-winxp__middle__top-line"></div>
+            <div class="c-mainmenu-winxp__middle__left">
+                <div class="c-mainmenu-winxp__menu__item c-mainmenu-winxp__menu__item--big">
                     <svg>
-                        <use xlink:href="#mainmenu-programs"></use>
+                        <use xlink:href="#icon-internet"></use>
                     </svg>
+                    <div class="c-mainmenu-winxp__menu__item__name">
+                        <div class="c-mainmenu-winxp__menu__item__title">Internet</div>
+                        <div class="c-mainmenu-winxp__menu__item__description">Internet Explorer</div>
+                    </div>
                 </div>
-                <div class="c-mainmenu-winxp__item__label">Программы</div>
-                <div class="c-mainmenu-winxp__submenu">
-                    <div class="c-mainmenu-winxp__submenu__items">
-                        {{#programs.rows}}
-                        <div class="c-mainmenu-winxp__submenu__item js-program-open" data-program-name="{{name}}">
-                            <div class="c-mainmenu-winxp__submenu__item__icon">
-                                {{{iconData}}}
+                <div class="c-mainmenu-winxp__menu__fill"></div>
+                <div class="c-mainmenu-winxp__menu__separator"></div>
+                <div class="c-mainmenu-winxp__menu__item c-mainmenu-winxp__menu__item--all-program">
+                    <div class="c-mainmenu-winxp__menu__item__title">Все программы</div>
+                    <svg>
+                        <use xlink:href="#mainmenu-all-programs"></use>
+                    </svg>
+                    <div class="c-mainmenu-winxp__submenu">
+                        <div class="c-mainmenu-winxp__submenu__items">
+                            {{#programs.rows}}
+                            <div class="c-mainmenu-winxp__submenu__item js-program-open" data-program-name="{{name}}">
+                                <div class="c-mainmenu-winxp__submenu__item__icon">
+                                    {{{iconData}}}
+                                </div>
+                                <div class="c-mainmenu-winxp__submenu__item__label">{{title}}</div>
                             </div>
-                            <div class="c-mainmenu-winxp__submenu__item__label">{{title}}</div>
+                            {{/programs.rows}}
                         </div>
-                        {{/programs.rows}}
                     </div>
                 </div>
             </div>
-            <div class="c-mainmenu-winxp__item c-mainmenu-winxp__item--disabled">
-                <div class="c-mainmenu-winxp__item__icon">
-                    <svg>
-                        <use xlink:href="#mainmenu-docs"></use>
-                    </svg>
-                </div>
-                <div class="c-mainmenu-winxp__item__label">Документы</div>
-            </div>
-            <div class="c-mainmenu-winxp__item js-program-open" data-program-name="settings">
-                <div class="c-mainmenu-winxp__item__icon">
-                    <svg>
-                        <use xlink:href="#mainmenu-settings"></use>
-                    </svg>
-                </div>
-                <div class="c-mainmenu-winxp__item__label">Настройки</div>
-            </div>
-            <div class="c-mainmenu-winxp__item c-mainmenu-winxp__item--disabled">
-                <div class="c-mainmenu-winxp__item__icon">
-                    <svg>
-                        <use xlink:href="#mainmenu-search"></use>
-                    </svg>
-                </div>
-                <div class="c-mainmenu-winxp__item__label">Поиск</div>
-            </div>
-            <div class="c-mainmenu-winxp__item js-program-open" data-program-name="help">
-                <div class="c-mainmenu-winxp__item__icon">
+            <div class="c-mainmenu-winxp__middle__right">
+                <div class="c-mainmenu-winxp__menu__separator"></div>
+                <div class="c-mainmenu-winxp__menu__item">
                     <svg>
                         <use xlink:href="#mainmenu-help"></use>
                     </svg>
+                    <div class="c-mainmenu-winxp__menu__item__title">Справка</div>
                 </div>
-                <div class="c-mainmenu-winxp__item__label">Справка</div>
-            </div>
-            <div class="c-mainmenu-winxp__item c-mainmenu-winxp__item--disabled">
-                <div class="c-mainmenu-winxp__item__icon">
+                <div class="c-mainmenu-winxp__menu__item">
+                    <svg>
+                        <use xlink:href="#mainmenu-search"></use>
+                    </svg>
+                    <div class="c-mainmenu-winxp__menu__item__title">Поиск</div>
+                </div>
+                <div class="c-mainmenu-winxp__menu__item">
                     <svg>
                         <use xlink:href="#mainmenu-run"></use>
                     </svg>
+                    <div class="c-mainmenu-winxp__menu__item__title">Выполнить</div>
                 </div>
-                <div class="c-mainmenu-winxp__item__label">Выполнить</div>
             </div>
-            <div class="c-mainmenu-winxp__delimiter"></div>
-            <div class="c-mainmenu-winxp__item js-mainmenu-shutdown-toggle">
-                <div class="c-mainmenu-winxp__item__icon">
-                    <svg>
-                        <use xlink:href="#mainmenu-shutdown"></use>
-                    </svg>
-                </div>
-                <div class="c-mainmenu-winxp__item__label">Завершение работы</div>
+        </div>
+
+        <div class="c-mainmenu-winxp__footer">
+            <div class="c-mainmenu-winxp__footer__item js-app-lock">
+                <svg>
+                    <use xlink:href="#icon-logoff"></use>
+                </svg>
+                <span>Выйти</span>
+            </div>
+            <div class="c-mainmenu-winxp__footer__item js-mainmenu-shutdown-toggle">
+                <svg>
+                    <use xlink:href="#icon-shutdown"></use>
+                </svg>
+                <span>Завершить работу</span>
             </div>
         </div>
 
