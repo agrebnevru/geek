@@ -7,20 +7,20 @@ html {
         --theme: '#{$theme}';
         --theme-images-path: '#{$theme-images-path}';
 
-        --primary-color: silver;
+        --primary-color: rgb(245, 245, 245);
 
         --taskbar-width: 100%;
-        --taskbar-height: 28px;
-        --taskbar-color: #000;
-        --taskbar-padding: 4px 2px 2px;
-        --taskbar-bg: var(--primary-color);
-        --taskbar-box-shadow: rgb(223, 223, 223) 0px 1px inset, rgb(255, 255, 255) 0px 2px inset;
+        --taskbar-height: 30px;
+        --taskbar-color: white;
+        --taskbar-padding: 0;
+        --taskbar-bg: linear-gradient(rgb(31, 47, 134) 0px, rgb(49, 101, 196) 3%, rgb(54, 130, 229) 6%, rgb(68, 144, 230) 10%, rgb(56, 131, 229) 12%, rgb(43, 113, 224) 15%, rgb(38, 99, 218) 18%, rgb(35, 91, 214) 20%, rgb(34, 88, 213) 23%, rgb(33, 87, 214) 38%, rgb(36, 93, 219) 54%, rgb(37, 98, 223) 86%, rgb(36, 95, 220) 89%, rgb(33, 88, 212) 92%, rgb(29, 78, 192) 95%, rgb(25, 65, 165) 98%);;
+        --taskbar-box-shadow: none;
 
-        --taskbar-block-padding: 0 5px;
+        --taskbar-block-padding: 0 8px;
         --taskbar-item-width: auto;
         --taskbar-item-height: 22px;
-        --taskbar-item-icon-width: 16px;
-        --taskbar-item-icon-height: 16px;
+        --taskbar-item-icon-width: 15px;
+        --taskbar-item-icon-height: 15px;
 
         --mainmenu-bg: var(--primary-color);
 

@@ -37,13 +37,14 @@ export default class Program {
     }
 
     async initTemplates() {
-        // console.log('Program::initTemplates')
+        console.log('Program::initTemplates')
 
         if (null === this.templates || typeof this.templates !== 'object') {
             this.templates = await Templates.getInstance().getProgramTemplates(
                 Storage.getInstance().getOsId(),
                 this.name
             )
+            console.log('this.templates =', this.templates)
         }
     }
 

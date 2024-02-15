@@ -48,39 +48,37 @@ async function getProgramTemplates(e, os, programName) {
         namesThemes = null,
         templatePath = null
 
-    // console.log('dirPath =', dirPath)
-    if (false === fs.existsSync(dirPath)) {
-        return {}
-    }
-    // console.log('go read dir')
+    if (true === fs.existsSync(dirPath)) {
+        names = fs.readdirSync(dirPath)
+        if (0 < names.length) {
+            for (let fileName of names) {
+                templatePath = `${dirPath}/${fileName}`
+                // console.log('templatePath =', templatePath)
 
-    names = fs.readdirSync(dirPath)
-    if (0 < names.length) {
-        for (let fileName of names) {
-            templatePath = `${dirPath}/${fileName}`
-            // console.log('templatePath =', templatePath)
+                if (true === fs.lstatSync(templatePath).isDirectory()) {
+                    continue
+                }
+                // console.log('read it!')
 
-            if (true === fs.lstatSync(templatePath).isDirectory()) {
-                continue
+                result[fileName.replace('.html', '')] = fs.readFileSync(templatePath, 'utf8')
             }
-            // console.log('read it!')
-
-            result[fileName.replace('.html', '')] = fs.readFileSync(templatePath, 'utf8')
         }
     }
 
-    namesThemes = fs.readdirSync(dirPathThemes)
-    if (0 < namesThemes.length) {
-        for (let fileName of namesThemes) {
-            templatePath = `${dirPathThemes}/${fileName}`
-            // console.log('templatePath =', templatePath)
+    if (true === fs.existsSync(dirPathThemes)) {
+        namesThemes = fs.readdirSync(dirPathThemes)
+        if (0 < namesThemes.length) {
+            for (let fileName of namesThemes) {
+                templatePath = `${dirPathThemes}/${fileName}`
+                // console.log('templatePath =', templatePath)
 
-            if (true === fs.lstatSync(templatePath).isDirectory()) {
-                continue
+                if (true === fs.lstatSync(templatePath).isDirectory()) {
+                    continue
+                }
+                // console.log('read it!')
+
+                result[fileName.replace('.html', '')] = fs.readFileSync(templatePath, 'utf8')
             }
-            // console.log('read it!')
-
-            result[fileName.replace('.html', '')] = fs.readFileSync(templatePath, 'utf8')
         }
     }
 

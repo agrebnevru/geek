@@ -1,5 +1,6 @@
 .l-taskbar {
-    z-index: 500;
+
+    &__wrapper {}
 
     &__block {
         min-width: 30px;
@@ -44,22 +45,27 @@
 
     &__tray {
         width: auto;
-        padding: 2px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: rgb(128, 128, 128) rgb(255, 255, 255) rgb(255, 255, 255) rgb(128, 128, 128);
+
+        &__wrapper {
+            height: var(--taskbar-height);
+            padding: 0px 10px;
+            background: linear-gradient(rgb(12, 89, 185) 1%, rgb(19, 158, 233) 6%, rgb(24, 181, 242) 10%, rgb(19, 155, 235) 14%, rgb(18, 144, 232) 19%, rgb(13, 141, 234) 63%, rgb(13, 159, 241) 81%, rgb(15, 158, 237) 88%, rgb(17, 155, 233) 91%, rgb(19, 146, 226) 94%, rgb(19, 126, 215) 97%, rgb(9, 91, 201) 100%);
+            border-left: 1px solid rgb(16, 66, 175);
+            box-shadow: rgb(24, 187, 255) 1px 0px 1px inset;
+        }
 
         .l-taskbar__block {
-            padding: 0 5px;
+            padding: 0px 10px;
         }
     }
 
     &__language {
         font-size: 12px;
         color: white;
-        background-color: #010080;
+        margin-right: 10px;
+        background-color: #316ac5;
 
-        > div {
+        >div {
             padding: 2px;
         }
     }

@@ -1,10 +1,7 @@
 .ui-window {
-    border: solid;
-    border-width: 2px;
-    border-bottom-color: #424242;
-    border-right-color: #424242;
-    border-left-color: #fff;
-    border-top-color: #fff;
+    padding: 0px;
+    border: none;
+    background: rgb(8, 49, 217);
     transition: opacity .1s;
     box-shadow: none;
     overflow: hidden;
@@ -22,28 +19,55 @@
     }
 
     &[data-fullsize=false] {
+        padding: 0px 3px 3px 3px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
 
         .ui-window {
 
             &__wrapper {
-                border: 1px solid #fff;
-                border-radius: 0;
+                border: none;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
             }
 
             &__toolbar {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+
+                &__bg {
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
 
                 &__btn {
 
                     &.ui-window__toolbar__btn--maximize {
-                        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 0H0v9h9V0zM8 2H1v6h7V2z' fill='%23000'/%3E%3C/svg%3E");
-                        background-position: top 2px left 3px;
-                        background-repeat: no-repeat;
+                        box-shadow: rgb(70, 70, 255) 0px -1px 2px 1px inset;
+                        background-image: radial-gradient(circle at 90% 90%, rgb(0, 84, 233) 0%, rgb(34, 99, 213) 55%, rgb(68, 121, 228) 70%, rgb(163, 187, 236) 90%, white 100%);
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            left: 4px;
+                            top: 4px;
+                            box-shadow: white 0px 3px inset, white 0px 0px 0px 1px inset;
+                            height: 12px;
+                            width: 12px;
+                        }
+
+                        &:after {
+                            display: none;
+                        }
                     }
 
                     &.ui-window__toolbar__btn--close {
-                        border-top-right-radius: 0;
+                        border-top-right-radius: 3px;
                     }
                 }
             }
@@ -51,27 +75,68 @@
     }
 
     &[data-focus=false] {
+        background: rgb(101, 130, 245);
 
         .ui-window {
 
             &__toolbar {
-                background-color: rgb(128, 128, 128);
+
+                &__bg {
+                    background: linear-gradient(rgb(118, 151, 231) 0%, rgb(126, 158, 227) 3%, rgb(148, 175, 232) 6%, rgb(151, 180, 233) 8%, rgb(130, 165, 228) 14%, rgb(124, 159, 226) 17%, rgb(121, 150, 222) 25%, rgb(123, 153, 225) 56%, rgb(130, 169, 233) 81%, rgb(128, 165, 231) 89%, rgb(123, 150, 225) 94%, rgb(122, 147, 223) 97%, rgb(171, 186, 227) 100%);
+                }
 
                 &__title {
-                    color: rgb(192, 192, 192);
+                    color: white;
+                }
+
+                &__buttons {
+                    opacity: .6;
                 }
             }
         }
     }
 
     &__wrapper {
-        border: 1px solid #fff;
-        background-color: silver;
+        border: none;
+        background-color: var(--primary-color);
     }
 
     &__toolbar {
+        position: relative;
+        display: flex;
+        align-items: center;
         padding: 3px 2px 3px 3px;
-        background: linear-gradient(90deg, navy, #1084d0);
+        background-color: transparent;
+
+        &__bg {
+            pointer-events: none;
+            position: absolute;
+            left: -3px;
+            top: 0;
+            right: -3px;
+            height: 28px;
+            background: linear-gradient(rgb(0, 88, 238) 0%, rgb(53, 147, 255) 4%, rgb(40, 142, 255) 6%, rgb(18, 125, 255) 8%, rgb(3, 111, 252) 10%, rgb(2, 98, 238) 14%, rgb(0, 87, 229) 20%, rgb(0, 84, 227) 24%, rgb(0, 85, 235) 56%, rgb(0, 91, 245) 66%, rgb(2, 106, 254) 76%, rgb(0, 98, 239) 86%, rgb(0, 82, 214) 92%, rgb(0, 64, 171) 94%, rgb(0, 48, 146) 100%);
+        }
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            display: block;
+            width: 15px;
+            opacity: 1;
+        }
+
+        &:before {
+            left: 0;
+            background: linear-gradient(to right, rgb(22, 56, 230) 0%, transparent 100%);
+        }
+
+        &:after {
+            right: 0;
+            background: linear-gradient(to left, rgb(22, 56, 230) 0%, transparent 100%);
+        }
 
         &__name {
             padding: 0;
@@ -81,40 +146,94 @@
             font-size: 11px;
             font-weight: 700;
             color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        &__buttons {
+            gap: 1px;
         }
 
         &__btn {
-            min-height: 14px;
-            min-width: 16px;
+            position: relative;
+            width: 22px;
+            height: 22px;
+            margin-right: 1px;
             padding: 0;
-            transition-duration: 0;
-            background-color: silver; // new property for win95
-            box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 3px;
+            transition: none;
 
             &:hover {
-                background-color: silver;
+                filter: brightness(120%);
             }
 
             &.ui-window__toolbar__btn--minimize {
-                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M0 0h6v2H0z'/%3E%3C/svg%3E");
-                background-position: bottom 3px left 4px;
-                background-repeat: no-repeat;
+                box-shadow: rgb(70, 70, 255) 0px -1px 2px 1px inset;
+                background-image: radial-gradient(circle at 90% 90%, rgb(0, 84, 233) 0%, rgb(34, 99, 213) 55%, rgb(68, 121, 228) 70%, rgb(163, 187, 236) 90%, white 100%);
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 4px;
+                    top: 13px;
+                    height: 3px;
+                    width: 8px;
+                    background-color: white;
+                }
             }
 
             &.ui-window__toolbar__btn--maximize {
-                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M2 0h6v2H2zM7 2h1v4H7zM2 2h1v1H2zM6 5h1v1H6zM0 3h6v2H0zM5 5h1v4H5zM0 5h1v4H0zM1 8h4v1H1z'/%3E%3C/svg%3E");
-                background-position: top 2px left 3px;
-                background-repeat: no-repeat;
+                box-shadow: rgb(70, 70, 255) 0px -1px 2px 1px inset;
+                background-image: radial-gradient(circle at 90% 90%, rgb(0, 84, 233) 0%, rgb(34, 99, 213) 55%, rgb(68, 121, 228) 70%, rgb(163, 187, 236) 90%, white 100%);
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    left: 7px;
+                    top: 4px;
+                    box-shadow: white 0px 2px inset, white 0px 0px 0px 1px inset;
+                    height: 8px;
+                    width: 8px;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    left: 4px;
+                    top: 7px;
+                    box-shadow: white 0px 2px inset, white 0px 0px 0px 1px inset, rgb(19, 109, 255) 1px -1px;
+                    height: 8px;
+                    width: 8px;
+                    background-color: rgb(19, 109, 255);
+                }
             }
 
             &.ui-window__toolbar__btn--close {
-                margin-left: 2px;
-                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E");
-                background-position: top 3px left 4px;
-                background-repeat: no-repeat;
+                box-shadow: rgb(218, 70, 0) 0px -1px 2px 1px inset;
+                background-image: radial-gradient(circle at 90% 90%, rgb(204, 70, 0) 0%, rgb(220, 101, 39) 55%, rgb(205, 117, 70) 70%, rgb(255, 204, 178) 90%, white 100%);
 
-                &:hover {
-                    background-color: silver;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 9px;
+                    top: 2px;
+                    transform: rotate(45deg);
+                    height: 16px;
+                    width: 2px;
+                    background-color: white;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 9px;
+                    top: 2px;
+                    transform: rotate(-45deg);
+                    height: 16px;
+                    width: 2px;
+                    background-color: white;
                 }
             }
         }
