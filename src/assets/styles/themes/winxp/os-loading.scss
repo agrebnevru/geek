@@ -1,0 +1,166 @@
+.ui-os-loading {
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: black;
+    }
+
+    &__inside {
+        width: 220px;
+    }
+
+    &__body {
+        padding-bottom: 50px;
+
+        &__top {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            &__text {
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 16px;
+            }
+
+            &__logo {
+                width: 125px;
+                height: 125px;
+                background: transparent no-repeat url(#{$theme-images-path}logo.svg) center center / contain;
+                transform: translateY(10px);
+            }
+        }
+
+        &__middle {
+            display: flex;
+            justify-content: flex-start;
+            font-size: 46px;
+            font-weight: 700;
+            line-height: 36px;
+
+            >span {
+                display: inline-flex;
+                font-size: 22px;
+                color: #FF6821;
+            }
+        }
+
+        &__bottom {
+            font-size: 30px;
+            font-weight: 300;
+            line-height: 30px;
+            margin-left: 5px;
+        }
+    }
+
+    &__preloader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__wrapper {
+            width: 150px;
+            height: 17px;
+            font-size: 0;
+            margin: 0 auto;
+            padding: 2px 1px;
+            border: 2px solid #b2b2b2;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+
+        &__box {
+            width: 9px;
+            height: 100%;
+            background: linear-gradient(to bottom, #2838c7 0%, #5979ef 17%, #869ef3 32%, #869ef3 45%, #5979ef 59%, #2838c7 100%);
+            display: inline-block;
+            margin-right: 2px;
+            animation: os-loading-preloader 2s infinite;
+            animation-timing-function: steps(15, end);
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        color: #fff;
+        padding: 40px;
+
+        &__left {
+            font-size: 16px;
+            line-height: 18px;
+        }
+
+        &__right {
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 18px;
+            font-style: italic;
+        }
+    }
+}
+
+@keyframes ui-os-loading {
+    0% {
+        visibility: hidden;
+    }
+
+    10% {
+        visibility: hidden;
+    }
+
+    11% {
+        visibility: visible;
+    }
+
+    70% {
+        visibility: hidden;
+    }
+
+    75% {
+        visibility: hidden;
+    }
+
+    76% {
+        visibility: visible;
+    }
+
+    90% {
+        visibility: visible;
+    }
+
+    91% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+
+@keyframes os-loading-preloader {
+    0% {
+        transform: translate(-30px);
+    }
+
+    // 70% {
+    //     transform: translate(120px);
+    // }
+
+    // 80% {
+    //     transform: translate(96px);
+    // }
+
+    // 81% {
+    //     transform: translate(114px);
+    // }
+
+    100% {
+        transform: translate(150px);
+    }
+}

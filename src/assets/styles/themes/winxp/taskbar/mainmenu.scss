@@ -1,0 +1,273 @@
+@mixin menu-styels {
+    color: black;
+    background-color: var(--mainmenu-bg);
+    border-top: 2px solid #fafafa;
+    border-left: 2px solid #fafafa;
+    border-right: 1.5px solid #5a5a5a;
+    border-bottom: 1.5px solid #5a5a5a;
+    box-shadow: 1px 1px #000;
+}
+
+$shutdown-variant: 'save', 'load', 'lock', 'save-and-shutdown', 'shutdown', 'save-and-restart', 'restart';
+
+body {
+
+    &[data-mainmenu-closed=false] {
+
+        .b-taskbar-icons {
+
+            &__item {
+
+                &:first-of-type {
+                    box-shadow: rgb(0, 0, 0) 1px 1px inset, rgb(128, 128, 128) 2px 2px inset, rgb(255, 255, 255) -1px -1px inset, rgb(223, 223, 223) -2px -2px inset;
+                }
+            }
+        }
+
+        .c-mainmenu-#{$theme} {
+            display: block;
+        }
+    }
+
+    &[data-mainmenu-shutdown-closed=false] {
+
+        .c-mainmenu-#{$theme} {
+
+            &__shutdown {
+                display: block;
+            }
+        }
+    }
+}
+
+.c-mainmenu-#{$theme} {
+    position: absolute;
+    bottom: calc(var(--taskbar-height) + 2px);
+    left: 0;
+    display: none;
+    // display: block;
+    user-select: none;
+    z-index: 200;
+
+    &__wrapper {
+        display: flex;
+        height: 100%;
+        cursor: default;
+        @include menu-styels;
+    }
+
+    &__os-logo {
+        display: flex;
+        width: 22px;
+        background: rgb(0, 0, 128);
+
+        &__text {
+            font-size: 15px;
+            color: white;
+            padding: 6px 1px;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__delimiter {
+        height: 2px;
+        margin: 3px 0px 3px 2px;
+        border-top: 1px solid rgb(128, 128, 128);
+        border-bottom: 1px solid rgb(255, 255, 255);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px 10px 5px 10px;
+
+        &.c-mainmenu-#{$theme}__item--disabled {
+            pointer-events: none;
+
+            .c-mainmenu-#{$theme} {
+
+                &__item {
+
+                    &__label {
+                        color: rgb(128, 128, 128);
+                        text-shadow: rgb(255, 255, 255) 1px 1px;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            background: #000076;
+            color: #fff;
+
+            &:has(.c-mainmenu-#{$theme}__submenu) {
+
+                &:after {
+                    border-top: 5px solid white;
+                }
+            }
+
+            .c-mainmenu-#{$theme} {
+
+                &__submenu {
+                    display: block;
+                }
+            }
+        }
+
+        &:has(.c-mainmenu-#{$theme}__submenu) {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                right: 10px;
+                display: flex;
+                content: " ";
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid black;
+                transform: rotate(-90deg);
+            }
+        }
+
+        &__icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+
+            >svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        &__label {
+            font-size: 12px;
+            padding-right: 10px;
+        }
+    }
+
+    &__submenu {
+        position: absolute;
+        left: 97%;
+        bottom: 0;
+        display: none;
+        @include menu-styels;
+
+        &__items {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 5px 10px 5px 10px;
+
+            &:hover {
+                background: #000076;
+                color: #fff;
+            }
+
+            &__icon {
+                width: 15px;
+                height: 15px;
+                margin-right: 6px;
+
+                >svg {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+
+            &__label {
+                font-size: 12px;
+                padding-right: 10px;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &__shutdown {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        color: black;
+
+        @each $variant in $shutdown-variant {
+            &:has(.c-mainmenu-#{$theme}__shutdown__variant--#{$variant}:checked) {
+                .c-mainmenu-#{$theme}__shutdown__btn--#{$variant} {
+                    display: inline-block;
+                }
+            }
+        }
+
+        &__overlay {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(#000000, .4);
+            z-index: 600;
+        }
+
+        &__menu {
+
+            &.ui-window {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 700;
+            }
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: row;
+            padding: 12px;
+
+            &__text {
+                padding-bottom: 12px;
+            }
+
+            &__option {
+                padding-bottom: 8px;
+            }
+
+            &__icon {
+                padding-right: 12px;
+
+                >svg {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+
+            &__buttons {
+                display: flex;
+                justify-content: flex-end;
+
+                >button {
+
+                    &:last-of-type {
+                        margin-left: 6px;
+                    }
+                }
+            }
+        }
+
+        &__button {
+            display: none;
+        }
+    }
+}

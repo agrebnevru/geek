@@ -2,8 +2,6 @@ import './assets/styles/main.scss'
 
 import Program from '../program'
 
-// import photo from './assets/images/photo.jpg';
-
 export class Main extends Program
 {
 

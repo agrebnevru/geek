@@ -1,0 +1,43 @@
+.b-taskbar-icons {
+
+    &__item {
+
+        &[data-active=true] {
+            box-shadow: rgb(0, 0, 0) 1px 1px inset, rgb(128, 128, 128) 2px 2px inset, rgb(255, 255, 255) -1px -1px inset, rgb(223, 223, 223) -2px -2px inset;
+            background-color: rgb(223, 223, 223);
+        }
+
+        &[data-closed=true] {
+            display: none;
+        }
+
+        &:active {
+
+            > svg {
+                transform: none;
+            }
+        }
+
+        &:after {
+            display: none;
+            content: "";
+        }
+
+        > svg {
+            margin-right: 3px;
+        }
+
+        &__title {
+            position: static;
+            bottom: 0;
+            font-size: inherit;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            transform: none;
+            transition: none;
+            opacity: 1;
+        }
+    }
+}

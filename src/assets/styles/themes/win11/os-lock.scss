@@ -14,7 +14,7 @@ body[data-show-os-lock=false] {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-image: url(../images/lock.jpg);
+    background-image: url(#{$theme-images-path}lock.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     transition: opacity .2s ease-in-out;

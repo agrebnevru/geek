@@ -1,0 +1,29 @@
+.ui-pc-shutdown {
+
+    &__body {
+        animation: 5s 1 win98-shutdown;
+        background: black;
+    }
+}
+
+@keyframes win98-shutdown {
+    0% {
+        background: black;
+        background-image: none;
+        background-position: center;
+    }
+
+    80% {
+        // background-image: url(#{$theme-images-path}shutdown.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    100% {
+        // background-image: url(#{$theme-images-path}shutdown.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

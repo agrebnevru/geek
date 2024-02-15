@@ -42,8 +42,10 @@ async function getProgramTemplates(e, os, programName) {
     // console.log('os =', os)
     // console.log('programName =', programName)
     let result = {},
-        dirPath = `${DIR_PROGRAMS}${programName}/assets/templates/themes/${os}`,
+        dirPath = `${DIR_PROGRAMS}${programName}/assets/templates/`,
+        dirPathThemes = `${DIR_PROGRAMS}${programName}/assets/templates/themes/${os}`,
         names = null,
+        namesThemes = null,
         templatePath = null
 
     // console.log('dirPath =', dirPath)
@@ -53,9 +55,6 @@ async function getProgramTemplates(e, os, programName) {
     // console.log('go read dir')
 
     names = fs.readdirSync(dirPath)
-    // console.log('after read dir')
-    // console.log('names =', names)
-
     if (0 < names.length) {
         for (let fileName of names) {
             templatePath = `${dirPath}/${fileName}`
@@ -69,6 +68,22 @@ async function getProgramTemplates(e, os, programName) {
             result[fileName.replace('.html', '')] = fs.readFileSync(templatePath, 'utf8')
         }
     }
+
+    namesThemes = fs.readdirSync(dirPathThemes)
+    if (0 < namesThemes.length) {
+        for (let fileName of namesThemes) {
+            templatePath = `${dirPathThemes}/${fileName}`
+            // console.log('templatePath =', templatePath)
+
+            if (true === fs.lstatSync(templatePath).isDirectory()) {
+                continue
+            }
+            // console.log('read it!')
+
+            result[fileName.replace('.html', '')] = fs.readFileSync(templatePath, 'utf8')
+        }
+    }
+
     // console.log('result =', result)
 
     return result

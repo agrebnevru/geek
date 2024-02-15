@@ -1,0 +1,26 @@
+button {
+    background: silver;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: transparent;
+    min-height: 23px;
+    min-width: 75px;
+    padding: 0 12px;
+    transition: none;
+    text-shadow: 0 0 #222;
+
+    &:not(:disabled) {
+
+        &:focus {
+            outline: 1px dotted #000;
+            outline-offset: -4px;
+        }
+
+        &:active {
+            box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
+            text-shadow: 1px 1px #222;
+        }
+    }
+}

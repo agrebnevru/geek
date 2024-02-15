@@ -26,6 +26,6 @@ html {
         --min-width: var(--program-min-width);
         --min-height: calc(var(--program-min-height) + var(--taskbar-height));
 
-        --desktop-bg: url(../images/bg.jpg) center center / cover no-repeat;
+        --desktop-bg: url(#{$theme-images-path}bg.jpg) center center / cover no-repeat;
     }
 }

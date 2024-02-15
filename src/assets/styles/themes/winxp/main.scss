@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+html {
+
+    &.ui-os--#{$theme} {
+        @import './global/all.scss';
+
+        @import './body.scss';
+        @import './desktop.scss';
+        // @import './loader.scss';
+        @import './os-loading.scss';
+        @import './os-lock.scss';
+        @import './pc-shuttingdown.scss';
+        @import './taskbar.scss';
+        @import './window.scss';
+    }
+}
