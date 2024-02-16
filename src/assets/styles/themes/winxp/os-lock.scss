@@ -12,10 +12,10 @@
 
     &__top,
     &__bottom {
-        background-color: #004da3;
         flex-basis: 12.5%;
         border-style: solid;
         border-image-slice: 1;
+        background-color: #004da3;
     }
 
     &__top {

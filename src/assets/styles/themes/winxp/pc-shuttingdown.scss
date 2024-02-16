@@ -1,29 +1,80 @@
 .ui-pc-shutdown {
+    background-image: none;
+    background-color: #508fd9;
+    transition: none;
 
-    &__body {
-        animation: 5s 1 win98-shutdown;
-        background: black;
-    }
-}
-
-@keyframes win98-shutdown {
-    0% {
-        background: black;
-        background-image: none;
-        background-position: center;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        background-color: #508fd9;
     }
 
-    80% {
-        // background-image: url(#{$theme-images-path}shutdown.jpg);
-        background-position: center;
+    &__top,
+    &__middle,
+    &__bottom {
+        width: 100%;
+    }
+
+    &__top,
+    &__bottom {
+        flex-basis: 12.5%;
+        border-style: solid;
+        border-image-slice: 1;
+        background-color: #004da3;
+    }
+
+    &__top {
+        border-image-source: linear-gradient(90deg, #004da3 0%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.9) 50%, #004da3 100%);
+        border-width: 0 0 4px 0;
+    }
+
+    &__middle {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) -21%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+        background-size: 700px 700px;
+        background-position: -240px -210px;
         background-repeat: no-repeat;
-        background-size: cover;
+
+        &__left,
+        &__right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+        }
+
+        &__left {
+            align-items: flex-end;
+            padding-right: 30px;
+        }
+
+        &__right {
+            align-items: flex-start;
+            padding-left: 20px;
+        }
     }
 
-    100% {
-        // background-image: url(#{$theme-images-path}shutdown.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+    &__icon {
+        display: flex;
+        padding-bottom: 40px;
+
+        >svg {
+            width: 250px;
+            height: 144px;
+        }
+
+        &__text {
+            font-size: 20px;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        min-height: 100px;
+        border-image-source: linear-gradient(90deg, #004da3 0%, #f09644 30%, #f09644 40%, #f09644 50%, #004da3 100%);
+        border-width: 4px 0 0 0;
     }
 }
