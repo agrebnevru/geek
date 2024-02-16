@@ -192,7 +192,7 @@ export default class Storage {
     }
 
     async save() {
-        console.log('Storage::save')
+        // console.log('Storage::save')
 
         let saveData = {}
 

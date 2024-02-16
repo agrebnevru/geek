@@ -156,8 +156,24 @@ export default class Taskbar {
 
     render() {
         // console.log('Taskbar::render')
+
+        let timestamp = Storage.getInstance().getCurrentTimeTimestamp(),
+            currentDatetime = new Date(timestamp * 1000),
+            dayDisplay = currentDatetime.getDate(),
+            monthDisplay = Number(currentDatetime.getMonth()) + 1,
+            yearDisplay = currentDatetime.getFullYear()
+
+        if (10 > dayDisplay) {
+            dayDisplay = '0' + dayDisplay
+        }
+        if (10 > monthDisplay) {
+            monthDisplay = '0' + monthDisplay
+        }
+
         let data = {
             rows: Object.values(Storage.getInstance().taskbar.programs),
+            date: `${dayDisplay}.${monthDisplay}.${yearDisplay}`,
+            time: currentDatetime.toLocaleTimeString({}, { hour: '2-digit', minute: '2-digit' }),
         }
         // console.log('data =', data)
 

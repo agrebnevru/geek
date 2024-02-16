@@ -23,8 +23,8 @@ html {
         --program-min-width: 640px;
         --program-min-height: 480px;
 
-        --window-color: white
-        --window-bg: black;;
+        --window-color: white;
+        --window-bg: #202124;
 
         --min-width: var(--program-min-width);
         --min-height: calc(var(--program-min-height) + var(--taskbar-height));
