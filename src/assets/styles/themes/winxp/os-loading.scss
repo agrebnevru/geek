@@ -1,4 +1,5 @@
 .ui-os-loading {
+    color: white;
 
     &__wrapper {
         display: flex;
@@ -142,23 +143,10 @@
     }
 }
 
-
 @keyframes os-loading-preloader {
     0% {
         transform: translate(-30px);
     }
-
-    // 70% {
-    //     transform: translate(120px);
-    // }
-
-    // 80% {
-    //     transform: translate(96px);
-    // }
-
-    // 81% {
-    //     transform: translate(114px);
-    // }
 
     100% {
         transform: translate(150px);

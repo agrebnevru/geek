@@ -1,0 +1,13 @@
+textarea {
+    appearance: none;
+    padding: 3px 4px;
+    border: none;
+    border-radius: 0;
+    background-color: #fff;
+
+    &:disabled {
+        color: -internal-light-dark(graytext, rgb(170, 170, 170));
+        border: 1px solid rgba(118, 118, 118, 0.3);
+        opacity: 0.7;
+    }
+}

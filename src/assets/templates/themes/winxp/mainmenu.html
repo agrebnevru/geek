@@ -44,8 +44,33 @@
                 </div>
             </div>
             <div class="c-mainmenu-winxp__middle__right">
-                <div class="c-mainmenu-winxp__menu__separator"></div>
                 <div class="c-mainmenu-winxp__menu__item">
+                    <svg>
+                        <use xlink:href="#icon-my-documents"></use>
+                    </svg>
+                    <div class="c-mainmenu-winxp__menu__item__title">Мои документы</div>
+                </div>
+                <div class="c-mainmenu-winxp__menu__item">
+                    <svg>
+                        <use xlink:href="#icon-my-computer"></use>
+                    </svg>
+                    <div class="c-mainmenu-winxp__menu__item__title">Мой компьютер</div>
+                </div>
+                <div class="c-mainmenu-winxp__menu__separator"></div>
+                <div class="c-mainmenu-winxp__menu__item js-program-open" data-program-name="settings">
+                    <svg>
+                        <use xlink:href="#icon-control-panel"></use>
+                    </svg>
+                    <div class="c-mainmenu-winxp__menu__item__title">Панель управления</div>
+                </div>
+                <div class="c-mainmenu-winxp__menu__item">
+                    <svg>
+                        <use xlink:href="#mainmenu-printers-and-faxes"></use>
+                    </svg>
+                    <div class="c-mainmenu-winxp__menu__item__title">Принтеры и факсы</div>
+                </div>
+                <div class="c-mainmenu-winxp__menu__separator"></div>
+                <div class="c-mainmenu-winxp__menu__item js-program-open" data-program-name="help">
                     <svg>
                         <use xlink:href="#mainmenu-help"></use>
                     </svg>
@@ -69,13 +94,13 @@
         <div class="c-mainmenu-winxp__footer">
             <div class="c-mainmenu-winxp__footer__item js-app-lock">
                 <svg>
-                    <use xlink:href="#icon-logoff"></use>
+                    <use xlink:href="#icon-shutdown-lock"></use>
                 </svg>
                 <span>Выйти</span>
             </div>
             <div class="c-mainmenu-winxp__footer__item js-mainmenu-shutdown-toggle">
                 <svg>
-                    <use xlink:href="#icon-shutdown"></use>
+                    <use xlink:href="#icon-shutdown-shutdown"></use>
                 </svg>
                 <span>Завершить работу</span>
             </div>
@@ -87,43 +112,39 @@
 <div class="c-mainmenu-winxp__shutdown">
     <div class="c-mainmenu-winxp__shutdown__overlay"></div>
     <div class="ui-window c-mainmenu-winxp__shutdown__menu js-mainmenu-shutdown" data-closed="false"
-        data-maximize="true" data-fullsize="false" data-focus="true" style="width:310px;height:auto;"
+        data-maximize="true" data-fullsize="false" data-focus="true" style="width:420px;height:auto;"
         data-close-by-outside-click="false">
         <div class="ui-window__wrapper">
-            <div class="ui-window__toolbar">
-                <div class="ui-window__toolbar__name">
-                    <div class="ui-window__toolbar__title">Завершение работы</div>
-                </div>
-                <div class="ui-window__toolbar__buttons">
-                    <button
-                        class="ui-window__toolbar__btn ui-window__toolbar__btn--close js-mainmenu-shutdown-toggle"></button>
-                </div>
-            </div>
-            <div class="ui-window__body js-windows-body">
-                <div class="ui-window__body__wrapper">
+            <div class="i-window c-mainmenu-winxp__shutdown__body ui-window__body js-windows-body">
+                <div class="i-window c-mainmenu-winxp__shutdown__body__wrapper ui-window__body__wrapper">
 
-                    <div class="c-mainmenu-winxp__shutdown__form">
-                        <div class="c-mainmenu-winxp__shutdown__form__column">
-                            <div class="c-mainmenu-winxp__shutdown__form__icon">
-                                <svg>
-                                    <use xlink:href="#mainmenu-shutdown-window"></use>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="c-mainmenu-winxp__shutdown__form__column">
-                            <div class="c-mainmenu-winxp__shutdown__form__text">Выберите действие из списка:</div>
-                            {{#shutdown.rows}}
-                            <div class="c-mainmenu-winxp__shutdown__form__option">
-                                <input name="shut-down-option" type="radio" id="shutdown-variant-{{id}}" class="c-mainmenu-winxp__shutdown__variant--{{id}}"{{#default}} checked {{/default}}>
-                                <label for="shutdown-variant-{{id}}">{{label}}</label>
-                            </div>
-                            {{/shutdown.rows}}
+                    <div class="c-mainmenu-winxp__shutdown__top">
+                        <div class="c-mainmenu-winxp__shutdown__top__title">Завершение работы Windows</div>
+                        <div class="c-mainmenu-winxp__shutdown__top__image">
+                            <svg>
+                                <use xlink:href="#xp-icon"></use>
+                            </svg>
                         </div>
                     </div>
-                    <div class="c-mainmenu-winxp__shutdown__form__buttons">
+                    <div class="c-mainmenu-winxp__shutdown__middle">
                         {{#shutdown.rows}}
-                        <button class="c-mainmenu-winxp__shutdown__button c-mainmenu-winxp__shutdown__btn--{{id}} {{actionClass}}">Ок</button>
+                        <div
+                            class="c-mainmenu-winxp__shutdown__option c-mainmenu-winxp__shutdown__option--{{id}} {{actionClass}}">
+                            <div class="c-mainmenu-winxp__shutdown__option__image">
+                                <svg>
+                                    <use xlink:href="#icon-shutdown-{{id}}"></use>
+                                </svg>
+                            </div>
+                            <div class="c-mainmenu-winxp__shutdown__option__title">{{label}}</div>
+                        </div>
                         {{/shutdown.rows}}
+                    </div>
+                    <div class="c-mainmenu-winxp__shutdown__bottom">
+                        <div class="c-mainmenu-winxp__shutdown__bottom__ext">
+                            <input type="checkbox" name="shutdown_menu_show_additional"
+                                id="shutdown_menu_show_additional">
+                            <label for="shutdown_menu_show_additional">Показать доп варианты</label>
+                        </div>
                         <button class="js-mainmenu-shutdown-toggle">Отмена</button>
                     </div>
 

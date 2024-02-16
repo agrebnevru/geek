@@ -133,7 +133,7 @@ export default class Window {
         if (true === this.rendered) {
             return
         }
-        console.log('Window::mount')
+        // console.log('Window::mount')
 
         let data = {
             windowSettings: this.defaultWindowSettings,
@@ -142,7 +142,6 @@ export default class Window {
             iconData: this.programManifest.iconData,
             title: this.programManifest.title,
         }
-        console.log('data =', data)
 
         const rendered = Mustache.render(Templates.getInstance().getByName('window'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)

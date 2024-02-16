@@ -27,6 +27,9 @@ html {
         --program-min-width: 300px;
         --program-min-height: 100px;
 
-        --desktop-bg: #008081;
+        --window-color: black;
+        --window-bg: #ece9d8;
+
+        --desktop-bg: url(#{$theme-images-path}bg.jpg) center center / cover no-repeat;
     }
 }

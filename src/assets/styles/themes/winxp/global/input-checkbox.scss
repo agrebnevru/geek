@@ -1,0 +1,80 @@
+input {
+
+    &[type=checkbox] {
+
+        &:not([disabled]) {
+
+            &:not(:active) {
+
+                +label {
+
+                    &:hover {
+
+                        &:before {
+                            box-shadow: inset -2px -2px #f8b636, inset 2px 2px #fedf9c;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:checked {
+
+            +label {
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: -17px;
+                    top: 1px;
+                    display: block;
+                    width: 11px;
+                    height: 11px;
+                    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 11 11' shape-rendering='crispEdges'%3E%3Cpath stroke='%2322a122' d='M8 2h1M7 3h2M2 4h1m3 0h3M2 5h2m1 0h3M2 6h5M3 7h3M4 8h1'/%3E%3C/svg%3E");
+                }
+            }
+        }
+
+        &:focus {
+
+            +label {
+                outline: 1px dotted #000;
+            }
+        }
+
+        &:disabled {
+
+            +label {
+
+                &:before {
+                    background: #fff;
+                    border: 1px solid #cac8bb;
+                }
+                
+                &:after {
+                    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 11 11' shape-rendering='crispEdges'%3E%3Cpath stroke='%23cac8bb' d='M8 2h1M7 3h2M2 4h1m3 0h3M2 5h2m1 0h3M2 6h5M3 7h3M4 8h1'/%3E%3C/svg%3E");
+                }
+            }
+        }
+
+        +label {
+            position: relative;
+            line-height: 13px;
+            margin-left: 19px;
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: -19px;
+                display: inline-block;
+                width: 13px;
+                height: 13px;
+                margin-right: 6px;
+                background: #fff;
+                box-shadow: none;
+                border: 1px solid #1d5281;
+                background: linear-gradient(135deg, #dcdcd7, #fff);
+            }
+        }
+    }
+}

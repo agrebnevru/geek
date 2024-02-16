@@ -1,0 +1,13 @@
+.b-program-ui {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: justify;
+    }
+
+    &__block {
+        margin: 30px 0px;
+    }
+}

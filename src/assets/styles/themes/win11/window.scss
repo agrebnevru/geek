@@ -111,6 +111,7 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
+        color: var(--window-color);
         border: none;
         background-color: #191919;
         z-index: 201;
@@ -193,11 +194,14 @@
     &__body {
         display: flex;
         flex-grow: 1;
+        max-height: calc(100% - 29px);
         overflow-y: auto;
 
         &__wrapper {
             width: 100%;
             padding: 3px;
+            background: var(--window-bg);
+            overflow-y: auto;
         }
     }
 

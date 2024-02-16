@@ -121,6 +121,7 @@
     }
 
     &__body {
+        max-height: calc(100% - 21px);
 
         &__wrapper {
             font-size: 12px;

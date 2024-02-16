@@ -10,6 +10,8 @@
 
 $shutdown-variant: 'save', 'load', 'lock', 'save-and-shutdown', 'shutdown', 'save-and-restart', 'restart';
 
+$shutdown-variant-hidden: 'save', 'load', 'shutdown', 'restart';
+
 body {
 
     &[data-mainmenu-closed=false] {
@@ -238,6 +240,20 @@ body {
             }
         }
 
+        &__body {
+
+            &:has(input[name="shutdown_menu_show_additional"]:checked) {
+
+                @each $variant in $shutdown-variant-hidden {
+                    .c-mainmenu-#{$theme}__shutdown__form__option {
+                        &.c-mainmenu-#{$theme}__shutdown__option--#{$variant} {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+
         &__form {
             display: flex;
             flex-direction: row;
@@ -249,6 +265,12 @@ body {
 
             &__option {
                 padding-bottom: 8px;
+
+                @each $variant in $shutdown-variant-hidden {
+                    &.c-mainmenu-#{$theme}__shutdown__option--#{$variant} {
+                        display: none;
+                    }
+                }
             }
 
             &__icon {
@@ -262,7 +284,6 @@ body {
 
             &__buttons {
                 display: flex;
-                justify-content: flex-end;
 
                 > button {
 
@@ -270,6 +291,13 @@ body {
                         margin-left: 6px;
                     }
                 }
+            }
+
+            &__ext {
+                display: flex;
+                align-items: center;
+                flex: 1;
+                font-size: 11px;
             }
         }
 

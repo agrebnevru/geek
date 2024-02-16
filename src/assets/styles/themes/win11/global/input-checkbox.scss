@@ -1,0 +1,16 @@
+input {
+
+    &[type=checkbox] {
+
+        &:disabled {
+
+            +label {
+                pointer-events: none;
+            }
+        }
+    }
+
+    +label {
+        user-select: none;
+    }
+}

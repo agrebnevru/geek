@@ -1,0 +1,14 @@
+{
+    "name": "ui",
+    "version": "1.0.0",
+    "main": "main.js",
+    "title": "UI/UX тестироваине",
+    "system": true,
+    "iconPlaceVisibility": {
+        "desktop": false,
+        "taskbar": false,
+        "mainmenu": true
+    },
+    "templates": {},
+    "windowSettings": {}
+}

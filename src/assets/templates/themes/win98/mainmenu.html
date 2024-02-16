@@ -96,7 +96,7 @@
                         class="ui-window__toolbar__btn ui-window__toolbar__btn--close js-mainmenu-shutdown-toggle"></button>
                 </div>
             </div>
-            <div class="ui-window__body js-windows-body">
+            <div class="ui-window__body c-mainmenu-win98__shutdown__body js-windows-body">
                 <div class="ui-window__body__wrapper">
 
                     <div class="c-mainmenu-win98__shutdown__form">
@@ -110,7 +110,7 @@
                         <div class="c-mainmenu-win98__shutdown__form__column">
                             <div class="c-mainmenu-win98__shutdown__form__text">Выберите действие из списка:</div>
                             {{#shutdown.rows}}
-                            <div class="c-mainmenu-win98__shutdown__form__option">
+                            <div class="c-mainmenu-win98__shutdown__form__option c-mainmenu-win98__shutdown__option--{{id}}">
                                 <input name="shut-down-option" type="radio" id="shutdown-variant-{{id}}" class="c-mainmenu-win98__shutdown__variant--{{id}}"{{#default}} checked {{/default}}>
                                 <label for="shutdown-variant-{{id}}">{{label}}</label>
                             </div>
@@ -118,6 +118,11 @@
                         </div>
                     </div>
                     <div class="c-mainmenu-win98__shutdown__form__buttons">
+                        <div class="c-mainmenu-win98__shutdown__form__ext">
+                            <input type="checkbox" name="shutdown_menu_show_additional"
+                                id="shutdown_menu_show_additional">
+                            <label for="shutdown_menu_show_additional">Доп варианты</label>
+                        </div>
                         {{#shutdown.rows}}
                         <button class="c-mainmenu-win98__shutdown__button c-mainmenu-win98__shutdown__btn--{{id}} {{actionClass}}">Ок</button>
                         {{/shutdown.rows}}

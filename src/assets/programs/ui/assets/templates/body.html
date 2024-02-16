@@ -1,0 +1,105 @@
+<div class="b-program-ui">
+    <div class="b-program-ui__wrapper">
+
+        <h1>Button</h1>
+        <div class="b-program-ui__block">
+            <button>Default</button>
+            <br><br>
+            <button disabled>Disabled</button>
+        </div>
+
+        <h1>Checkbox</h1>
+        <div class="b-program-ui__block">
+            <input type="checkbox" id="checkbox-example1">
+            <label for="checkbox-example1">Default checkbox</label>
+            <br><br>
+            <input type="checkbox" id="checkbox-example2" disabled>
+            <label for="checkbox-example2">Disabled checkbox</label>
+            <br><br>
+            <input type="checkbox" id="checkbox-example3" checked>
+            <label for="checkbox-example3">Checked checkbox</label>
+            <br><br>
+            <input type="checkbox" id="checkbox-example4" checked disabled>
+            <label for="checkbox-example4">Checked disabled checkbox</label>
+        </div>
+
+        <h1>Radio</h1>
+        <div class="b-program-ui__block">
+            <input type="radio" id="radio-example1" name="radio-example1">
+            <label for="radio-example1">Default radio #1</label>
+            <br>
+            <input type="radio" id="radio-example2" name="radio-example1">
+            <label for="radio-example2">Default radio #2</label>
+            <br>
+            <input type="radio" id="radio-example3" name="radio-example1" checked>
+            <label for="radio-example3">Checked radio #3</label>
+            <br>
+            <input type="radio" id="radio-example4" name="radio-example1" disabled>
+            <label for="radio-example4">Disabled radio #4</label>
+            <br><hr><br>
+            <input type="radio" id="radio-example5" name="radio-example2" checked disabled>
+            <label for="radio-example5">Checked disabled radio</label>
+        </div>
+
+        <h1>GroupBox</h1>
+        <div class="b-program-ui__block">
+            <fieldset>
+                <input type="radio" id="radio-example11" name="radio-example11">
+                <label for="radio-example11">Default radio</label>
+                <br>
+                <input type="radio" id="radio-example21" name="radio-example11" checked>
+                <label for="radio-example21">Checked radio</label>
+            </fieldset>
+            <br><br>
+            <fieldset>
+                <legend>Подпись для филдсета</legend>
+                <input type="radio" id="radio-example12" name="radio-example12">
+                <label for="radio-example12">Default radio</label>
+                <br>
+                <input type="radio" id="radio-example22" name="radio-example12" checked>
+                <label for="radio-example22">Checked radio</label>
+            </fieldset>
+        </div>
+
+        <h1>TextBox</h1>
+        <div class="b-program-ui__block">
+            Default text: <input id="text-example1" type="text">
+            <br><br>
+            Disabled text: <input id="text-example2" type="text" disabled>
+            <br><br>
+            Disabled text with text: <input id="text-example2" type="text" disabled value="Sample text">
+            <br><br>
+            Default textarea: <textarea id="textarea-example1" rows="8"></textarea>
+        </div>
+
+        <h1>Slider</h1>
+        <div class="b-program-ui__block">
+            <label for="range-example1">Low</label>
+            <input id="range-example1" type="range" min="1" max="11" value="5">
+            <label for="range-example1">High</label>
+            <br><br>
+            <label for="range-example2">Vertical range</label>
+            <input id="range-example2" class="range--vertical" type="range" min="1" max="11" step="1" value="4">
+        </div>
+
+        <h1>Dropdown</h1>
+        <div class="b-program-ui__block">
+            <select>
+                <option>5 - Incredible!</option>
+                <option>4 - Great!</option>
+                <option>3 - Pretty good</option>
+                <option>2 - Not so great</option>
+                <option>1 - Unfortunate</option>
+            </select>
+            <br><br>
+            <select disabled >
+                <option>5 - Incredible!</option>
+                <option>4 - Great!</option>
+                <option>3 - Pretty good</option>
+                <option>2 - Not so great</option>
+                <option>1 - Unfortunate</option>
+            </select>
+        </div>
+
+    </div>
+</div>

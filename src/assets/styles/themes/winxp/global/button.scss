@@ -1,26 +1,30 @@
 button {
-    background: silver;
-    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
-    border: none;
-    border-radius: 0;
-    box-sizing: border-box;
-    color: transparent;
-    min-height: 23px;
     min-width: 75px;
+    min-height: 23px;
     padding: 0 12px;
-    transition: none;
-    text-shadow: 0 0 #222;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    font-size: 11px;
+    border: 1px solid #003c74;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #fff, #ecebe5 86%, #d8d0c4);
+    box-shadow: none;
 
-    &:not(:disabled) {
+    &:hover {
+        box-shadow: inset -1px 1px #fff0cf, inset 1px 2px #fdd889, inset -2px 2px #fbc761, inset 2px -2px #e5a01a;
+    }
 
-        &:focus {
-            outline: 1px dotted #000;
-            outline-offset: -4px;
-        }
+    &:focus {
+        outline: 1px dotted #000;
+        outline-offset: -4px;
+        box-shadow: inset -1px 1px #cee7ff, inset 1px 2px #98b8ea, inset -2px 2px #bcd4f6, inset 1px -1px #89ade4, inset 2px -2px #89ade4;
+    }
 
-        &:active {
-            box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
-            text-shadow: 1px 1px #222;
-        }
+    &:active {
+        box-shadow: none;
+        background: linear-gradient(180deg,#cdcac3,#e3e3db 8%,#e5e5de 94%,#f2f2f1);
+    }
+
+    &:disabled {
+        color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
     }
 }

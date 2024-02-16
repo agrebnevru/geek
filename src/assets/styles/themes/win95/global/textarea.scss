@@ -1,0 +1,13 @@
+textarea {
+    padding: 3px 4px;
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    box-sizing: border-box;
+
+    &:disabled {
+        color: grey;
+        background-color: silver;
+    }
+}

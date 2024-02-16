@@ -3,10 +3,8 @@ body {
     width: var(--max-width);
     min-width: var(--min-width);
     min-height: var(--min-height);
-    color: white;
     margin: 0;
     padding: 0;
-    background: var(--desktop-bg);
     overflow: hidden;
 
     &[data-off=true] {

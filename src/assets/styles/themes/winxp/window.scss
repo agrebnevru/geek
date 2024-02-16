@@ -1,7 +1,6 @@
 .ui-window {
     padding: 0px;
     border: none;
-    background: rgb(8, 49, 217);
     transition: opacity .1s;
     box-shadow: none;
     overflow: hidden;
@@ -19,7 +18,7 @@
     }
 
     &[data-fullsize=false] {
-        padding: 0px 3px 3px 3px;
+        padding: 0 0 3px;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 0;
@@ -38,11 +37,6 @@
             &__toolbar {
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
-
-                &__bg {
-                    border-top-left-radius: 8px;
-                    border-top-right-radius: 8px;
-                }
 
                 &__btn {
 
@@ -75,15 +69,18 @@
     }
 
     &[data-focus=false] {
-        background: rgb(101, 130, 245);
 
         .ui-window {
 
-            &__toolbar {
+            &__wrapper {
+                box-shadow: inset -1px -1px rgb(118, 151, 231), inset 1px 1px rgb(126, 158, 227), inset -2px -2px rgb(151, 180, 233), inset 2px 2px rgb(121, 150, 222), inset -3px -3px rgb(121, 150, 222), inset 3px 3px rgb(123, 153, 225);
+            }
 
-                &__bg {
-                    background: linear-gradient(rgb(118, 151, 231) 0%, rgb(126, 158, 227) 3%, rgb(148, 175, 232) 6%, rgb(151, 180, 233) 8%, rgb(130, 165, 228) 14%, rgb(124, 159, 226) 17%, rgb(121, 150, 222) 25%, rgb(123, 153, 225) 56%, rgb(130, 169, 233) 81%, rgb(128, 165, 231) 89%, rgb(123, 150, 225) 94%, rgb(122, 147, 223) 97%, rgb(171, 186, 227) 100%);
-                }
+            &__toolbar {
+                background: linear-gradient(rgb(118, 151, 231) 0%, rgb(126, 158, 227) 3%, rgb(148, 175, 232) 6%, rgb(151, 180, 233) 8%, rgb(130, 165, 228) 14%, rgb(124, 159, 226) 17%, rgb(121, 150, 222) 25%, rgb(123, 153, 225) 56%, rgb(130, 169, 233) 81%, rgb(128, 165, 231) 89%, rgb(123, 150, 225) 94%, rgb(122, 147, 223) 97%, rgb(171, 186, 227) 100%);
+                border-top: 1px solid rgb(118, 151, 231);
+                border-left: 1px solid rgb(118, 151, 231);
+                border-right: 1px solid rgb(118, 151, 231);
 
                 &__title {
                     color: white;
@@ -99,24 +96,18 @@
     &__wrapper {
         border: none;
         background-color: var(--primary-color);
+        box-shadow: inset -1px -1px #00138c, inset 1px 1px #0831d9, inset -2px -2px #001ea0, inset 2px 2px #166aee, inset -3px -3px #003bda, inset 3px 3px #0855dd;
     }
 
     &__toolbar {
         position: relative;
         display: flex;
         align-items: center;
-        padding: 3px 2px 3px 3px;
-        background-color: transparent;
-
-        &__bg {
-            pointer-events: none;
-            position: absolute;
-            left: -3px;
-            top: 0;
-            right: -3px;
-            height: 28px;
-            background: linear-gradient(rgb(0, 88, 238) 0%, rgb(53, 147, 255) 4%, rgb(40, 142, 255) 6%, rgb(18, 125, 255) 8%, rgb(3, 111, 252) 10%, rgb(2, 98, 238) 14%, rgb(0, 87, 229) 20%, rgb(0, 84, 227) 24%, rgb(0, 85, 235) 56%, rgb(0, 91, 245) 66%, rgb(2, 106, 254) 76%, rgb(0, 98, 239) 86%, rgb(0, 82, 214) 92%, rgb(0, 64, 171) 94%, rgb(0, 48, 146) 100%);
-        }
+        padding: 3px 5px 3px 3px;
+        background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
+        border-top: 1px solid #0831d9;
+        border-left: 1px solid #0831d9;
+        border-right: 1px solid #001ea0;
 
         &:before,
         &:after {
@@ -143,10 +134,11 @@
         }
 
         &__title {
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 700;
             color: #fff;
-            letter-spacing: 0.5px;
+            letter-spacing: 0;
+            text-shadow: 1px 1px #0f1089;
         }
 
         &__buttons {
@@ -240,6 +232,8 @@
     }
 
     &__body {
+        padding: 0 3px 3px 3px;
+        max-height: calc(100% - 29px);
 
         &__wrapper {
             font-size: 12px;
