@@ -1,5 +1,6 @@
 .l-taskbar {
     border-top: 1px solid rgba(0,0,0,.1);
+    backdrop-filter: blur(2px);
 
     &__wrapper {}
 
@@ -8,7 +9,7 @@
         min-width: 30px;
         padding: var(--taskbar-block-padding);
         background: linear-gradient(to bottom,#808080cc 50%,#000c 59%);
-        border-radius: 5px;
+        border-radius: 3px;
         transition-duration: 0s;
 
         &:hover {

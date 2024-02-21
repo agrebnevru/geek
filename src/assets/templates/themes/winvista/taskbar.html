@@ -9,6 +9,13 @@
         </div>
 
         {{#rows}}
+        <div class="l-taskbar__block b-taskbar-icons__item b-taskbar-icons__item--sticky js-program-open" data-program-name="{{name}}"
+            data-sticky="{{sticky}}" data-closed="{{closed}}" data-active="{{active}}">
+            {{{iconData}}}
+        </div>
+        {{/rows}}
+
+        {{#rows}}
         <div class="l-taskbar__block b-taskbar-icons__item js-program-open" data-program-name="{{name}}"
             data-sticky="{{sticky}}" data-closed="{{closed}}" data-active="{{active}}">
             {{{iconData}}}

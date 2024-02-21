@@ -3,14 +3,14 @@
     gap: 2px;
 
     &__item {
-        background: linear-gradient(to bottom, #808080cc 50%, #000c 59%);
+        background: linear-gradient(to top, rgba(21,22,24,.9) 0%, rgba(27,28,30,.9) 49%, rgba(73,74,76,.9) 50%, rgba(135,142,135,.9) 95%, rgba(184,178,180,.9) 96%, rgba(184,178,180,.9) 99%, rgba(27,28,30,.9) 100%);
 
         &[data-active=true] {
-            background-color: rgb(30, 82, 183);
-            box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.7) 1px 0px 1px inset;
+            background: linear-gradient(to bottom, rgba(54,59,58,.9) 0%, rgba(42,47,40,.9) 49%, rgba(20,25,17,.9) 50%, rgba(0,3,0,.9) 100%);
+            box-shadow: inset 0 0 1px rgba(0, 0, 0, 1);
 
             &:hover {
-                background-color: rgb(53, 118, 243);
+                
             }
         }
 
@@ -19,8 +19,7 @@
         }
 
         &:hover {
-            background-color: rgb(83, 163, 255);
-            box-shadow: rgba(0, 0, 0, 0.3) -1px 0px inset, rgba(255, 255, 255, 0.2) 1px 1px 1px inset;
+            filter: brightness(1.05);
         }
 
         &:active {
@@ -38,8 +37,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            /* background-image: linear-gradient(to top,#add8e611,#fffb); */
-            background-image: linear-gradient(to top, #add8e6, #fff);
+            background-image: linear-gradient(to top, #add8e611, #fff);
             opacity: 0.3;
             box-shadow: 0px 0px 10px #000;
             z-index: -1;
@@ -50,8 +48,30 @@
             content: "";
         }
 
+        &.b-taskbar-icons__item--sticky {
+            display: none;
+
+            &[data-sticky=true] {
+                align-items: center;
+                background: none;
+                border: none;
+                box-shadow: none;
+                display: flex;
+                min-width: 10px;
+                justify-content: center;
+
+                &:before {
+                    display: none;
+                }
+
+                >svg {
+                    margin-right: 0;
+                }
+            }
+        }
+
         >svg {
-            margin-right: 3px;
+            margin-right: 5px;
         }
 
         &__title {

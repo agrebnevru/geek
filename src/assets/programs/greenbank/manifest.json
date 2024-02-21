@@ -5,7 +5,7 @@
     "title": "ГринБанк",
     "iconPlaceVisibility": {
         "desktop": true,
-        "taskbar": false,
+        "taskbar": true,
         "mainmenu": true
     }
 }
