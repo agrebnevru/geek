@@ -1,0 +1,100 @@
+<div class="c-mainmenu-winvista js-mainmenu js-mainmenu-render" data-close-when-shutdown-open="false">
+    <div class="c-mainmenu-winvista__wrapper">
+
+        <div class="c-mainmenu-winvista__items">
+            <div class="c-mainmenu-winvista__items__item" data-program-name="123">
+                <svg>
+                    <use xlink:href="#icon-internet"></use>
+                </svg>
+                <div class="c-mainmenu-winvista__items__item__name">
+                    <div class="c-mainmenu-winvista__items__item__title">Internet</div>
+                    <div class="c-mainmenu-winvista__items__item__description">Internet Explorer</div>
+                </div>
+            </div>
+            <div class="c-mainmenu-winvista__items__fill"></div>
+            <div class="c-mainmenu-winvista__items__separator"></div>
+            <label for="show-all-program" class="c-mainmenu-winvista__items__all-program">
+                <svg>
+                    <use xlink:href="#icon-arrow-right"></use>
+                </svg>
+                <div class="c-mainmenu-winvista__items__all-program__label">
+                    <span>Все программы</span>
+                    <span>Назад</span>
+                </div>
+            </label>
+            <input type="checkbox" class="c-mainmenu-winvista__items__all-program__input" name="show-all-program"
+                id="show-all-program">
+            <div class="c-mainmenu-winvista__submenu">
+                <div class="c-mainmenu-winvista__submenu__items">
+                    {{#programs.rows}}
+                    <div class="c-mainmenu-winvista__submenu__item js-program-open" data-program-name="{{name}}">
+                        <div class="c-mainmenu-winvista__submenu__item__icon">
+                            {{{iconData}}}
+                        </div>
+                        <div class="c-mainmenu-winvista__submenu__item__label">{{title}}</div>
+                    </div>
+                    {{/programs.rows}}
+                </div>
+            </div>
+        </div>
+
+        <div class="c-mainmenu-winvista__items-two">
+            <div class="c-mainmenu-winvista__items-two__icon">
+                <svg>
+                    <use xlink:href="#mainmenu-icon"></use>
+                </svg>
+            </div>
+            <div class="c-mainmenu-winvista__items-two__item js-program-open--" data-program-name="">
+                <div class="c-mainmenu-winvista__items-two__item__label">Документы</div>
+            </div>
+            <div class="c-mainmenu-winvista__items-two__item js-program-open--" data-program-name="">
+                <div class="c-mainmenu-winvista__items-two__item__label">Изображения</div>
+            </div>
+            <div class="c-mainmenu-winvista__items-two__item js-program-open--" data-program-name="">
+                <div class="c-mainmenu-winvista__items-two__item__label">Музыка</div>
+            </div>
+            <div class="c-mainmenu-winvista__items-two__item js-program-open--" data-program-name="">
+                <div class="c-mainmenu-winvista__items-two__item__label">Компьютер</div>
+            </div>
+            <div class="c-mainmenu-winvista__items-two__item js-program-open--" data-program-name="">
+                <div class="c-mainmenu-winvista__items-two__item__label">Сеть</div>
+            </div>
+            <div class="c-mainmenu-winvista__items-two__item js-program-open--" data-program-name="">
+                <div class="c-mainmenu-winvista__items-two__item__label">Подключение</div>
+            </div>
+        </div>
+
+        <div class="c-mainmenu-winvista__search">
+            <input class="c-mainmenu-winvista__search__input" type="text" placeholder="Начать поиск">
+        </div>
+        <div class="c-mainmenu-winvista__shutdown">
+            <div class="c-mainmenu-winvista__shutdown__buttons">
+                <div class="c-mainmenu-winvista__shutdown__button c-mainmenu-winvista__shutdown__button__shutdown js-app-save-and-shutdown">
+                    <svg>
+                        <use xlink:href="#mainmenu-shutdown-shutdown"></use>
+                    </svg>
+                </div>
+                <div class="c-mainmenu-winvista__shutdown__separator"></div>
+                <div class="c-mainmenu-winvista__shutdown__button c-mainmenu-winvista__shutdown__button__lock js-app-lock">
+                    <svg>
+                        <use xlink:href="#mainmenu-shutdown-lock"></use>
+                    </svg>
+                </div>
+                <div class="c-mainmenu-winvista__shutdown__separator"></div>
+                <div
+                    class="c-mainmenu-winvista__shutdown__button c-mainmenu-winvista__shutdown__button__more js-mainmenu-shutdown-toggle">
+                    <svg>
+                        <use xlink:href="#mainmenu-shutdown-arrow"></use>
+                    </svg>
+                </div>
+            </div>
+            <ul class="c-mainmenu-winvista__shutdown__menu ui-menu js-mainmenu-shutdown"
+                data-close-by-outside-click="true">
+                {{#shutdown.rows}}
+                <li role="menuitem"><a class="{{actionClass}}" href="#menu">{{label}}</a></li>
+                {{/shutdown.rows}}
+            </ul>
+        </div>
+
+    </div>
+</div>

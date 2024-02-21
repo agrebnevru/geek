@@ -1,0 +1,61 @@
+<div class="ui-window js-window" data-program-name="{{name}}" data-closed="true" data-maximize="true"
+    data-fullsize="{{windowSettings.sizeFullsize}}" data-focus="{{focus}}" style="{{windowSettings.windowStyle}}">
+    <div class="ui-window__wrapper">
+        {{#windowSettings.toolbarShow}}
+        <div class="ui-window__toolbar{{#windowSettings.graggable}} js-window-draggabler{{/windowSettings.graggable}}">
+            {{#windowSettings.toolbarName}}
+            <div class="ui-window__toolbar__name">
+                {{#windowSettings.toolbarIcon}}
+                <div class="ui-window__toolbar__icon">{{{iconData}}}</div>
+                {{/windowSettings.toolbarIcon}}
+                {{#windowSettings.toolbarTitle}}
+                <div class="ui-window__toolbar__title">{{title}}</div>
+                {{/windowSettings.toolbarTitle}}
+            </div>
+            {{/windowSettings.toolbarName}}
+            {{#windowSettings.toolbarButtonsShow}}
+            <div class="ui-window__toolbar__buttons">
+                {{#windowSettings.toolbarButtonsMinimize}}
+                <div class="ui-window__toolbar__btn ui-window__toolbar__btn--minimize js-window-minimize"></div>
+                {{/windowSettings.toolbarButtonsMinimize}}
+                {{#windowSettings.toolbarButtonsMaximize}}
+                <div class="ui-window__toolbar__btn ui-window__toolbar__btn--maximize js-window-fullsize"></div>
+                {{/windowSettings.toolbarButtonsMaximize}}
+                {{#windowSettings.toolbarButtonsClose}}
+                <div class="ui-window__toolbar__btn ui-window__toolbar__btn--close js-window-close"></div>
+                {{/windowSettings.toolbarButtonsClose}}
+            </div>
+            {{/windowSettings.toolbarButtonsShow}}
+        </div>
+        {{/windowSettings.toolbarShow}}
+        <div class="ui-window__body js-windows-body">
+            <div class="ui-window__body__wrapper js-windows-body-render"></div>
+        </div>
+        {{#windowSettings.resizable}}
+        <div
+            class="ui-window__resizable__line ui-window__resizable__horizontal ui-window__resizable__line__top js-window-resizable-top">
+        </div>
+        <div
+            class="ui-window__resizable__line ui-window__resizable__vertical ui-window__resizable__line__right js-window-resizable-right">
+        </div>
+        <div
+            class="ui-window__resizable__line ui-window__resizable__horizontal ui-window__resizable__line__bottom js-window-resizable-bottom">
+        </div>
+        <div
+            class="ui-window__resizable__line ui-window__resizable__vertical ui-window__resizable__line__left js-window-resizable-left">
+        </div>
+        <div
+            class="ui-window__resizable__corner ui-window__resizable__corner__top-left js-window-resizable-corner-top-left">
+        </div>
+        <div
+            class="ui-window__resizable__corner ui-window__resizable__corner__top-right js-window-resizable-corner-top-right">
+        </div>
+        <div
+            class="ui-window__resizable__corner ui-window__resizable__corner__bottom-right js-window-resizable-corner-bottom-right">
+        </div>
+        <div
+            class="ui-window__resizable__corner ui-window__resizable__corner__bottom-left js-window-resizable-corner-bottom-left">
+        </div>
+        {{/windowSettings.resizable}}
+    </div>
+</div>

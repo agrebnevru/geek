@@ -6,7 +6,7 @@
     border-left-color: #fff;
     border-top-color: #fff;
     transition: opacity .1s;
-    box-shadow: none;
+    box-shadow: var(--window-shadow);
     overflow: hidden;
     z-index: 100;
 

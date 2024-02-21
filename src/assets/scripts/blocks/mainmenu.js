@@ -53,7 +53,10 @@ export default class Mainmenu {
             document.on('click', '.js-mainmenu-shutdown-toggle', () => {
                 let value = ('false' === document.body.dataset.mainmenuShutdownClosed)
                 document.body.dataset.mainmenuShutdownClosed = value
-                if (false === value) {
+                if (
+                    'true' === document.querySelector('.js-mainmenu-shutdown').dataset.closeWhenShutdownOpen
+                    && false === value
+                ) {
                     document.body.dataset.mainmenuClosed = true
                 }
             })

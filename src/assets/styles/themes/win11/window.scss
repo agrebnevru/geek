@@ -4,7 +4,7 @@
     min-width: var(--program-min-width);
     min-height: var(--program-min-height);
     transition: all cubic-bezier(.85, .14, .14, .85) .25s;
-    box-shadow: 0 6px 20px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--window-shadow);
     overflow: hidden;
     z-index: 100;
 

@@ -1,0 +1,37 @@
+$theme: 'winvista';
+$theme-images-path: "../images/themes/#{$theme}/";
+
+html {
+
+    &.ui-os--#{$theme} {
+        --theme: '#{$theme}';
+        --theme-images-path: '#{$theme-images-path}';
+
+        --primary-color: rgb(245, 245, 245);
+
+        --taskbar-width: 100%;
+        --taskbar-height: 30px;
+        --taskbar-color: white;
+        --taskbar-padding: 0;
+        --taskbar-bg: linear-gradient(to top, rgba(21,22,24,.9) 0%, rgba(27,28,30,.9) 49%, rgba(73,74,76,.9) 50%, rgba(135,142,135,.9) 95%, rgba(184,178,180,.9) 96%, rgba(184,178,180,.9) 99%, rgba(27,28,30,.9) 100%);
+        
+        --taskbar-box-shadow: none;
+
+        --taskbar-block-padding: 0 8px;
+        --taskbar-item-width: auto;
+        --taskbar-item-height: 22px;
+        --taskbar-item-icon-width: 15px;
+        --taskbar-item-icon-height: 15px;
+
+        --mainmenu-bg: var(--primary-color);
+
+        --program-min-width: 300px;
+        --program-min-height: 100px;
+
+        --window-color: black;
+        --window-bg: #f0f0f0;
+        --window-shadow: 2px 2px 10px 1px rgba(0,0,0,.7), inset 0 0 0 1px #fffa;
+
+        --desktop-bg: url(#{$theme-images-path}bg.jpg) center center / cover no-repeat;
+    }
+}

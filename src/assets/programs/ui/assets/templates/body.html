@@ -3,7 +3,9 @@
 
         <h1>Button</h1>
         <div class="b-program-ui__block">
-            <button>Default</button>
+            <button>Default #1</button>
+            <br><br>
+            <button>Default #2</button>
             <br><br>
             <button disabled>Disabled</button>
         </div>
@@ -36,7 +38,8 @@
             <br>
             <input type="radio" id="radio-example4" name="radio-example1" disabled>
             <label for="radio-example4">Disabled radio #4</label>
-            <br><hr><br>
+            <br>
+            <hr><br>
             <input type="radio" id="radio-example5" name="radio-example2" checked disabled>
             <label for="radio-example5">Checked disabled radio</label>
         </div>
@@ -92,7 +95,7 @@
                 <option>1 - Unfortunate</option>
             </select>
             <br><br>
-            <select disabled >
+            <select disabled>
                 <option>5 - Incredible!</option>
                 <option>4 - Great!</option>
                 <option>3 - Pretty good</option>
@@ -100,6 +103,36 @@
                 <option>1 - Unfortunate</option>
             </select>
         </div>
+
+        <h1>Menu</h1>
+        <ul class="ui-menu" style="width: 200px">
+            <li role="menuitem" tabindex="0" aria-haspopup="true">View</li>
+            <li role="menuitem" tabindex="0" aria-haspopup="true">
+                Sort by
+                <ul role="menu">
+                    <li role="menuitem"><a href="#menu">Name</a></li>
+                    <li role="menuitem"><a href="#menu">Size</a></li>
+                    <li role="menuitem"><a href="#menu">Item type</a></li>
+                    <li role="menuitem"><a href="#menu">Date modified</a></li>
+                </ul>
+            </li>
+            <li role="menuitem" class="has-divider"><a href="#menu">Refresh</a></li>
+            <li role="menuitem" aria-disabled="true"><a href="#menu">Paste</a></li>
+            <li role="menuitem" class="has-divider" aria-disabled="true"><a href="#menu">Paste shortcut</a></li>
+            <li role="menuitem"><a href="#menu">Screen resolution</a></li>
+            <li role="menuitem">
+                <svg>
+                    <use xlink:href="#taskbar-menu"></use>
+                </svg>
+                <a href="#menu">Gadgets</a>
+            </li>
+            <li role="menuitem">
+                <svg>
+                    <use xlink:href="#icon-internet"></use>
+                </svg>
+                <a href="#menu">Personalize</a>
+            </li>
+        </ul>
 
     </div>
 </div>

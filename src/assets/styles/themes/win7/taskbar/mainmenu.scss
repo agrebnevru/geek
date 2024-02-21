@@ -1,0 +1,534 @@
+$shutdown-variant-hidden: 'save', 'load', 'shutdown', 'restart';
+
+body {
+
+    &[data-mainmenu-closed=false] {
+
+        .c-mainmenu-#{$theme} {
+            display: block;
+        }
+    }
+
+    &[data-mainmenu-shutdown-closed=false] {
+
+        .app {
+            animation: 5s ease 0s 1 normal forwards running ui-#{$theme}-shutdown-grayscale-app;
+        }
+
+        .c-mainmenu-#{$theme} {
+
+            &__shutdown {
+                display: block;
+            }
+        }
+    }
+}
+
+.c-mainmenu-#{$theme} {
+    position: absolute;
+    bottom: calc(var(--taskbar-height) + 2px);
+    left: 0;
+    display: none;
+    // display: block;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 2px;
+    user-select: none;
+    z-index: 200;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        font-size: 11px;
+        line-height: 14px;
+        background-color: rgb(66, 130, 214);
+    }
+
+    &__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 54px;
+        color: white;
+        padding: 6px 5px 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: linear-gradient(rgb(24, 104, 206) 0%, rgb(14, 96, 203) 12%, rgb(14, 96, 203) 20%, rgb(17, 100, 207) 32%, rgb(22, 103, 207) 33%, rgb(27, 108, 211) 47%, rgb(30, 112, 217) 54%, rgb(36, 118, 220) 60%, rgb(41, 122, 224) 65%, rgb(52, 130, 227) 77%, rgb(55, 134, 229) 79%, rgb(66, 142, 233) 90%, rgb(71, 145, 235) 100%);
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 0px;
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent 0px, rgba(255, 255, 255, 0.3) 1%, rgba(255, 255, 255, 0.5) 2%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 0.3) 98%, rgba(255, 255, 255, 0.2) 99%, transparent 100%);
+            box-shadow: rgb(14, 96, 203) 0px -1px 1px inset;
+        }
+
+        &__image {
+            width: 42px;
+            height: 42px;
+            margin-right: 5px;
+            border-radius: 3px;
+            border: 2px solid rgba(222, 222, 222, 0.8);
+            overflow: hidden;
+
+            >svg {
+                width: 42px;
+                height: 42px;
+            }
+        }
+
+        &__name {
+            font-size: 14px;
+            font-weight: 700;
+            text-shadow: rgba(0, 0, 0, 0.7) 1px 1px;
+        }
+    }
+
+    &__middle {
+        position: relative;
+        display: flex;
+        margin: 0px 2px;
+        border-top: 1px solid rgb(56, 93, 231);
+        box-shadow: rgb(56, 93, 231) 0px 1px;
+
+        &__top-line {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            display: block;
+            height: 2px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(218, 136, 74) 50%, rgba(0, 0, 0, 0) 100%);
+            border: 0px;
+        }
+
+        &__left,
+        &__right {
+            width: 190px;
+            padding: 6px 5px 0px;
+        }
+
+        &__left {
+            display: flex;
+            flex-direction: column;
+            color: black;
+            padding-bottom: 0px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        &__right {
+            color: rgb(0, 19, 107);
+            background-color: rgb(203, 227, 255);
+            border-left: 1px solid rgba(58, 58, 255, 0.37);
+        }
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        height: 36px;
+        color: white;
+        background: linear-gradient(rgb(66, 130, 214) 0%, rgb(59, 133, 224) 3%, rgb(65, 138, 227) 5%, rgb(65, 138, 227) 17%, rgb(60, 135, 226) 21%, rgb(55, 134, 228) 26%, rgb(52, 130, 227) 29%, rgb(46, 126, 225) 39%, rgb(35, 116, 223) 49%, rgb(32, 114, 219) 57%, rgb(25, 110, 219) 62%, rgb(23, 107, 216) 72%, rgb(20, 104, 213) 75%, rgb(17, 101, 210) 83%, rgb(15, 97, 203) 88%);
+
+        &__item {
+            display: flex;
+            align-items: center;
+            padding: 3px;
+            margin-right: 10px;
+
+            &:hover {
+                background-color: rgba(60, 80, 210, 0.5);
+            }
+
+            >svg {
+                width: 22px;
+                height: 22px;
+                margin-right: 2px;
+                border-radius: 3px;
+            }
+        }
+    }
+
+    &__menu {
+
+        &__item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 1px;
+            margin-bottom: 4px;
+
+            &:hover {
+                color: white;
+                background-color: rgb(47, 113, 205);
+
+                &:has(.c-mainmenu-#{$theme}__submenu) {
+
+                    .c-mainmenu-#{$theme}__submenu {
+                        display: block;
+                    }
+                }
+
+                .c-mainmenu-#{$theme} {
+
+                    &__menu {
+
+                        &__item {
+
+                            &__description {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.c-mainmenu-#{$theme}__menu__item--big {
+
+                >svg {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .c-mainmenu-#{$theme} {
+
+                    &__menu {
+
+                        &__item {
+
+                            &__name {}
+
+                            &__title {
+                                font-size: 13px;
+                                line-height: 14px;
+                                font-weight: 700;
+                            }
+
+                            &__description {}
+                        }
+                    }
+                }
+            }
+
+            &.c-mainmenu-#{$theme}__menu__item--all-program {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                >svg {
+                    width: 18px;
+                    height: 18px;
+                    margin-left: 3px;
+                }
+            }
+
+            >svg {
+                width: 22px;
+                height: 22px;
+                margin-right: 3px;
+            }
+
+            &__name {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            &__title {}
+
+            &__description {
+                color: rgba(0, 0, 0, 0.4);
+                line-height: 12px;
+                margin-bottom: 1px;
+            }
+        }
+
+        &__separator {
+            display: flex;
+            height: 7.5px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 100%) content-box;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+        }
+
+        &__fill {
+            flex: 1 1 0%;
+        }
+    }
+
+    &__submenu {
+        position: absolute;
+        left: 97%;
+        bottom: 0;
+        display: none;
+        // display: block;
+        min-width: 200px;
+        padding-left: 1px;
+        background-color: white;
+        box-shadow: rgb(114, 173, 233) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.5) 2px 3px 3px;
+        z-index: 10;
+
+        &__items {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 25px;
+            padding: 0px 22px 0px 10px;
+            box-shadow: rgb(64, 129, 255) 3px 0px inset;
+            color: black;
+
+            &:hover {
+                color: white;
+                background-color: rgb(27, 101, 204);
+            }
+
+            &__icon {
+                width: 16px;
+                height: 16px;
+                margin-right: 6px;
+
+                >svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            &__label {
+                font-size: 11px;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &__shutdown {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        color: black;
+        user-select: none;
+
+        &__overlay {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            z-index: 600;
+        }
+
+        &__menu {
+
+            &.ui-window {
+                left: 50%;
+                top: 50%;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+                border: 1px solid black;
+                transform: translate(-50%, -50%);
+                z-index: 700;
+
+                &[data-fullsize=false] {
+                    padding: 0;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+            }
+        }
+
+        &__body {
+
+            &.ui-window__body {
+                padding: 0;
+            }
+
+            &__wrapper {
+
+                &.ui-window__body__wrapper {
+                    padding: 0;
+                }
+            }
+
+            &:has(input[name="shutdown_menu_show_additional"]:checked) {
+
+                .c-mainmenu-#{$theme} {
+
+                    &__shutdown {
+
+                        &__middle {
+                            grid-template-columns: 1fr 1fr 1fr 1fr;
+                            grid-template-rows: 1fr 1fr;
+                        }
+                    }
+                }
+
+                @each $variant in $shutdown-variant-hidden {
+                    .c-mainmenu-#{$theme}__shutdown__option {
+                        &.c-mainmenu-#{$theme}__shutdown__option--#{$variant} {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 42px;
+            padding-left: 10px;
+            background: rgb(9, 33, 120);
+
+            &__title {
+                font-size: 17px;
+                font-family: "Noto Sans";
+                color: rgb(255, 255, 255);
+            }
+
+            &__image {
+                width: 43px;
+                height: 30px;
+                padding-right: 5px;
+
+                >svg {
+                    width: 37px;
+                    height: 30px;
+                }
+            }
+        }
+
+        &__middle {
+            position: relative;
+            flex: 1 1 0%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            padding: 25px 30px;
+            gap: 12px 12px;
+            background: linear-gradient(to right, rgb(51, 73, 224) 0%, rgb(97, 126, 230) 47%, rgb(97, 126, 230) 53%, rgb(51, 73, 224) 100%);
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                height: 2px;
+                background: linear-gradient(to right, transparent 0px, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.3) 60%, transparent 100%);
+            }
+        }
+
+        &__option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+
+            &:hover {
+
+                .c-mainmenu-#{$theme} {
+
+                    &__shutdown {
+
+                        &__option {
+
+                            &__image {
+
+                                >svg {
+                                    filter: brightness(1.1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @each $variant in $shutdown-variant-hidden {
+                &.c-mainmenu-#{$theme}__shutdown__option--#{$variant} {
+                    display: none;
+                }
+            }
+
+            &__image {
+                width: 30px;
+                height: 30px;
+
+                >svg {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            &__title {
+                padding-top: 3px;
+                font-weight: bold;
+                font-size: 11px;
+                text-align: center;
+            }
+        }
+
+        &__bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 42px;
+            background: rgb(9, 33, 120);
+
+            &__ext {
+                font-size: 11px;
+                color: white;
+                margin-left: 10px;
+            }
+
+            >button {
+                font-size: 11px;
+                padding: 0px 8px;
+                line-height: 10px;
+                background: rgb(240, 240, 240);
+                margin-right: 10px;
+                min-width: 48px;
+                min-height: 16px;
+                height: 16px;
+                border-radius: 1px;
+                box-shadow: rgb(0, 5, 176) 2px 2px 4px 1px, white 2px 2px 2px 0px, skyblue 0px 0px 0px 1px inset, skyblue 2px -2px inset;
+                border: none;
+                outline: none;
+
+                &:hover {
+                    box-shadow: black 1px 1px, white 1px 1px 2px 0px, orange 0px 0px 0px 1px inset, orange 2px -2px inset;
+                }
+            }
+        }
+    }
+}
+
+@keyframes ui-#{$theme}-shutdown-grayscale-app {
+    0% {
+        filter: brightness(1) grayscale(0);
+    }
+
+    30% {
+        filter: brightness(1) grayscale(0);
+    }
+
+    100% {
+        filter: brightness(0.6) grayscale(1);
+    }
+}

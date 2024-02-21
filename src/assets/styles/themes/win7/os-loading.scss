@@ -1,0 +1,60 @@
+.ui-os-loading {
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        background: black;
+    }
+
+    &__top {
+        min-height: 100px;
+    }
+
+    &__middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__icon {
+            width: 200px;
+            height: 200px;
+            background: url(#{$theme-images-path}os-loading.gif) 7px center / contain no-repeat;
+        }
+
+        &__tezt {
+
+        }
+    }
+
+    &__bottom {
+        padding: 40px;
+    }
+}
+
+@keyframes ui-os-loading {
+    0% {
+        visibility: hidden;
+    }
+
+    10% {
+        visibility: hidden;
+    }
+
+    11% {
+        visibility: visible;
+    }
+
+    90% {
+        visibility: visible;
+    }
+
+    91% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}

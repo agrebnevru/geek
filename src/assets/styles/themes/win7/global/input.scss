@@ -1,0 +1,24 @@
+input {
+
+    &[type=text],
+    &[type=number],
+    &[type=password] {
+        appearance: none;
+        height: 23px;
+        line-height: 2;
+        padding: 3px 4px;
+        border: 1px solid #7f9db9;
+        background-color: #fff;
+        border-radius: 0;
+
+        &:disabled,
+        &:read-only {
+            border: 1px solid rgba(118, 118, 118, 0.3);
+            opacity: 0.7;
+        }
+
+        &:disabled {
+            color: -internal-light-dark(graytext, rgb(170, 170, 170));
+        }
+    }
+}

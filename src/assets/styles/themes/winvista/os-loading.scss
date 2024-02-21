@@ -1,0 +1,109 @@
+$preloader-height: 14px;
+
+.ui-os-loading {
+    color: white;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background: black;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__preloader {
+        width: 150px;
+        height: $preloader-height;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid;
+        border-image: linear-gradient(#595959 50%, #131313 50%) 1;
+
+        &__wrapper {
+            width: 100%;
+            height: 100%;
+            font-size: 0;
+            border: 1px solid;
+            border-image: linear-gradient(#3d3d3d 50%, #131313 50%) 1;
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        &__box {
+            position: relative;
+            top: -2px;
+            display: inline-block;
+            width: 3px;
+            height: calc($preloader-height - 1px);
+            margin-right: 2px;
+            background: linear-gradient(to bottom, #b1b0b5 5%, #dddddd 10%, #d6ddc0 20%, #8fa464 30%, #91a857 40%, #667a2b 40%, #5f790c 50%, #3e480d 60%, #474831 100%);
+            animation: os-loading-preloader 2s infinite;
+            animation-timing-function: steps(15, end);
+        }
+    }
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        color: #cacaca;
+        text-align: center;
+        padding-top: 25px;
+        margin-bottom: 100px;
+    }
+}
+
+@keyframes ui-os-loading {
+    0% {
+        visibility: hidden;
+    }
+
+    10% {
+        visibility: hidden;
+    }
+
+    11% {
+        visibility: visible;
+    }
+
+    70% {
+        visibility: hidden;
+    }
+
+    71% {
+        visibility: hidden;
+    }
+
+    72% {
+        visibility: visible;
+    }
+
+    90% {
+        visibility: visible;
+    }
+
+    91% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes os-loading-preloader {
+    0% {
+        transform: translate(-30px);
+    }
+
+    100% {
+        transform: translate(150px);
+    }
+}

@@ -25,6 +25,7 @@ html {
 
         --window-color: white;
         --window-bg: #202124;
+        --window-shadow: 0 6px 20px 12px rgba(0, 0, 0, 0.25);
 
         --min-width: var(--program-min-width);
         --min-height: calc(var(--program-min-height) + var(--taskbar-height));
