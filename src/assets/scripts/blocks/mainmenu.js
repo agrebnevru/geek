@@ -54,7 +54,7 @@ export default class Mainmenu {
                 let value = ('false' === document.body.dataset.mainmenuShutdownClosed)
                 document.body.dataset.mainmenuShutdownClosed = value
                 if (
-                    'true' === document.querySelector('.js-mainmenu-shutdown').dataset.closeWhenShutdownOpen
+                    'true' === document.querySelector('.js-mainmenu').dataset.closeWhenShutdownOpen
                     && false === value
                 ) {
                     document.body.dataset.mainmenuClosed = true

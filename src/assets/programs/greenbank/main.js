@@ -9,14 +9,10 @@ export class Main extends Program
         console.log('Main::constructor [greenbank]')
     }
 
-    testDinamic()
-    {
-        console.log('Main::testDinamic [greenbank]')
-    }
-
-    static testStatic()
-    {
-        console.log('Main::testStatic [greenbank]')
+    getRenderData() {
+        return {
+            programName: 'ГринБанк'
+        }
     }
 }
 
