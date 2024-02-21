@@ -1,19 +1,19 @@
 <div class="ui-pc-shutdown js-pc-shutdown">
     <div class="ui-pc-shutdown__wrapper">
-        
+
         <div class="ui-pc-shutdown__top"></div>
         <div class="ui-pc-shutdown__middle">
-            <div class="ui-pc-shutdown__middle__left"></div>
-            <div class="ui-pc-shutdown__middle__right">
-                <div class="ui-pc-shutdown__icon">
-                    <svg>
-                        <use xlink:href="#xp-icon-with-text"></use>
-                    </svg>
-                </div>
-                <div class="ui-pc-shutdown__icon__text">{{#customText}}{{customText}}{{/customText}}{{^customText}}Завершение работы{{/customText}}</div>
+            <div class="ui-pc-shutdown__middle__spinner"></div>
+            <div class="ui-pc-shutdown__middle__text">
+                {{#customText}}{{customText}}{{/customText}}{{^customText}}Завершение работы{{/customText}}
             </div>
         </div>
-        <div class="ui-pc-shutdown__bottom"></div>
+        <div class="ui-pc-shutdown__bottom">
+            <svg>
+                <use xlink:href="#icon-vista"></use>
+            </svg>
+            <div class="ui-pc-shutdown__bottom__text"><span>Windows</span> <span>Vista</span></div>
+        </div>
 
     </div>
 </div>
