@@ -1,30 +1,84 @@
 button {
-    min-width: 75px;
-    min-height: 23px;
-    padding: 0 12px;
-    font-family: "Pixelated MS Sans Serif", Arial;
-    font-size: 11px;
-    border: 1px solid #003c74;
+    background: linear-gradient(180deg, #f2f2f2 45%, #ebebeb 0, #cfcfcf);
+    border: 1px solid #8e8f8f;
     border-radius: 3px;
-    background: linear-gradient(180deg, #fff, #ecebe5 86%, #d8d0c4);
-    box-shadow: none;
+    border-color: #8e8f8f;
+    box-shadow: inset 0 0 0 1px #fffc;
+    color: #222;
+    font: 9pt Segoe UI, SegoeUI, Noto Sans, sans-serif;
+    min-height: 23px;
+    min-width: 75px;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    transition: border-color 1s linear;
+    z-index: 0;
+
+    &:before {
+        background: linear-gradient(180deg, #eaf6fd 45%, #bee6fd 0, #a7d9f5);
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 1px #fffc;
+        content: "";
+        height: 100%;
+        left: 0;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        transition: opacity .3s;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 1s linear;
+        z-index: -1;
+    }
+
+    &:after {
+        background: linear-gradient(180deg, #e5f4fc, #c4e5f6 30% 50%, #98d1ef 50%, #68b3db);
+        border-radius: 2px;
+        box-shadow: inset 1px 1px 0 #0003, inset -1px 1px 0 #0001;
+        content: "";
+        height: 100%;
+        left: 0;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        transition: opacity .3s;
+        width: 100%;
+        z-index: -1;
+    }
 
     &:hover {
-        box-shadow: inset -1px 1px #fff0cf, inset 1px 2px #fdd889, inset -2px 2px #fbc761, inset 2px -2px #e5a01a;
+        border-color: #3c7fb1;
+        transition: border-color .3s;
+
+        &:before {
+            opacity: 1;
+            transition: opacity .3s;
+        }
     }
 
     &:focus {
-        outline: 1px dotted #000;
-        outline-offset: -4px;
-        box-shadow: inset -1px 1px #cee7ff, inset 1px 2px #98b8ea, inset -2px 2px #bcd4f6, inset 1px -1px #89ade4, inset 2px -2px #89ade4;
+        animation: pulse-anim 1s ease infinite alternate;
+        background-image: linear-gradient(180deg, #eaf6fd 45%, #bee6fd 0, #a7d9f5);
+        border-color: #5586a3;
     }
 
     &:active {
-        box-shadow: none;
-        background: linear-gradient(180deg,#cdcac3,#e3e3db 8%,#e5e5de 94%,#f2f2f1);
+        border-color: #6d91ab;
+        transition: border-color .3s;
+
+        &:after {
+            opacity: 1;
+            transition: opacity .3s;
+        }
     }
 
     &:disabled {
-        color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
+        background: #f4f4f4;
+        border-color: #aeb2b5;
+        color: #838383;
     }
 }

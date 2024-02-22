@@ -55,14 +55,15 @@
         }
 
         &__title {
-            pointer-events: none;
-            position: absolute;
-            bottom: calc(100% + 10px);
-            font-size: 0.9em;
-            padding: 3px 8px;
             border-radius: 3px;
             background-color: rgba(0, 0, 68, 0.623);
+            bottom: calc(100% + 10px);
+            font-size: 0.9em;
             opacity: 0;
+            padding: 3px 8px;
+            pointer-events: none;
+            position: absolute;
+            text-align: center;
             transform: translateY(-5px);
             transition-duration: .5s;
         }

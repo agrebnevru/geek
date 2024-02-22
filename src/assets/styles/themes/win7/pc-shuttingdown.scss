@@ -1,13 +1,15 @@
 .ui-pc-shutdown {
-    background-image: none;
-    background-color: #508fd9;
+    background-color: transparent;
+    background-image: url(#{$theme-images-path}lock.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     transition: none;
 
     &__wrapper {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         color: white;
-        background-color: #508fd9;
     }
 
     &__top,
@@ -17,64 +19,51 @@
     }
 
     &__top,
-    &__bottom {
-        flex-basis: 12.5%;
-        border-style: solid;
-        border-image-slice: 1;
-        background-color: #004da3;
-    }
+    &__bottom {}
 
-    &__top {
-        border-image-source: linear-gradient(90deg, #004da3 0%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.9) 50%, #004da3 100%);
-        border-width: 0 0 4px 0;
-    }
+    &__top {}
 
     &__middle {
         display: flex;
-        flex: 1;
+        align-items: center;
         justify-content: center;
-        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) -21%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
-        background-size: 700px 700px;
-        background-position: -240px -210px;
-        background-repeat: no-repeat;
 
-        &__left,
-        &__right {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 50%;
-        }
-
-        &__left {
-            align-items: flex-end;
-            padding-right: 30px;
-        }
-
-        &__right {
-            align-items: flex-start;
-            padding-left: 20px;
-        }
-    }
-
-    &__icon {
-        display: flex;
-        padding-bottom: 40px;
-
-        >svg {
-            width: 250px;
-            height: 144px;
+        &__spinner {
+            background-color: transparent;
+            background-image: url(#{$theme-images-path}spinner.gif);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+            height: 20px;
+            width: 20px;
         }
 
         &__text {
-            font-size: 20px;
+            font-size: 23px;
         }
     }
 
     &__bottom {
         display: flex;
-        min-height: 100px;
-        border-image-source: linear-gradient(90deg, #004da3 0%, #f09644 30%, #f09644 40%, #f09644 50%, #004da3 100%);
-        border-width: 4px 0 0 0;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 12px;
+
+        > svg {
+            height: 48px;
+            width: 51px;
+            margin-right: 7px;
+        }
+
+        &__text {
+            font-size: 28px;
+
+            > span {
+
+                &:last-of-type {
+                    font-weight: 300;
+                }
+            }
+        }
     }
 }

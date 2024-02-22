@@ -10,26 +10,28 @@ html {
         --primary-color: rgb(245, 245, 245);
 
         --taskbar-width: 100%;
-        --taskbar-height: 30px;
+        --taskbar-height: 40px;
         --taskbar-color: white;
         --taskbar-padding: 0;
-        --taskbar-bg: linear-gradient(rgb(31, 47, 134) 0px, rgb(49, 101, 196) 3%, rgb(54, 130, 229) 6%, rgb(68, 144, 230) 10%, rgb(56, 131, 229) 12%, rgb(43, 113, 224) 15%, rgb(38, 99, 218) 18%, rgb(35, 91, 214) 20%, rgb(34, 88, 213) 23%, rgb(33, 87, 214) 38%, rgb(36, 93, 219) 54%, rgb(37, 98, 223) 86%, rgb(36, 95, 220) 89%, rgb(33, 88, 212) 92%, rgb(29, 78, 192) 95%, rgb(25, 65, 165) 98%);;
-        --taskbar-box-shadow: none;
+        --taskbar-bg: rgba(97, 179, 255, 0.35);
+        
+        --taskbar-box-shadow: inset 0 0 1px #fff;
 
         --taskbar-block-padding: 0 8px;
         --taskbar-item-width: auto;
-        --taskbar-item-height: 22px;
-        --taskbar-item-icon-width: 15px;
-        --taskbar-item-icon-height: 15px;
+        --taskbar-item-height: 34px;
+        --taskbar-item-icon-width: 30px;
+        --taskbar-item-icon-height: 30px;
 
-        --mainmenu-bg: var(--primary-color);
+        --mainmenu-bg: rgba(10, 71, 119, .75);
+        --mainmenu-bg: -webkit-gradient(linear, center top, center bottom, from(#327aa4),color-stop(45%, #2e4b5a), to(#5cb0dc));
 
         --program-min-width: 300px;
         --program-min-height: 100px;
 
         --window-color: black;
-        --window-bg: #ece9d8;
-        --window-shadow: none;
+        --window-bg: #f0f0f0;
+        --window-shadow: 2px 2px 10px 1px rgba(0,0,0,.7), inset 0 0 0 1px #fffa;
 
         --desktop-bg: url(#{$theme-images-path}bg.jpg) center center / cover no-repeat;
     }

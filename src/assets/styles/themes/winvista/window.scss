@@ -72,23 +72,13 @@ $border-radius: 6px;
 
         .ui-window {
 
-            &__wrapper {
-                // box-shadow: inset -1px -1px rgb(118, 151, 231), inset 1px 1px rgb(126, 158, 227), inset -2px -2px rgb(151, 180, 233), inset 2px 2px rgb(121, 150, 222), inset -3px -3px rgb(121, 150, 222), inset 3px 3px rgb(123, 153, 225);
-            }
+            &__wrapper {}
 
             &__toolbar {
-                // background: linear-gradient(rgb(118, 151, 231) 0%, rgb(126, 158, 227) 3%, rgb(148, 175, 232) 6%, rgb(151, 180, 233) 8%, rgb(130, 165, 228) 14%, rgb(124, 159, 226) 17%, rgb(121, 150, 222) 25%, rgb(123, 153, 225) 56%, rgb(130, 169, 233) 81%, rgb(128, 165, 231) 89%, rgb(123, 150, 225) 94%, rgb(122, 147, 223) 97%, rgb(171, 186, 227) 100%);
-                // border-top: 1px solid rgb(118, 151, 231);
-                // border-left: 1px solid rgb(118, 151, 231);
-                // border-right: 1px solid rgb(118, 151, 231);
 
-                &__title {
-                    // color: white;
-                }
+                &__title {}
 
-                &__buttons {
-                    // opacity: .6;
-                }
+                &__buttons {}
             }
         }
     }
