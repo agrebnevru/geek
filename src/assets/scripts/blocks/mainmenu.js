@@ -25,6 +25,7 @@ export default class Mainmenu {
     }
 
     addEventListener() {
+        // console.log('Mainmenu::addEventListener')
 
         if (1 === this.initStep) {
             this.addEventListenerStepOne()
@@ -35,12 +36,11 @@ export default class Mainmenu {
 
 
     addEventListenerStepOne() {
-        console.log('Mainmenu::addEventListenerStepOne 1')
+        // console.log('Mainmenu::addEventListenerStepOne')
 
         if (true === Newgame.getInstance().isNewgame()) {
             return
         }
-        console.log('Mainmenu::addEventListenerStepOne 2')
 
         window.addEventListener('templates.load.after', () => {
             this.initStep++
@@ -49,12 +49,11 @@ export default class Mainmenu {
     }
 
     addEventListenerStepTwo() {
-        console.log('Mainmenu::addEventListenerStepTwo 1')
+        // console.log('Mainmenu::addEventListenerStepTwo')
 
         if (true === Newgame.getInstance().isNewgame()) {
             return
         }
-        console.log('Mainmenu::addEventListenerStepTwo 2')
 
         document.on('click', '.js-mainmenu-toggle', () => {
             let value = !('true' === document.body.dataset.mainmenuClosed)
@@ -92,9 +91,9 @@ export default class Mainmenu {
     }
 
     render() {
-        console.log('Mainmenu::render')
+        // console.log('Mainmenu::render')
 
-        if (false === Newgame.getInstance().isNewgame()) {
+        if (true === Newgame.getInstance().isNewgame()) {
             return
         }
 

@@ -78,6 +78,8 @@ export default class Newgame {
     }
 
     addEventListeners() {
+        // console.log('Newgame::addEventListeners')
+
         document.on('click', '.js-newgame-prev-window, .js-newgame-next-window', e => {
             document.querySelector('.js-newgame').dataset.activeWindow = e.target.dataset.activeWindow
             this.goProgressBar()
