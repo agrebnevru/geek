@@ -217,7 +217,9 @@ async function storageLoad() {
 
     }
 
-    data = JSON.parse(dataString)
+    if ('' !== dataString) {
+        data = JSON.parse(dataString)
+    }
 
     return data
 }

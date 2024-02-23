@@ -1,5 +1,6 @@
 const Mustache = require('mustache')
 
+import Newgame from '../newgame';
 import Storage from '../storage/storage';
 import Programs from '../programs/programs';
 import Templates from '../templates/templates';
@@ -23,6 +24,10 @@ export default class Mainmenu {
 
     addEventListener() {
         // console.log('Mainmenu::addEventListener')
+
+        if (true === Newgame.getInstance().isNewgame()) {
+            return
+        }
 
         window.addEventListener('templates.load.after', () => {
             this.render()
@@ -65,6 +70,11 @@ export default class Mainmenu {
 
     render() {
         // console.log('Mainmenu::render')
+
+        if (false === Newgame.getInstance().isNewgame()) {
+            return
+        }
+
         let programs = Object.values(Storage.getInstance().programs.rows),
             data = {
                 name: Storage.getInstance().profile.name || 'Guest',

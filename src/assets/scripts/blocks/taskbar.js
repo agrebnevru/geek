@@ -1,5 +1,6 @@
 const Mustache = require('mustache')
 
+import Newgame from '../newgame';
 import Storage from '../storage/storage';
 import Templates from '../templates/templates';
 import Programs from '../programs/programs';
@@ -157,6 +158,10 @@ export default class Taskbar {
     render() {
         // console.log('Taskbar::render')
 
+        if (true === Newgame.getInstance().isNewgame()) {
+            return
+        }
+        
         let timestamp = Storage.getInstance().getCurrentTimeTimestamp(),
             currentDatetime = new Date(timestamp * 1000),
             dayDisplay = currentDatetime.getDate(),
