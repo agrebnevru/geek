@@ -13,6 +13,8 @@ export default class Mainmenu {
 
         this.renderSelector = '.js-mainmenu-render'
 
+        this.initStep = 1
+
         this.init()
     }
 
@@ -23,53 +25,74 @@ export default class Mainmenu {
     }
 
     addEventListener() {
-        // console.log('Mainmenu::addEventListener')
+
+        if (1 === this.initStep) {
+            this.addEventListenerStepOne()
+        } else if (2 === this.initStep) {
+            this.addEventListenerStepTwo()
+        }
+    }
+
+
+    addEventListenerStepOne() {
+        console.log('Mainmenu::addEventListenerStepOne 1')
 
         if (true === Newgame.getInstance().isNewgame()) {
             return
         }
+        console.log('Mainmenu::addEventListenerStepOne 2')
 
         window.addEventListener('templates.load.after', () => {
+            this.initStep++
             this.render()
-
-            document.on('click', '.js-mainmenu-toggle', () => {
-                let value = !('true' === document.body.dataset.mainmenuClosed)
-                document.body.dataset.mainmenuClosed = value
-            })
-
-            document.on('click', 'body', e => {
-                if (null !== e.target.closest('.js-mainmenu') || null !== e.target.closest('.js-mainmenu-toggle')) {
-                    return
-                }
-
-                document.body.dataset.mainmenuClosed = true
-
-                if ('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closeByOutsideClick) {
-                    document.body.dataset.mainmenuShutdownClosed = true
-                }
-            })
-
-            document.querySelector(this.renderSelector).on('click', '.js-program-open', e => {
-                // console.log('Mainmenu - open program')
-                Programs.getInstance().open(e.target)
-                document.body.dataset.mainmenuClosed = true
-            })
-
-            document.on('click', '.js-mainmenu-shutdown-toggle', () => {
-                let value = ('false' === document.body.dataset.mainmenuShutdownClosed)
-                document.body.dataset.mainmenuShutdownClosed = value
-                if (
-                    'true' === document.querySelector('.js-mainmenu').dataset.closeWhenShutdownOpen
-                    && false === value
-                ) {
-                    document.body.dataset.mainmenuClosed = true
-                }
-            })
         }, { once: true })
     }
 
+    addEventListenerStepTwo() {
+        console.log('Mainmenu::addEventListenerStepTwo 1')
+
+        if (true === Newgame.getInstance().isNewgame()) {
+            return
+        }
+        console.log('Mainmenu::addEventListenerStepTwo 2')
+
+        document.on('click', '.js-mainmenu-toggle', () => {
+            let value = !('true' === document.body.dataset.mainmenuClosed)
+            document.body.dataset.mainmenuClosed = value
+        })
+
+        document.on('click', 'body', e => {
+            if (null !== e.target.closest('.js-mainmenu') || null !== e.target.closest('.js-mainmenu-toggle')) {
+                return
+            }
+
+            document.body.dataset.mainmenuClosed = true
+
+            if ('true' === document.querySelector('.js-mainmenu-shutdown').dataset.closeByOutsideClick) {
+                document.body.dataset.mainmenuShutdownClosed = true
+            }
+        })
+
+        document.querySelector(this.renderSelector).on('click', '.js-program-open', e => {
+            // console.log('Mainmenu - open program')
+            Programs.getInstance().open(e.target)
+            document.body.dataset.mainmenuClosed = true
+        })
+
+        document.on('click', '.js-mainmenu-shutdown-toggle', () => {
+            let value = ('false' === document.body.dataset.mainmenuShutdownClosed)
+            document.body.dataset.mainmenuShutdownClosed = value
+            if (
+                'true' === document.querySelector('.js-mainmenu').dataset.closeWhenShutdownOpen
+                && false === value
+            ) {
+                document.body.dataset.mainmenuClosed = true
+            }
+        })
+    }
+
     render() {
-        // console.log('Mainmenu::render')
+        console.log('Mainmenu::render')
 
         if (false === Newgame.getInstance().isNewgame()) {
             return
@@ -135,6 +158,10 @@ export default class Mainmenu {
 
         const rendered = Mustache.render(Templates.getInstance().getByName('mainmenu'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
+
+        setTimeout(() => {
+            this.addEventListener()
+        }, 50)
     }
 
     static getInstance() {
