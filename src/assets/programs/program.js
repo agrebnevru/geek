@@ -37,14 +37,14 @@ export default class Program {
     }
 
     async initTemplates() {
-        console.log('Program::initTemplates')
+        // console.log('Program::initTemplates')
 
         if (null === this.templates || typeof this.templates !== 'object') {
             this.templates = await Templates.getInstance().getProgramTemplates(
                 Storage.getInstance().getOsId(),
                 this.name
             )
-            console.log('this.templates =', this.templates)
+            // console.log('this.templates =', this.templates)
         }
     }
 
@@ -65,12 +65,13 @@ export default class Program {
     }
 
     getRenderTemplate(name) {
-        console.log('Program::getRenderTemplate')
+        // console.log('Program::getRenderTemplate')
         return this.templates[name] || ''
     }
 
     async render() {
-        console.log('Program::render')
+        // console.log('Program::render')
+
         let data = this.getRenderData(),
             template = this.getRenderTemplate('body')
 
