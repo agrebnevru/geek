@@ -1,29 +1,84 @@
 .ui-pc-shutdown {
 
+    &__wrapper {
+        background: black;
+    }
+
     &__body {
         animation: 5s 1 win95-shutdown;
-        background: black;
+        background: url(#{$theme-images-path}boot-bg.png) center center / cover no-repeat;
+        /* visibility: hidden; */
+    }
+
+    &__logo {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        transform: scale(2);
+
+        &__middle {
+            color: #f58f81;
+            display: flex;
+            font-size: 24px;
+            font-weight: 600;
+            justify-content: center;
+            text-align: center;
+        }
+
+        &__bottom {
+            display: flex;
+            flex-direction: column;
+            padding: 0 30px;
+            transform: translateY(50px);
+
+            >div {
+                display: flex;
+            }
+
+            &__line-one {
+                font-size: 36px;
+                color: #fff;
+                letter-spacing: -1px;
+                line-height: 32px;
+            }
+
+            &__line-two {
+                font-size: 49px;
+                letter-spacing: -3px;
+                line-height: 49px;
+                justify-content: center;
+                transform: translateY(-11px);
+
+                >span {
+
+                    &:first-of-type {
+                        font-weight: 900;
+                        color: #000;
+                    }
+
+                    &:last-of-type {
+                        color: #fff;
+                    }
+                }
+            }
+        }
     }
 }
 
 @keyframes win95-shutdown {
     0% {
-        background: black;
-        background-image: none;
-        background-position: center;
+        opacity: 0;
     }
 
-    80% {
-        background-image: url(#{$theme-images-path}shutdown.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+    19% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
     }
 
     100% {
-        background-image: url(#{$theme-images-path}shutdown.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        opacity: 1;
     }
 }
