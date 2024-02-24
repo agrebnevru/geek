@@ -1,0 +1,20 @@
+textarea {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    border-top-color: #8e8f8f;
+    box-sizing: border-box;
+    font: 9pt Segoe UI,SegoeUI,Noto Sans,sans-serif;
+    padding: 3px 4px 5px;
+
+    &:disabled {
+        color: -internal-light-dark(graytext, rgb(170, 170, 170));
+        // border: 1px solid rgba(118, 118, 118, 0.3);
+        opacity: 0.7;
+    }
+
+    &:focus {
+        border-color: #98d1ef #bee6fd #bee6fd;
+        outline: none;
+    }
+}

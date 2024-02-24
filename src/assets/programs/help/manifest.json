@@ -9,9 +9,6 @@
         "taskbar": false,
         "mainmenu": true
     },
-    "templates": {
-        
-    },
     "windowSettings": {
         "toolbarMaximize": false,
         "sizeFullsize": false,

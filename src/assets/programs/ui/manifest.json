@@ -8,7 +8,5 @@
         "desktop": false,
         "taskbar": false,
         "mainmenu": true
-    },
-    "templates": {},
-    "windowSettings": {}
+    }
 }

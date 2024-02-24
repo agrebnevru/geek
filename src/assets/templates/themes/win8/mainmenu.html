@@ -1,0 +1,95 @@
+<div class="c-mainmenu-win7 js-mainmenu js-mainmenu-render" data-close-when-shutdown-open="false">
+    <div class="c-mainmenu-win7__wrapper">
+
+        <div class="c-mainmenu-win7__left">
+            <div class="c-mainmenu-win7__items">
+                <div class="c-mainmenu-win7__items__item" data-program-name="123">
+                    <svg>
+                        <use xlink:href="#icon-internet"></use>
+                    </svg>
+                    <div class="c-mainmenu-win7__items__item__name">
+                        <div class="c-mainmenu-win7__items__item__title">Internet</div>
+                        <div class="c-mainmenu-win7__items__item__description">Internet Explorer</div>
+                    </div>
+                </div>
+                <div class="c-mainmenu-win7__items__fill"></div>
+                <div class="c-mainmenu-win7__items__separator"></div>
+                <label for="show-all-program" class="c-mainmenu-win7__items__all-program">
+                    <svg>
+                        <use xlink:href="#icon-arrow-right"></use>
+                    </svg>
+                    <div class="c-mainmenu-win7__items__all-program__label">
+                        <span>Все программы</span>
+                        <span>Назад</span>
+                    </div>
+                </label>
+                <input type="checkbox" class="c-mainmenu-win7__items__all-program__input" name="show-all-program"
+                    id="show-all-program">
+                <div class="c-mainmenu-win7__submenu">
+                    <div class="c-mainmenu-win7__submenu__items">
+                        {{#programs.rows}}
+                        <div class="c-mainmenu-win7__submenu__item js-program-open" data-program-name="{{name}}">
+                            <div class="c-mainmenu-win7__submenu__item__icon">
+                                {{{iconData}}}
+                            </div>
+                            <div class="c-mainmenu-win7__submenu__item__label">{{title}}</div>
+                        </div>
+                        {{/programs.rows}}
+                    </div>
+                </div>
+            </div>
+            <div class="c-mainmenu-win7__search">
+                <input class="c-mainmenu-win7__search__input" type="text" placeholder="Найти программы и файлы">
+            </div>
+        </div>
+
+        <div class="c-mainmenu-win7__right">
+            <div class="c-mainmenu-win7__items-two">
+                <div class="c-mainmenu-win7__items-two__icon">
+                    <svg>
+                        <use xlink:href="#profil"></use>
+                    </svg>
+                </div>
+                <div class="c-mainmenu-win7__items-two__item js-program-open--" data-program-name="">
+                    <div class="c-mainmenu-win7__items-two__item__label">Документы</div>
+                </div>
+                <div class="c-mainmenu-win7__items-two__item js-program-open--" data-program-name="">
+                    <div class="c-mainmenu-win7__items-two__item__label">Изображения</div>
+                </div>
+                <div class="c-mainmenu-win7__items-two__item js-program-open--" data-program-name="">
+                    <div class="c-mainmenu-win7__items-two__item__label">Музыка</div>
+                </div>
+                <div class="c-mainmenu-win7__items-two__item js-program-open--" data-program-name="">
+                    <div class="c-mainmenu-win7__items-two__item__label">Компьютер</div>
+                </div>
+                <div class="c-mainmenu-win7__items-two__item js-program-open--" data-program-name="">
+                    <div class="c-mainmenu-win7__items-two__item__label">Сеть</div>
+                </div>
+                <div class="c-mainmenu-win7__items-two__item js-program-open--" data-program-name="">
+                    <div class="c-mainmenu-win7__items-two__item__label">Подключение</div>
+                </div>
+            </div>
+            <div class="c-mainmenu-win7__shutdown">
+                <div class="c-mainmenu-win7__shutdown__buttons">
+                    <div
+                        class="c-mainmenu-win7__shutdown__button c-mainmenu-win7__shutdown__button__shutdown js-app-save-and-shutdown">
+                        Завершение работы
+                    </div>
+                    <div class="c-mainmenu-win7__shutdown__separator"></div>
+                    <div
+                        class="c-mainmenu-win7__shutdown__button c-mainmenu-win7__shutdown__button__more js-mainmenu-shutdown-toggle">
+                        <svg>
+                            <use xlink:href="#mainmenu-shutdown-arrow"></use>
+                        </svg>
+                    </div>
+                </div>
+                <ul class="c-mainmenu-win7__shutdown__menu ui-menu js-mainmenu-shutdown" data-close-by-outside-click="true">
+                    {{#shutdown.rows}}
+                    <li role="menuitem"><a class="{{actionClass}}" href="#menu">{{label}}</a></li>
+                    {{/shutdown.rows}}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
