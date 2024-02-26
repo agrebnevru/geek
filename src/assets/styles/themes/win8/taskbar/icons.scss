@@ -65,42 +65,62 @@
             color: #787878;
             font-size: 11px;
             padding: 1px 8px 2px;
-            // border-radius: 3px;
-            // background-color: rgba(0, 0, 68, 0.623);
-            // bottom: calc(100% + 10px);
-            // font-size: 0.9em;
-            // opacity: 0;
-            // padding: 3px 8px;
-            // pointer-events: none;
-            // position: absolute;
-            // text-align: center;
-            // transform: translateY(-5px);
-            // transition-duration: .5s;
         }
     }
 
     >.b-taskbar-icons__item--menu {
-        margin-left: 5px;
+        border: none;
+        border-radius: 0;
+        background: none;
+        filter: contrast(1.2);
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        position: relative;
+        transition: background-color .3s ease-in-out;
+        z-index: 50;
 
-        &:first-of-type {
-            position: relative;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            border: none;
-            border-radius: 0;
-            background: none;
-            filter: contrast(1.2);
-            z-index: 50;
-
-            &:hover {
-                filter: contrast(1) brightness(1.25);
-            }
+        &:hover {
+            background-color: #111111;
 
             >svg {
-                width: 40px;
-                height: 40px;
+                color: #4617b5;
+
+                // &:before {
+                //     animation: mainmenu-icon-shine .5s;
+                //     opacity: 1;
+                //     visibility: visible;
+                //     z-index: 3;
+                // }
             }
         }
+
+        >svg {
+            width: 26px;
+            height: 26px;
+            position: relative;
+            overflow: hidden;
+            transition: color .3s ease-in-out;
+
+            // &:before {
+            //     position: absolute;
+            //     top: 0;
+            //     left: -50%;
+            //     z-index: 51;
+            //     display: block;
+            //     content: "";
+            //     width: 25%;
+            //     height: 100%;
+            //     opacity: 0;
+            //     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .3) 100%);
+            //     visibility: hidden;
+            // }
+        }
+    }
+}
+
+@keyframes mainmenu-icon-shine {
+    100% {
+        left: 125%;
     }
 }

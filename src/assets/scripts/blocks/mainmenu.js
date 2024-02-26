@@ -55,6 +55,8 @@ export default class Mainmenu {
             return
         }
 
+        document.addEventListener('keydown', this.eventKeydown)
+
         document.on('click', '.js-mainmenu-toggle', () => {
             let value = !('true' === document.body.dataset.mainmenuClosed)
             document.body.dataset.mainmenuClosed = value
@@ -155,12 +157,40 @@ export default class Mainmenu {
             return true === item.iconPlaceVisibility.mainmenu && (true === item.installed || true === item.system)
         })
 
+        data.programs.rows = data.programs.rows.map(item => {
+            let randIndex = function getRandomInt(min, max) {
+                const minCeiled = Math.ceil(min)
+                const maxFloored = Math.floor(max)
+                return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
+            }
+            return Object.assign(item, {randIndex: randIndex(0, 20)})
+        })
+
         const rendered = Mustache.render(Templates.getInstance().getByName('mainmenu'), data)
         document.body.insertAdjacentHTML('beforeend', rendered)
 
         setTimeout(() => {
             this.addEventListener()
         }, 50)
+    }
+
+    eventKeydown(e) {
+        // console.log('Mainmenu::eventKeydown')
+
+        let mainmenuIsOpened = !('true' === document.body.dataset.mainmenuClosed)
+
+        switch (e.key) {
+            case 'Escape': // escape
+                if (false !== mainmenuIsOpened) {
+                    document.body.dataset.mainmenuClosed = true
+                }
+            break
+            case 'Meta': // start menu
+                // if (false === mainmenuIsOpened) {
+                //     document.body.dataset.mainmenuClosed = false
+                // }
+            break
+        }
     }
 
     static getInstance() {

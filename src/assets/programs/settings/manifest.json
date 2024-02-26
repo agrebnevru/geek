@@ -8,5 +8,6 @@
         "desktop": false,
         "taskbar": false,
         "mainmenu": true
-    }
+    },
+    "themeColor": "71787c"
 }

@@ -23,16 +23,39 @@ html {
         --taskbar-item-icon-width: 30px;
         --taskbar-item-icon-height: 30px;
 
-        --mainmenu-bg: rgba(10, 71, 119, .75);
-        --mainmenu-bg: -webkit-gradient(linear, center top, center bottom, from(#327aa4),color-stop(45%, #2e4b5a), to(#5cb0dc));
+        --mainmenu-bg: url(#{$theme-images-path}mainmenu-bg.png) center center / cover no-repeat;
 
         --program-min-width: 300px;
         --program-min-height: 100px;
 
         --window-color: black;
-        --window-bg: #f0f0f0;
-        --window-shadow: 2px 2px 10px 1px rgba(0,0,0,.7), inset 0 0 0 1px #fffa;
+        --window-bg: #fff;
+        --window-shadow: none;
 
         --desktop-bg: url(#{$theme-images-path}bg.jpg) center center / cover no-repeat;
     }
 }
+
+$win8colors: (
+    "0": #a4c400,
+    "1": #60a917,
+    "2": #008a00,
+    "3": #00aba9,
+    "4": #1ba1e2,
+    "5": #3e65ff,
+    "6": #6a00ff,
+    "7": #0050ef,
+    "8": #f472d0,
+    "9": #d80073,
+    "10": #a20025,
+    "11": #e51400,
+    "12": #fa6800,
+    "13": #f0a30a,
+    "14": #e3c800,
+    "15": #825a2c,
+    "16": #6d8764,
+    "17": #647687,
+    "18": #76608a,
+    "19": #87794e,
+    "20": #a0522d,
+);

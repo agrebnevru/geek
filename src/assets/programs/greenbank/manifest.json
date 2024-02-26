@@ -7,5 +7,6 @@
         "desktop": true,
         "taskbar": true,
         "mainmenu": true
-    }
+    },
+    "themeColor": "009a00"
 }

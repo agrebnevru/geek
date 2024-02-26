@@ -9,6 +9,7 @@
         "taskbar": false,
         "mainmenu": true
     },
+    "themeColor": "d3130a",
     "windowSettings": {
         "toolbarMaximize": false,
         "sizeFullsize": false,

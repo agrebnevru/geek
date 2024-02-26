@@ -2,6 +2,7 @@ const Mustache = require('mustache')
 
 import Storage from '../storage/storage';
 import Templates from '../templates/templates';
+import Programs from '../programs/programs'
 import WindowDraggable from './window-draggable'
 import WindowResizer from './window-resizer'
 
@@ -70,6 +71,10 @@ export default class Window {
 
         this.domElement.on('mousedown', '.js-window-resizable-corner-bottom-left', WindowResizer.resizeXNegative(this.domElement))
         this.domElement.on('mousedown', '.js-window-resizable-corner-bottom-left', WindowResizer.resizeYPositive(this.domElement))
+
+        this.domElement.on('dblclick', '.js-window-resizable-doubleclick', e => {
+            Programs.getInstance().fullsize(e.target)
+        })
     }
 
     initSettings() {

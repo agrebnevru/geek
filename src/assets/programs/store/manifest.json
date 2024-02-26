@@ -9,6 +9,7 @@
         "taskbar": true,
         "mainmenu": true
     },
+    "themeColor": "1ba1e2",
     "os": {
         "support": [
             "win7",
