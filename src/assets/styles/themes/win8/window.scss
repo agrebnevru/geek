@@ -61,6 +61,10 @@ $border-radius: 0;
 
             &__body {
                 margin: 0 6px 6px;
+
+                &__wrapper {
+                    border: 1px solid #5287b1;
+                }
             }
         }
     }
@@ -145,6 +149,7 @@ $border-radius: 0;
             font-size: 16px;
             line-height: 11px;
             justify-content: center;
+            transform: translateY(-1px);
         }
 
         &__buttons {
@@ -210,7 +215,6 @@ $border-radius: 0;
 
         &__wrapper {
             padding: 6px;
-            border: 1px solid #5287b1;
         }
     }
 }

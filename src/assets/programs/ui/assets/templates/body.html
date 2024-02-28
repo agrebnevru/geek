@@ -75,7 +75,7 @@
             Default textarea: <textarea id="textarea-example1" rows="8"></textarea>
         </div>
 
-        <h1>Slider</h1>
+        <h1>Slider - TODO if need</h1>
         <div class="b-program-ui__block">
             <label for="range-example1">Low</label>
             <input id="range-example1" type="range" min="1" max="11" value="5">
@@ -116,6 +116,31 @@
                     <li role="menuitem"><a href="#menu">Date modified</a></li>
                 </ul>
             </li>
+            <li role="menuitem" tabindex="0" aria-haspopup="true">
+                Checkboxes and radio
+                <ul role="menu">
+                    <li role="menuitem">
+                        <input type="radio" name="menu-radio-test-1" id="menu-radio-test-1-1">
+                        <label for="menu-radio-test-1-1">Large icons</label>
+                    </li>
+                    <li role="menuitem">
+                        <input type="radio" name="menu-radio-test-1" id="menu-radio-test-1-2">
+                        <label for="menu-radio-test-1-2">Medium icons</label>
+                    </li>
+                    <li role="menuitem" class="has-divider">
+                        <input type="radio" name="menu-radio-test-1" id="menu-radio-test-1-3" checked>
+                        <label for="menu-radio-test-1-3">Small icons</label>
+                    </li>
+                    <li role="menuitem">
+                        <input type="checkbox" id="menu-checkbox-test-1-1">
+                        <label for="menu-checkbox-test-1-1">Auto arrange icons</label>
+                    </li>
+                    <li role="menuitem">
+                        <input type="checkbox" id="menu-checkbox-test-1-2" checked>
+                        <label for="menu-checkbox-test-1-2">Align icons to grid</label>
+                    </li>
+                </ul>
+            </li>
             <li role="menuitem" class="has-divider"><a href="#menu">Refresh</a></li>
             <li role="menuitem" aria-disabled="true"><a href="#menu">Paste</a></li>
             <li role="menuitem" class="has-divider" aria-disabled="true"><a href="#menu">Paste shortcut</a></li>
@@ -133,6 +158,20 @@
                 <a href="#menu">Personalize</a>
             </li>
         </ul>
+
+        <h1>Tabs</h1>
+        <section role="tabs">
+            <menu role="tablist">
+                <button role="tab" aria-controls="tab-A" aria-selected="true">Tab A</button>
+                <button role="tab" aria-controls="tab-B" aria-selected="false">Tab B</button>
+                <button role="tab" aria-controls="tab-C" aria-selected="false">Tab C</button>
+                <button role="tab" aria-controls="tab-D" disabled="" aria-selected="false">Tab D</button>
+            </menu>
+            <article role="tabpanel" aria-control-id="tab-A">Tab A is active</article>
+            <article role="tabpanel" aria-control-id="tab-B" hidden="true">Tab B is active</article>
+            <article role="tabpanel" aria-control-id="tab-C" hidden="true">Tab C is active</article>
+            <article role="tabpanel" aria-control-id="tab-D" hidden="true">Tab D is inactive</article>
+        </section>
 
     </div>
 </div>

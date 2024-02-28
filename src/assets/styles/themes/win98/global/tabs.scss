@@ -1,0 +1,25 @@
+[role=tabs] {
+
+    menu[role=tablist] {
+
+        button {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            box-shadow: inset -1px 0 #0a0a0a, inset 1px 1px #dfdfdf, inset -2px 0 grey, inset 2px 2px #fff;
+
+            &[aria-selected=true] {
+                background: silver;
+                margin-left: -3px;
+                margin-top: -2px;
+                padding-bottom: 2px;
+            }
+        }
+    }
+
+    [role=tabpanel] {
+        background: silver;
+        border: none;
+        box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+        transform: translateY(-1px);
+    }
+}

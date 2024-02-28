@@ -1,0 +1,32 @@
+[role=tabs] {
+
+    menu[role=tablist] {
+
+        button {
+            background: linear-gradient(180deg,#fff,#fafaf9 26%,#f0f0ea 95%,#ecebe5);
+            margin-left: -1px;
+            margin-right: 2px;
+            border-radius: 0;
+            border-color: #91a7b4;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+            padding: 0 12px 3px;
+
+            &[aria-selected=true] {
+                background: #fcfcfe;
+                border-color: #919b9c;
+                margin-left: -3px;
+                margin-right: -1px;
+                border-bottom: 1px solid transparent;
+                border-top: 1px solid #e68b2c;
+                box-shadow: inset 0 2px #ffc73c;
+            }
+        }
+    }
+
+    [role=tabpanel] {
+        background: linear-gradient(180deg,#fcfcfe,#f4f3ee);
+        border: 1px solid #919b9c;
+        box-shadow: inset 1px 1px #fcfcfe, inset -1px -1px #fcfcfe, 1px 2px 2px 0 rgba(208,206,191,.75);
+    }
+}

@@ -122,6 +122,7 @@ body {
             >svg {
                 width: 22px;
                 height: 22px;
+                transform: scaleX(-1);
             }
         }
     }

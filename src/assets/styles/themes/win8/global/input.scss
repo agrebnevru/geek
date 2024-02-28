@@ -4,25 +4,18 @@ input {
     &[type=number],
     &[type=password] {
         background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 2px;
-        border-top-color: #8e8f8f;
-        box-sizing: border-box;
+        border: 1px solid #abadb3;
         font: 9pt Segoe UI, SegoeUI, Noto Sans, sans-serif;
-        padding: 3px 4px 5px;
+        padding: 1px 4px 1px;
 
         &:disabled,
         &:read-only {
-            opacity: 0.7;
-        }
-
-        &:disabled {
+            background-color: #f0f0f0;
             color: -internal-light-dark(graytext, rgb(170, 170, 170));
         }
 
         &:focus {
-            border-color: #98d1ef #bee6fd #bee6fd;
-            outline: none;
+            border-color: #abadb3;
         }
     }
 }
