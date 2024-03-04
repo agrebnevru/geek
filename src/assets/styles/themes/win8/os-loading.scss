@@ -78,7 +78,7 @@ body {
             opacity: 0;
             transform: rotate(225deg);
             animation-iteration-count: infinite;
-            animation-name: os-win11-loading-preloader;
+            animation-name: os-win8-loading-preloader;
             animation-duration: 5.5s;
 
             &:after {
@@ -128,8 +128,7 @@ body {
     }
 }
 
-
-@keyframes os-win11-loading-preloader {
+@keyframes os-win8-loading-preloader {
     0% {
         transform: rotate(225deg);
         opacity: 1;

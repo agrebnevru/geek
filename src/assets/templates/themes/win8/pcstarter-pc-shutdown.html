@@ -1,18 +1,19 @@
 <div class="ui-pc-shutdown js-pc-shutdown">
     <div class="ui-pc-shutdown__wrapper">
 
-        <div class="ui-pc-shutdown__top"></div>
         <div class="ui-pc-shutdown__middle">
-            <div class="ui-pc-shutdown__middle__spinner"></div>
+            <div class="ui-pc-shutdown__preloader">
+                <div class='ui-pc-shutdown__preloader__wrapper'>
+                    <div class='ui-pc-shutdown__preloader__circle'></div>
+                    <div class='ui-pc-shutdown__preloader__circle'></div>
+                    <div class='ui-pc-shutdown__preloader__circle'></div>
+                    <div class='ui-pc-shutdown__preloader__circle'></div>
+                    <div class='ui-pc-shutdown__preloader__circle'></div>
+                </div>
+            </div>
             <div class="ui-pc-shutdown__middle__text">
                 {{#customText}}{{customText}}{{/customText}}{{^customText}}Завершение работы{{/customText}}
             </div>
-        </div>
-        <div class="ui-pc-shutdown__bottom">
-            <svg>
-                <use xlink:href="#icon-win7"></use>
-            </svg>
-            <div class="ui-pc-shutdown__bottom__text"><span>Windows</span> <span>7</span></div>
         </div>
 
     </div>

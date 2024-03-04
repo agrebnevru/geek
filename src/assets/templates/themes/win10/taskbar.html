@@ -1,0 +1,34 @@
+<div class="l-taskbar__item l-taskbar__programs">
+
+    <div class="b-taskbar-icons">
+
+        <div class="l-taskbar__block b-taskbar-icons__item--menu js-mainmenu-toggle">
+            <svg>
+                <use xlink:href="#icon-os-logo"></use>
+            </svg>
+        </div>
+
+        {{#rows}}
+        <div class="l-taskbar__block b-taskbar-icons__item js-program-open" data-program-name="{{name}}"
+            data-sticky="{{sticky}}" data-closed="{{closed}}" data-active="{{active}}">
+            <div class="b-taskbar-icons__item__title">{{title}}</div>
+            {{{iconData}}}
+        </div>
+        {{/rows}}
+
+    </div>
+
+</div>
+<div class="l-taskbar__tray">
+    <div class="l-taskbar__language">
+        <div>En</div>
+    </div>
+    <div class="l-taskbar__tray__wrapper">
+        <div class="b-clock js-clock">
+            <div class="b-clock__wrapper">
+                <div class="b-clock__time js-taskbar-clock-time">{{time}}</div>
+                <div class="b-clock__date js-taskbar-clock-date">{{date}}</div>
+            </div>
+        </div>
+    </div>
+</div>
