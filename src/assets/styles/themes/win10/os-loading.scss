@@ -1,0 +1,108 @@
+.ui-os-loading {
+
+    &__wrapper {
+        justify-content: space-between;
+
+        animation-duration: 15s;
+        // animation-iteration-count: 1;
+        // animation-name: ui-os-loading;
+        // animation-timing-function: steps(1);
+        // animation-play-state: paused;
+    }
+
+    &__top {
+
+    }
+
+    &__icon {
+        color: #00bcff;
+
+        >svg {
+            width: 175px;
+            height: 175px;
+        }
+    }
+
+    &__preloader {
+        margin-bottom: 175px;
+
+        &__wrapper {
+            
+        }
+
+        &__circle {
+            animation-name: os-win10-loading-preloader;
+        }
+    }
+}
+
+@keyframes ui-os-loading {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes os-win10-loading-preloader {
+    0% {
+        transform: rotate(225deg);
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    7% {
+        transform: rotate(345deg);
+        animation-timing-function: linear;
+    }
+
+    30% {
+        transform: rotate(455deg);
+        animation-timing-function: ease-in-out;
+    }
+
+    39% {
+        transform: rotate(690deg);
+        animation-timing-function: linear;
+    }
+
+    70% {
+        transform: rotate(815deg);
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    75% {
+        transform: rotate(945deg);
+        animation-timing-function: ease-out;
+    }
+
+    76% {
+        transform: rotate(945deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(945deg);
+        opacity: 0;
+    }
+}

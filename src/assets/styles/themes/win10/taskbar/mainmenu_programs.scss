@@ -1,0 +1,47 @@
+.c-mainmenu-#{$theme} {
+
+    &__programs {
+        display: flex;
+        flex-grow: 1;
+        align-items: flex-start;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 85px;
+            height: 85px;
+            gap: 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition-duration: .1s;
+
+            &__icon {
+                
+                > svg {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            &__name {
+                font-size: 12px;
+                font-weight: lighter;
+                color: white;
+                text-align: center;
+                text-transform: capitalize;
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, .1);
+            }
+        }
+    }
+
+    &__programs__wrapper {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+    }
+}

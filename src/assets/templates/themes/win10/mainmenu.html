@@ -1,34 +1,34 @@
-<div class="c-mainmenu-win8 js-mainmenu js-mainmenu-render" data-close-when-shutdown-open="false">
-    <div class="c-mainmenu-win8__wrapper">
+<div class="c-mainmenu-win10 js-mainmenu js-mainmenu-render" data-close-when-shutdown-open="false">
+    <div class="c-mainmenu-win10__wrapper">
 
-        <div class="c-mainmenu-win8__top-panel">
-            <div class="c-mainmenu-win8__top-panel__title">Пуск</div>
-            <div class="c-mainmenu-win8__top-panel__menus">
-                <div class="c-mainmenu-win8__top-panel__profil">
+        <div class="c-mainmenu-win10__top-panel">
+            <div class="c-mainmenu-win10__top-panel__title">Пуск</div>
+            <div class="c-mainmenu-win10__top-panel__menus">
+                <div class="c-mainmenu-win10__top-panel__profil">
                     <span>{{name}}</span>
                     <svg>
                         <use xlink:href="#icon-profil"></use>
                     </svg>
                 </div>
-                <div class="c-mainmenu-win8__top-panel__shutdown">
-                    <div class="c-mainmenu-win8__top-panel__shutdown__toggler js-mainmenu-shutdown-toggle">
+                <div class="c-mainmenu-win10__top-panel__shutdown">
+                    <div class="c-mainmenu-win10__top-panel__shutdown__toggler js-mainmenu-shutdown-toggle">
                         <svg>
                             <use xlink:href="#icon-shutdown-save-and-shutdown"></use>
                         </svg>
                     </div>
-                    <div class="c-mainmenu-win8__shutdown__menu js-mainmenu-shutdown"
+                    <div class="c-mainmenu-win10__shutdown__menu js-mainmenu-shutdown"
                         data-close-by-outside-click="true">
-                        <div class="c-mainmenu-win8__shutdown__options">
+                        <div class="c-mainmenu-win10__shutdown__options">
                             {{#shutdown.rows}}
                             <div
-                                class="c-mainmenu-win8__shutdown__option c-mainmenu-win8__shutdown__option--{{id}} {{actionClass}}">
-                                <div class="c-mainmenu-win8__shutdown__option__title">{{label}}</div>
+                                class="c-mainmenu-win10__shutdown__option c-mainmenu-win10__shutdown__option--{{id}} {{actionClass}}">
+                                <div class="c-mainmenu-win10__shutdown__option__title">{{label}}</div>
                             </div>
                             {{/shutdown.rows}}
                         </div>
                     </div>
                 </div>
-                <div class="c-mainmenu-win8__top-panel__search">
+                <div class="c-mainmenu-win10__top-panel__search">
                     <svg>
                         <use xlink:href="#icon-search"></use>
                     </svg>
@@ -36,16 +36,16 @@
             </div>
         </div>
 
-        <div class="c-mainmenu-win8__programs">
-            <div class="c-mainmenu-win8__programs__wrapper">
+        <div class="c-mainmenu-win10__programs">
+            <div class="c-mainmenu-win10__programs__wrapper">
 
                 {{#programs.rows}}
-                <div class="c-mainmenu-win8__programs__item c-mainmenu-win8__programs__item--index-{{randIndex}} js-program-open" data-program-name="{{name}}">
+                <div class="c-mainmenu-win10__programs__item c-mainmenu-win10__programs__item--index-{{randIndex}} js-program-open" data-program-name="{{name}}">
                     <div></div>
-                    <div class="c-mainmenu-win8__programs__item__icon">
+                    <div class="c-mainmenu-win10__programs__item__icon">
                         {{{iconData}}}
                     </div>
-                    <div class="c-mainmenu-win8__programs__item__name">{{title}}</div>
+                    <div class="c-mainmenu-win10__programs__item__name">{{title}}</div>
                 </div>
                 {{/programs.rows}}
 

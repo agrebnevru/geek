@@ -3,6 +3,8 @@
     gap: 2px;
 
     &__item {
+        display: flex;
+        width: var(--taskbar-item-width);
 
         &[data-active=true] {
 

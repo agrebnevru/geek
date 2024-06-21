@@ -1,17 +1,17 @@
-<div class="ui-os-lock js-os-lock">
+<div class="ui-os-lock js-os-lock" data-show-form="false">
     <div class="ui-os-lock__wrapper js-os-lock-show-form">
-
-        <div class="ui-os-lock__top"></div>
-        <div class="ui-os-lock__account js-os-lock-signin">
-            <svg>
-                <use xlink:href="#icon-profil"></use>
-            </svg>
-            <div class="ui-os-lock__account__name">{{name}}</div>
+        <div class="ui-os-lock__pause">
+            <div class="ui-os-lock__clock js-os-lock-clock-time">{{time}}</div>
+            <div class="ui-os-lock__date js-os-lock-clock-date">{{date}}</div>
         </div>
-        <div class="ui-os-lock__bottom">
-            <div class="ui-os-lock__bottom__restart js-app-restart"></div>
-            <div class="ui-os-lock__bottom__shutdown js-app-shutdown"></div>
+        <div class="ui-os-lock__form">
+            <div class="ui-os-lock__form__icon">
+                <svg>
+                    <use xlink:href="#icon-profil"></use>
+                </svg>
+            </div>
+            <div class="ui-os-lock__form__name">{{name}}</div>
+            <div class="ui-os-lock__form__button"><div class="ui-os-lock__form__btn js-os-lock-signin">Войти</div></div>
         </div>
-
     </div>
 </div>

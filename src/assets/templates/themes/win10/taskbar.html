@@ -2,9 +2,9 @@
 
     <div class="b-taskbar-icons">
 
-        <div class="l-taskbar__block b-taskbar-icons__item--menu js-mainmenu-toggle">
+        <div class="l-taskbar__block b-taskbar-icons__item js-mainmenu-toggle">
             <svg>
-                <use xlink:href="#icon-os-logo"></use>
+                <use xlink:href="#icon-taskbar-menu"></use>
             </svg>
         </div>
 
@@ -19,15 +19,33 @@
     </div>
 
 </div>
-<div class="l-taskbar__tray">
-    <div class="l-taskbar__language">
-        <div>En</div>
+<div class="l-taskbar__item l-taskbar__tray">
+    <div class="l-taskbar__block">
+        <div class="l-taskbar__block__wrapper l-taskbar__language">
+            <div>ENG</div>
+        </div>
     </div>
-    <div class="l-taskbar__tray__wrapper">
-        <div class="b-clock js-clock">
-            <div class="b-clock__wrapper">
-                <div class="b-clock__time js-taskbar-clock-time">{{time}}</div>
-                <div class="b-clock__date js-taskbar-clock-date">{{date}}</div>
+    <div class="l-taskbar__block">
+        <div class="l-taskbar__block__wrapper">
+            <div class="l-taskbar__block__icon">
+                <svg>
+                    <use xlink:href="#wifi"></use>
+                </svg>
+            </div>
+            <div class="l-taskbar__block__icon">
+                <svg>
+                    <use xlink:href="#taskbar-sound"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="l-taskbar__block">
+        <div class="l-taskbar__tray__wrapper">
+            <div class="b-clock js-clock">
+                <div class="b-clock__wrapper">
+                    <div class="b-clock__time js-taskbar-clock-time">{{time}}</div>
+                    <div class="b-clock__date js-taskbar-clock-date">{{date}}</div>
+                </div>
             </div>
         </div>
     </div>

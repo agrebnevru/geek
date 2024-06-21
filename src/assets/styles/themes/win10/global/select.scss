@@ -1,0 +1,7 @@
+select {
+    appearance: none;
+    
+    &:disabled {
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,37 @@
+$theme: 'win10';
+$theme-images-path: "../images/themes/#{$theme}/";
+
+html {
+
+    &.ui-os--#{$theme} {
+        --theme: '#{$theme}';
+        --theme-images-path: '#{$theme-images-path}';
+
+        --taskbar-width: 100%;
+        --taskbar-height: 48px;
+        --taskbar-color: #fff;
+        --taskbar-padding: 3px;
+        --taskbar-bg: linear-gradient(rgba(0, 0, 85, 0.075), transparent, rgba(0, 0, 85, 0.192));
+        --taskbar-box-shadow: 0 0 1em rgba(0, 0, 255, 0.027);
+
+        --taskbar-block-padding: 0 9px;
+        --taskbar-item-width: 42px;
+        --taskbar-item-height: 42px;
+        --taskbar-item-icon-width: 24px;
+        --taskbar-item-icon-height: 24px;
+
+        --mainmenu-bg: transparent;
+
+        --program-min-width: 640px;
+        --program-min-height: 480px;
+
+        --window-color: white;
+        --window-bg: #202124;
+        --window-shadow: 0 6px 20px 12px rgba(0, 0, 0, 0.25);
+
+        --min-width: var(--program-min-width);
+        --min-height: calc(var(--program-min-height) + var(--taskbar-height));
+
+        --desktop-bg: url(#{$theme-images-path}bg.jpg) center center / cover no-repeat;
+    }
+}

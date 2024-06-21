@@ -1,0 +1,17 @@
+input {
+
+    &[type=text],
+    &[type=number],
+    &[type=password] {
+        appearance: none;
+
+        &:disabled,
+        &:read-only {
+            
+        }
+
+        &:disabled {
+            pointer-events: none;
+        }
+    }
+}

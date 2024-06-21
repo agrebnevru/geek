@@ -1,0 +1,7 @@
+button {
+    user-select: none;
+
+    &:disabled {
+        pointer-events: none;
+    }
+}

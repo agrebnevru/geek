@@ -1,0 +1,91 @@
+.l-taskbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--taskbar-height);
+    width: var(--taskbar-width);
+    color: var(--taskbar-color);
+    padding: var(--taskbar-padding);
+    background: var(--taskbar-bg);
+    box-shadow: var(--taskbar-box-shadow);
+    user-select: none;
+    z-index: 500;
+
+    &__bg {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 600;
+    }
+
+    &__item {
+        position: relative;
+        z-index: 700;
+    }
+
+    &__block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--taskbar-item-height);
+        padding: var(--taskbar-block-padding);
+        border-top: 1px solid rgba(255, 255, 255, 0);
+        border-radius: 5px;
+        transition-duration: 0.2s;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.075);
+            transition-duration: 0.1s;
+        }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            >svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &__widgets {
+        display: flex;
+        justify-content: flex-start;
+        width: 150px;
+        height: 100%;
+    }
+
+    &__programs {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-start;
+    }
+
+    &__tray {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 150px;
+        height: 100%;
+    }
+
+    &__language {
+        font-size: 12px;
+        cursor: default;
+    }
+}
+
+@import './taskbar/all.scss'
