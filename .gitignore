@@ -91,3 +91,18 @@ typings/
 
 # Electron-Forge
 out/
+.cache/
+dist/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.user
+
+# User save data
+save.data
